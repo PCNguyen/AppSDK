@@ -27,7 +27,7 @@
 
 - (void)__swizzlingViewWillLayoutSubViews
 {
-	if ([[self ul_currentBinderSource] shouldReloadWithLayoutUpdate]) {
+	if ([[self __binderSource] shouldReloadWithLayoutUpdate]) {
 		[self __handleBindinUpdate];
 	}
 	
@@ -116,7 +116,7 @@
 	ULViewDataSource *dataBinder = nil;
 	
 	if ([self __isBindingMode]) {
-		dataBinder = [self __binderSource];
+		dataBinder = [self al_associateObjectForSelector:@selector(__binderSourceAssociate)];
 	}
 	
 	return dataBinder;
