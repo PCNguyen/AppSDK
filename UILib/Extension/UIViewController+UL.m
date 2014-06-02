@@ -19,4 +19,10 @@
     }
 }
 
+- (BOOL)ul_isActive
+{
+	BOOL isActive = self.isViewLoaded && self.view.window;
+	return isActive;
+}
+
 @end

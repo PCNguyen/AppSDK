@@ -12,4 +12,6 @@
 
 - (void)ul_adjustIOS7Boundaries;
 
+- (BOOL)ul_isActive;
+
 @end
