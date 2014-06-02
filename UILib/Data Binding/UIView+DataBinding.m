@@ -27,7 +27,7 @@
 
 - (void)__swizzlingLayoutSubViews
 {
-	if ([[self __binderSource] shouldReloadWithLayoutUpdate]) {
+	if ([[self ul_currentBinderSource] shouldReloadWithLayoutUpdate]) {
 		[self __handleBindinUpdate];
 	}
 	
@@ -40,7 +40,7 @@
 {
 	//--getter
 	NSArray *getterProperties = [[ALPropertiesTransformer transformer] transformedValue:bindingKey];
-	id getterOwner = [self __binderSource];
+	id getterOwner = [self ul_currentBinderSource];
 	
 	for (NSString *childProperties in getterProperties) {
 		getterOwner = [self __objectFromString:childProperties owner:getterOwner];
@@ -116,10 +116,19 @@
 	ULViewDataSource *dataBinder = nil;
 	
 	if ([self __isBindingMode]) {
-		dataBinder = [self al_associateObjectForSelector:@selector(__binderSourceAssociate)];
+		dataBinder = [self __binderSource];
 	}
 	
 	return dataBinder;
+}
+
+- (BOOL)bindingExist
+{
+	ULViewDataSource *dataBinder = [self al_associateObjectForSelector:@selector(__binderSourceAssociate)];
+	
+	BOOL bindingExist = ([self __isBindingMode] && (dataBinder != nil));
+	
+	return bindingExist;
 }
 
 #pragma mark - RPViewDataSourceDelegate

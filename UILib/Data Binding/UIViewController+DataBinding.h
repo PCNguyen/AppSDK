@@ -14,4 +14,6 @@
 
 - (ULViewDataSource *)ul_currentBinderSource;
 
+- (BOOL)bindingExist;
+
 @end
