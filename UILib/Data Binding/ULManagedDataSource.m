@@ -11,6 +11,15 @@
 
 @implementation ULManagedDataSource
 
+- (id)init
+{
+	if (self = [super init]) {
+		[self ignoreUpdateProperty:@selector(managedServices)];
+	}
+	
+	return self;
+}
+
 #pragma mark - Managed Service
 
 - (void)setManagedService:(NSString *)managedService
