@@ -20,7 +20,7 @@
 																			   action:nil];
 	NSArray *buttons = [NSArray arrayWithObjects:flexspace, dismiss, nil];
 	UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectZero];
-	[toolbar setBarStyle:UIBarStyleBlackTranslucent];
+	[toolbar setBarStyle:UIBarStyleDefault];
 	[toolbar setItems:buttons];
 	self.inputAccessoryView = toolbar;
 	[toolbar sizeToFit];
