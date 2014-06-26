@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F069BD6195C989000B9BEB8 /* UITextView+UL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F069BD5195C989000B9BEB8 /* UITextView+UL.m */; };
 		0F3FA72C192D622200475394 /* UIViewController+DataBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3FA72B192D622200475394 /* UIViewController+DataBinding.m */; };
 		0F8C25FE1924FA1400A6223A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8C25FD1924FA1400A6223A /* Foundation.framework */; };
 		0F8C26001924FA1400A6223A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8C25FF1924FA1400A6223A /* CoreGraphics.framework */; };
@@ -83,6 +84,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F069BD4195C989000B9BEB8 /* UITextView+UL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+UL.h"; sourceTree = "<group>"; };
+		0F069BD5195C989000B9BEB8 /* UITextView+UL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+UL.m"; sourceTree = "<group>"; };
 		0F3FA72A192D622200475394 /* UIViewController+DataBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DataBinding.h"; sourceTree = "<group>"; };
 		0F3FA72B192D622200475394 /* UIViewController+DataBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DataBinding.m"; sourceTree = "<group>"; };
 		0F8C25FA1924FA1400A6223A /* AppSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -433,6 +436,8 @@
 				0F8C2680192547D900A6223A /* UIBarButtonItem+UL.m */,
 				0F8C268219254B3D00A6223A /* UITextField+UL.h */,
 				0F8C268319254B3D00A6223A /* UITextField+UL.m */,
+				0F069BD4195C989000B9BEB8 /* UITextView+UL.h */,
+				0F069BD5195C989000B9BEB8 /* UITextView+UL.m */,
 				0F8C268519254C8B00A6223A /* UINavigationBar+UL.h */,
 				0F8C268619254C8B00A6223A /* UINavigationBar+UL.m */,
 			);
@@ -701,6 +706,7 @@
 				0F8C260C1924FA1400A6223A /* main.m in Sources */,
 				0F8C26C71925986900A6223A /* ULTagTableViewController.m in Sources */,
 				0F3FA72C192D622200475394 /* UIViewController+DataBinding.m in Sources */,
+				0F069BD6195C989000B9BEB8 /* UITextView+UL.m in Sources */,
 				0FC96E331925B19F00AB5AE4 /* DLMOCFetcher.m in Sources */,
 				0F8C266819253F7F00A6223A /* UIImage+UL.m in Sources */,
 				0F8C266E1925424500A6223A /* UIActionSheet+UL.m in Sources */,
