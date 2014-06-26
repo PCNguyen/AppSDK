@@ -18,6 +18,7 @@
 #import "UIViewController+UL.h"
 #import "UIBarButtonItem+UL.h"
 #import "UITextField+UL.h"
+#import "UITextView+UL.h"
 #import "UINavigationBar+UL.h"
 
 @interface UILibExtension : NSObject
