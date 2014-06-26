@@ -10,6 +10,6 @@
 
 @interface UITextField (UL)
 
-- (void)ul_addDismissAccessoryWithText:(NSString *)buttonText;
+- (void)ul_addDismissAccessoryWithText:(NSString *)buttonText barStyle:(UIBarStyle)barStyle;
 
 @end

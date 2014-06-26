@@ -10,7 +10,7 @@
 
 @implementation UITextField (UL)
 
-- (void)ul_addDismissAccessoryWithText:(NSString *)buttonText
+- (void)ul_addDismissAccessoryWithText:(NSString *)buttonText barStyle:(UIBarStyle)barStyle
 {
 	UIBarButtonItem *dismiss = [[UIBarButtonItem alloc] initWithTitle:buttonText
 																style:UIBarButtonItemStyleDone target:self
@@ -20,7 +20,7 @@
 																			   action:nil];
 	NSArray *buttons = [NSArray arrayWithObjects:flexspace, dismiss, nil];
 	UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectZero];
-	[toolbar setBarStyle:UIBarStyleBlackTranslucent];
+	[toolbar setBarStyle:barStyle];
 	[toolbar setItems:buttons];
 	self.inputAccessoryView = toolbar;
 	[toolbar sizeToFit];
