@@ -79,4 +79,26 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;}
     return newImage;
 }
 
+- (UIImage *)ul_grayScaleWithAlpha:(CGFloat)alpha {
+	UIGraphicsBeginImageContextWithOptions(self.size, NO, self.scale);
+    CGRect imageRect = CGRectMake(0.0f, 0.0f, self.size.width, self.size.height);
+	
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+	
+    // Draw a white background
+    CGContextSetRGBFillColor(ctx, 1.0f, 1.0f, 1.0f, 1.0f);
+    CGContextFillRect(ctx, imageRect);
+	
+    // Draw the luminosity on top of the white background to get grayscale
+    [self drawInRect:imageRect blendMode:kCGBlendModeLuminosity alpha:1.0f];
+	
+    // Apply the source image's alpha
+    [self drawInRect:imageRect blendMode:kCGBlendModeDestinationIn alpha:alpha];
+	
+    UIImage *grayscaleImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+	
+    return grayscaleImage;
+}
+
 @end

@@ -15,5 +15,6 @@
 
 - (UIImage *)ul_tintedImageWithColor:(UIColor *)tintColor;
 - (UIImage *)ul_imageRotatedByDegrees:(CGFloat)degree;
+- (UIImage *)ul_grayScaleWithAlpha:(CGFloat)alpha;
 
 @end
