@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^OptionSelectedBlock)(UIActionSheet *actionSheet, int buttonIndex, NSString *buttonTitle);
+typedef void (^OptionSelectedBlock)(UIActionSheet *actionSheet, NSInteger buttonIndex, NSString *buttonTitle);
 typedef void (^OptionCanceledBlock)(UIActionSheet *actionSheet);
 
 @interface UIActionSheet (UL)
