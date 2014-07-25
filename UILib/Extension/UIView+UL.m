@@ -220,4 +220,18 @@
 					}];
 }
 
+#pragma mark - Interaction
+
+- (UITapGestureRecognizer *)ul_addTapGestureWithTarget:(id)target action:(SEL)action
+{
+	self.userInteractionEnabled = YES;
+	
+	UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:target action:action];
+	tapGesture.numberOfTapsRequired = 1;
+	tapGesture.numberOfTouchesRequired = 1;
+	[self addGestureRecognizer:tapGesture];
+	
+	return tapGesture;
+}
+
 @end

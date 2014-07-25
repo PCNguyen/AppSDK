@@ -67,5 +67,9 @@
 - (void)ul_leftFlipToView:(UIView *)toView duration:(CGFloat)duration;
 - (void)ul_leftFlipToView:(UIView *)toView duration:(CGFloat)duration completion:(void (^)())completion;
 
+#pragma mark - Interaction
+
+- (UITapGestureRecognizer *)ul_addTapGestureWithTarget:(id)target action:(SEL)action;
+
 @end
 
