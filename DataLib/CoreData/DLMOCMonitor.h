@@ -33,7 +33,7 @@ extern NSString *const DLMOCMonitorFetchedResultsKey;
    didChangeObject:(id)anObject
 		   itemRow:(NSInteger)row
      forChangeType:(NSFetchedResultsChangeType)type
-			newRow:(NSInteger)row;
+			newRow:(NSInteger)newRow;
 
 - (void)MOCMonitor:(DLMOCMonitor *)MOCMonitor
 			entity:(NSEntityDescription *)entity
