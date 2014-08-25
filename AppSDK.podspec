@@ -68,6 +68,11 @@ Pod::Spec.new do |as|
 			ule.source_files = 'UILib/Extension/**/*.{h,m}'
 		end
 		
+		ul.subspec 'AutoLayout' do |ulal|
+			ulal.name			= 'AutoLayout'
+			ulal.source_files	= 'UILib/Autolayout/**/*.{h,m}'
+		end
+		
 		ul.subspec 'DataBinding' do |uldb|
 			uldb.dependency		'AppSDK/AppLib/ValueTransformer'
 

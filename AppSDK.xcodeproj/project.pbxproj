@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		0F069BD6195C989000B9BEB8 /* UITextView+UL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F069BD5195C989000B9BEB8 /* UITextView+UL.m */; };
 		0F3FA72C192D622200475394 /* UIViewController+DataBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3FA72B192D622200475394 /* UIViewController+DataBinding.m */; };
+		0F87C7FC19ABAED700E79260 /* NSLayoutConstraint+UL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F87C7F519ABAED600E79260 /* NSLayoutConstraint+UL.m */; };
+		0F87C7FD19ABAED700E79260 /* UILibAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F87C7F719ABAED700E79260 /* UILibAutoLayout.m */; };
+		0F87C7FE19ABAED700E79260 /* UIView+Hierachy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F87C7F919ABAED700E79260 /* UIView+Hierachy.m */; };
+		0F87C7FF19ABAED700E79260 /* UIView+LayoutPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F87C7FB19ABAED700E79260 /* UIView+LayoutPosition.m */; };
 		0F8C25FE1924FA1400A6223A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8C25FD1924FA1400A6223A /* Foundation.framework */; };
 		0F8C26001924FA1400A6223A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8C25FF1924FA1400A6223A /* CoreGraphics.framework */; };
 		0F8C26021924FA1400A6223A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8C26011924FA1400A6223A /* UIKit.framework */; };
@@ -88,6 +92,14 @@
 		0F069BD5195C989000B9BEB8 /* UITextView+UL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+UL.m"; sourceTree = "<group>"; };
 		0F3FA72A192D622200475394 /* UIViewController+DataBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DataBinding.h"; sourceTree = "<group>"; };
 		0F3FA72B192D622200475394 /* UIViewController+DataBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DataBinding.m"; sourceTree = "<group>"; };
+		0F87C7F419ABAED600E79260 /* NSLayoutConstraint+UL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+UL.h"; sourceTree = "<group>"; };
+		0F87C7F519ABAED600E79260 /* NSLayoutConstraint+UL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+UL.m"; sourceTree = "<group>"; };
+		0F87C7F619ABAED700E79260 /* UILibAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILibAutoLayout.h; sourceTree = "<group>"; };
+		0F87C7F719ABAED700E79260 /* UILibAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILibAutoLayout.m; sourceTree = "<group>"; };
+		0F87C7F819ABAED700E79260 /* UIView+Hierachy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Hierachy.h"; sourceTree = "<group>"; };
+		0F87C7F919ABAED700E79260 /* UIView+Hierachy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Hierachy.m"; sourceTree = "<group>"; };
+		0F87C7FA19ABAED700E79260 /* UIView+LayoutPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LayoutPosition.h"; sourceTree = "<group>"; };
+		0F87C7FB19ABAED700E79260 /* UIView+LayoutPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LayoutPosition.m"; sourceTree = "<group>"; };
 		0F8C25FA1924FA1400A6223A /* AppSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F8C25FD1924FA1400A6223A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0F8C25FF1924FA1400A6223A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -229,6 +241,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F87C7F319ABAEA100E79260 /* Autolayout */ = {
+			isa = PBXGroup;
+			children = (
+				0F87C7F419ABAED600E79260 /* NSLayoutConstraint+UL.h */,
+				0F87C7F519ABAED600E79260 /* NSLayoutConstraint+UL.m */,
+				0F87C7F619ABAED700E79260 /* UILibAutoLayout.h */,
+				0F87C7F719ABAED700E79260 /* UILibAutoLayout.m */,
+				0F87C7F819ABAED700E79260 /* UIView+Hierachy.h */,
+				0F87C7F919ABAED700E79260 /* UIView+Hierachy.m */,
+				0F87C7FA19ABAED700E79260 /* UIView+LayoutPosition.h */,
+				0F87C7FB19ABAED700E79260 /* UIView+LayoutPosition.m */,
+			);
+			path = Autolayout;
+			sourceTree = "<group>";
+		};
 		0F8C25F11924FA1400A6223A = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +350,7 @@
 				0F8C26A5192551F500A6223A /* UILib.h */,
 				0F8C26A6192551F500A6223A /* UILib.m */,
 				0F8C263C1924FC2700A6223A /* Extension */,
+				0F87C7F319ABAEA100E79260 /* Autolayout */,
 				0F8C263E1924FC5600A6223A /* Data Binding */,
 				0F8C263D1924FC3400A6223A /* Tag Table */,
 			);
@@ -674,6 +702,7 @@
 				0FC96E341925B19F00AB5AE4 /* DLMOCMonitor.m in Sources */,
 				0F8C265219252F8600A6223A /* ALSetterTransformer.m in Sources */,
 				0F8C267B1925460000A6223A /* NSMutableArray+AL.m in Sources */,
+				0F87C7FE19ABAED700E79260 /* UIView+Hierachy.m in Sources */,
 				0F8C269219254F8E00A6223A /* AppLib.m in Sources */,
 				0F8C265319252F8600A6223A /* ALPropertiesTransformer.m in Sources */,
 				0F8C268719254C8B00A6223A /* UINavigationBar+UL.m in Sources */,
@@ -694,6 +723,7 @@
 				0F8C26C4192596A500A6223A /* ULManagedDataSource.m in Sources */,
 				0F8C268419254B3D00A6223A /* UITextField+UL.m in Sources */,
 				0F8C269E1925510E00A6223A /* DataLibDiskPersistent.m in Sources */,
+				0F87C7FF19ABAED700E79260 /* UIView+LayoutPosition.m in Sources */,
 				0F8C2698192550C300A6223A /* DataLib.m in Sources */,
 				0F8C26591925376C00A6223A /* NSObject+AL.m in Sources */,
 				0F8C266B192540BF00A6223A /* UIAlertView+UL.m in Sources */,
@@ -711,9 +741,11 @@
 				0F8C266819253F7F00A6223A /* UIImage+UL.m in Sources */,
 				0F8C266E1925424500A6223A /* UIActionSheet+UL.m in Sources */,
 				0F8C26721925435B00A6223A /* NSUserDefaults+DL.m in Sources */,
+				0F87C7FC19ABAED700E79260 /* NSLayoutConstraint+UL.m in Sources */,
 				0F8C26411924FE7C00A6223A /* UIView+UL.m in Sources */,
 				0FC96E391925BA6F00AB5AE4 /* DLFileManager.m in Sources */,
 				0F8C2681192547D900A6223A /* UIBarButtonItem+UL.m in Sources */,
+				0F87C7FD19ABAED700E79260 /* UILibAutoLayout.m in Sources */,
 				0F8C26B91925755100A6223A /* DataLibCoreData.m in Sources */,
 				0F8C26AD192552A300A6223A /* UILibDataBinding.m in Sources */,
 			);
