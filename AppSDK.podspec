@@ -1,6 +1,6 @@
 Pod::Spec.new do |as|
 	as.name         = 'AppSDK'
-	as.version      = '0.1.0'
+	as.version      = '0.2.0'
 	as.license      = 'MIT'
 	as.homepage     = 'https://bitbucket.org/tpthn/appsdk'
 	as.authors      = { 'PC Nguyen' => 'tpthn@yahoo.com' }
@@ -72,7 +72,7 @@ Pod::Spec.new do |as|
 			ulal.name			= 'AutoLayout'
 			ulal.source_files	= 'UILib/Autolayout/**/*.{h,m}'
 		end
-		
+
 		ul.subspec 'DataBinding' do |uldb|
 			uldb.dependency		'AppSDK/AppLib/ValueTransformer'
 
