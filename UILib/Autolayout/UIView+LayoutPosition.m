@@ -23,7 +23,7 @@
 
 #pragma mark - Sizing
 
-- (NSArray *)ul_fixedSize:(CGSize)size
+- (NSMutableArray *)ul_fixedSize:(CGSize)size
 {
 	NSArray *widthConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[view(==width)]"
 																		options:0
