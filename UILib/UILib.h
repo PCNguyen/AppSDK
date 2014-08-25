@@ -8,6 +8,7 @@
 
 #import "UILibExtension.h"
 #import "UILibDataBinding.h"
+#import "UILibAutoLayout.h"
 #import "UILibTagTable.h"
 
 @interface UILib : NSObject
