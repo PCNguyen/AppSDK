@@ -37,18 +37,24 @@ NSString *const DLMOCMonitorFetchedResultsKey           = @"DLMOCMonitorFetchedR
 
 #pragma mark - Adding Monitoring
 
-- (void)monitorEntity:(NSEntityDescription *)entity withPredicate:(NSPredicate *)predicate
+- (void)monitorEntity:(NSEntityDescription *)entity withPredicate:(NSPredicate *)predicate sortKeys:(NSDictionary *)sortKeys
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     fetchRequest.entity = entity;
     fetchRequest.predicate = predicate;
-    
+	NSMutableArray *sortDescriptors = [NSMutableArray array];
+	[sortKeys enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSNumber *order, BOOL *stop) {
+		NSSortDescriptor *sortItem = [NSSortDescriptor sortDescriptorWithKey:key ascending:[order boolValue]];
+		[sortDescriptors addObject:sortItem];
+	}];
+	fetchRequest.sortDescriptors = sortDescriptors;
+	
     [self monitorWithFetchRequest:fetchRequest];
 }
 
-- (void)monitorEntity:(NSEntityDescription *)entity withPredicate:(NSPredicate *)predicate fetchImmediately:(BOOL)shouldFetch
+- (void)monitorEntity:(NSEntityDescription *)entity withPredicate:(NSPredicate *)predicate sortKeys:(NSDictionary *)sortKeys fetchImmediately:(BOOL)shouldFetch
 {
-	[self monitorEntity:entity withPredicate:predicate];
+	[self monitorEntity:entity withPredicate:predicate sortKeys:sortKeys];
 	
 	if (shouldFetch) {
 		[self fetchMonitoredEntity:entity];

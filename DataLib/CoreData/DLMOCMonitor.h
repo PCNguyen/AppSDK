@@ -51,9 +51,24 @@ extern NSString *const DLMOCMonitorFetchedResultsKey;
 
 #pragma mark - Adding Monitoring
 
-- (void)monitorEntity:(NSEntityDescription *)entity withPredicate:(NSPredicate *)predicate;
+/***
+ * @param:sortKeys is a dictionary
+ * with keys are the keys to sort with
+ * and values are BOOL values for ascending order.
+ */
+- (void)monitorEntity:(NSEntityDescription *)entity
+		withPredicate:(NSPredicate *)predicate
+			 sortKeys:(NSDictionary *)sortKeys;
 
-- (void)monitorEntity:(NSEntityDescription *)entity withPredicate:(NSPredicate *)predicate fetchImmediately:(BOOL)shouldFetch;
+/***
+ * @param:sortKeys is a dictionary
+ * with keys are the keys to sort with
+ * and values are BOOL values for ascending order.
+ */
+- (void)monitorEntity:(NSEntityDescription *)entity
+		withPredicate:(NSPredicate *)predicate
+			 sortKeys:(NSDictionary *)sortKeys
+	 fetchImmediately:(BOOL)shouldFetch;
 
 - (void)monitorWithFetchRequest:(NSFetchRequest *)fetchRequest;
 
