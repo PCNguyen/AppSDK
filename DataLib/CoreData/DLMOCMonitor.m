@@ -14,7 +14,7 @@ NSString *const DLMOCMonitorPredicateKey                = @"DLMOCMonitorPredicat
 NSString *const DLMOCMonitorFilterPredicateKey          = @"DLMOCMonitorFilterPredicateKey";
 NSString *const DLMOCMonitorFetchedResultsKey           = @"DLMOCMonitorFetchedResultsKey";
 
-@interface DLMOCMonitor ()
+@interface DLMOCMonitor () <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, assign) BOOL shouldMonitor;
 @property (nonatomic, assign) NSInteger currentSection;
@@ -70,7 +70,8 @@ NSString *const DLMOCMonitorFetchedResultsKey           = @"DLMOCMonitorFetchedR
                                         managedObjectContext:self.currentMOC
                                           sectionNameKeyPath:nil
                                                    cacheName:cacheName];
-    
+    fetchedResultController.delegate = self;
+	
     NSMutableDictionary *fetchedInfo = [[NSMutableDictionary alloc] init];
     [fetchedInfo setValue:fetchedResultController forKey:DLMOCMonitorFetchedResultsKey];
     [fetchedInfo setValue:fetchRequest.predicate forKey:DLMOCMonitorPredicateKey];
