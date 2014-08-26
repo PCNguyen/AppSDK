@@ -27,7 +27,9 @@ NSString *const DLMOCMonitorFetchedResultsKey           = @"DLMOCMonitorFetchedR
 - (id)initWithManagedObjectContext:(NSManagedObjectContext *)context
 {
 	if (self = [super initWithManagedObjectContext:context]) {
+		_shouldMonitor = YES;
 		_currentSection = 0;
+		_fetchedControllers = [NSMutableDictionary dictionary];
 	}
 	
 	return self;
