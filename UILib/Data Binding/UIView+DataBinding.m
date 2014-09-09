@@ -7,7 +7,7 @@
 //
 
 #import "UIView+DataBinding.h"
-
+#import "ULManagedDataSource.h"
 #import "ALPropertiesTransformer.h"
 #import "ALSetterTransformer.h"
 
@@ -122,7 +122,7 @@
 	return dataBinder;
 }
 
-- (BOOL)bindingExist
+- (BOOL)ul_bindingExist
 {
 	ULViewDataSource *dataBinder = [self al_associateObjectForSelector:@selector(__binderSourceAssociate)];
 	
@@ -155,6 +155,31 @@
 	} else {
 		if ([self __isBindingMode]) {
 			[self __handleBindinUpdate];
+		}
+	}
+}
+
+#pragma mark - ULManagedDataSource Convenients
+
+- (void)ul_registerManagedService:(NSString *)service
+{
+	if ([[self ul_currentBinderSource] isKindOfClass:[ULManagedDataSource class]]) {
+		[(ULManagedDataSource *)[self ul_currentBinderSource] setManagedService:service];
+	}
+}
+
+- (void)ul_registerManagedServices:(NSArray *)services
+{
+	if ([[self ul_currentBinderSource] isKindOfClass:[ULManagedDataSource class]]) {
+		[(ULManagedDataSource *)[self ul_currentBinderSource] setManagedServices:services];
+	}
+}
+
+- (void)ul_unRegisterAllManagedServices
+{
+	if ([self ul_bindingExist]) {
+		if ([[self ul_currentBinderSource] isKindOfClass:[ULManagedDataSource class]]) {
+			[(ULManagedDataSource *)[self ul_currentBinderSource] removeCurrentManagedService];
 		}
 	}
 }
