@@ -21,6 +21,14 @@
 	self.translatesAutoresizingMaskIntoConstraints = YES;
 }
 
+- (void)ul_tightenContentWithPriority:(UILayoutPriority)priority
+{
+	[self setContentHuggingPriority:priority forAxis:UILayoutConstraintAxisVertical];
+	[self setContentHuggingPriority:priority forAxis:UILayoutConstraintAxisHorizontal];
+	[self setContentCompressionResistancePriority:priority forAxis:UILayoutConstraintAxisHorizontal];
+	[self setContentCompressionResistancePriority:priority forAxis:UILayoutConstraintAxisVertical];
+}
+
 #pragma mark - Sizing
 
 - (NSMutableArray *)ul_fixedSize:(CGSize)size
@@ -41,6 +49,17 @@
 	[self addConstraints:sizeArray];
 	
 	return sizeArray;
+}
+
+- (NSMutableArray *)ul_fixedSize:(CGSize)size priority:(UILayoutPriority)priority
+{
+	NSMutableArray *sizeConstraints = [self ul_fixedSize:size];
+	
+	for (NSLayoutConstraint *constraint in sizeConstraints) {
+		constraint.priority = priority;
+	}
+	
+	return sizeConstraints;
 }
 
 - (NSMutableArray *)ul_matchSizeOfView:(UIView *)view ratio:(CGSize)sizeRatio
@@ -134,6 +153,17 @@
 	[alignmentArray addObjectsFromArray:leftConstraint];
 	[alignmentArray addObjectsFromArray:rightConstraint];
 	return alignmentArray;
+}
+
+#pragma mark - Adding Constraint
+
+- (void)ul_addConstraints:(NSMutableArray *)constraints priority:(UILayoutPriority)priority
+{
+	for (NSLayoutConstraint *constraint in constraints) {
+		constraint.priority = priority;
+	}
+	
+	[self addConstraints:constraints];
 }
 
 #pragma mark - Private
