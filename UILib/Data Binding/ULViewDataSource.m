@@ -177,4 +177,11 @@ static void *kUSViewDataSourceUpdatingContext = &kUSViewDataSourceUpdatingContex
 	}
 }
 
+#pragma mark - Subclass Hook
+
+- (void)loadData
+{
+	/* Subclass provide implementation for this */
+}
+
 @end

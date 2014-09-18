@@ -57,7 +57,9 @@
 
 - (void)handleDataUpdatedForService:(NSString *)serviceName
 {
-	/* Subclass Implementation */
+	/* Subclass Override this */
+	
+	[self loadData];
 }
 
 @end

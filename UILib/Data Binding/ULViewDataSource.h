@@ -94,4 +94,11 @@
  */
 - (NSDictionary *)propertyUpdateInfo;
 
+#pragma mark - Subclass Hook
+
+/**
+ *  Subclass provide mechanism to parse data from storage into binding variables
+ */
+- (void)loadData;
+
 @end
