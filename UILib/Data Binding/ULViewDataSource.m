@@ -31,7 +31,7 @@ static void *kUSViewDataSourceUpdatingContext = &kUSViewDataSourceUpdatingContex
 		[self ignoreUpdateProperty:@selector(shouldReloadWithLayoutUpdate)];
 		
 		_shouldUpdateLayout = NO;
-		_shouldReloadWithLayoutUpdate = YES;
+		_shouldReloadWithLayoutUpdate = NO;
 		
 		[self registerAllPropertiesForKVO];
 	}

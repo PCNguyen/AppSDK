@@ -57,11 +57,10 @@
  */
 @property (nonatomic, assign) BOOL shouldUpdateLayout;
 
-/***
- * Default is YES to providing data right when view first appear.
- * Downfall is whenever view redraw, dataSource with reload as well.
- * If set this to NO, view / viewController has to provide the manual
- * trigger to load initial data.
+/**
+ *  Determine if data should reload when view layout happens
+ *	If set to YES, observer pull data from dataSource upon layoutSubview call
+ *	Default is NO
  */
 @property (nonatomic, assign) BOOL shouldReloadWithLayoutUpdate;
 
