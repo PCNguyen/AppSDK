@@ -79,7 +79,7 @@
 - (void)ignoreUpdateProperty:(SEL)propertySelector;
 
 /***
- * A dictionary provide all selector associate with a property.
+ * A dictionary provide mapping for selective update
  * Providing this will enable selective update for mapped selectors when that property change.
  * e.g
  * {
@@ -90,9 +90,9 @@
  *   formattedHour		: timeStamp
  * }
  *
- * Providing empty dictionary will enable selective update for all property only
+ * Providing empty dictionary will enable selective update for all properties without mapping
  */
-- (NSDictionary *)propertyUpdateInfo;
+- (NSDictionary *)selectiveUpdateMap;
 
 #pragma mark - Subclass Hook
 

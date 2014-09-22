@@ -138,20 +138,20 @@ static void *kUSViewDataSourceUpdatingContext = &kUSViewDataSourceUpdatingContex
 
 - (BOOL)selectiveUpdateEnable
 {
-	BOOL enable = ([self propertyUpdateInfo] != nil);
+	BOOL enable = ([self selectiveUpdateMap] != nil);
 	
 	return enable;
 }
 
-- (NSDictionary *)propertyUpdateInfo
+- (NSDictionary *)selectiveUpdateMap
 {
 	return nil;
 }
 
 - (void)selectiveUpdateBindingKeyForKeyPath:(NSString *)keyPath
 {
-	if ([self propertyUpdateInfo]) {
-		[[self propertyUpdateInfo] enumerateKeysAndObjectsUsingBlock:^(NSString *bindingKey, NSString *propertyKey, BOOL *stop) {
+	if ([self selectiveUpdateMap]) {
+		[[self selectiveUpdateMap] enumerateKeysAndObjectsUsingBlock:^(NSString *bindingKey, NSString *propertyKey, BOOL *stop) {
 			if ([propertyKey isEqualToString:keyPath]) {
 				[self updateBindingKey:bindingKey];
 			}
