@@ -33,6 +33,13 @@
 
 - (NSMutableArray *)ul_fixedSize:(CGSize)size
 {
+	NSMutableArray *constraints = [self ul_fixedSize:size priority:UILayoutPriorityRequired];
+	
+	return constraints;
+}
+
+- (NSMutableArray *)ul_fixedSize:(CGSize)size priority:(UILayoutPriority)priority
+{
 	NSArray *widthConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[view(==width)]"
 																		options:0
 																		metrics:@{@"width":@(size.width)}
@@ -46,20 +53,13 @@
 	[sizeArray addObjectsFromArray:widthConstraints];
 	[sizeArray addObjectsFromArray:heightConstraint];
 	
-	[self addConstraints:sizeArray];
-	
-	return sizeArray;
-}
-
-- (NSMutableArray *)ul_fixedSize:(CGSize)size priority:(UILayoutPriority)priority
-{
-	NSMutableArray *sizeConstraints = [self ul_fixedSize:size];
-	
-	for (NSLayoutConstraint *constraint in sizeConstraints) {
+	for (NSLayoutConstraint *constraint in sizeArray) {
 		constraint.priority = priority;
 	}
 	
-	return sizeConstraints;
+	[self addConstraints:sizeArray];
+	
+	return sizeArray;
 }
 
 - (NSMutableArray *)ul_matchSizeOfView:(UIView *)view ratio:(CGSize)sizeRatio
