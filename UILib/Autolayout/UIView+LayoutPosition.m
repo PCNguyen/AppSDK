@@ -80,7 +80,6 @@
 																		 constant:0.0f];
 	
 	NSMutableArray *sizeArray = [NSMutableArray arrayWithObjects:widthConstraint, heightConstraint, nil];
-	[self addConstraints:sizeArray];
 	
 	return sizeArray;
 }
