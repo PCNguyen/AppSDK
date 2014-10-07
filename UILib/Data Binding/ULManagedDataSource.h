@@ -31,6 +31,13 @@
  */
 - (void)removeCurrentManagedService;
 
+/**
+ *  post notification for data updated to all existing instances
+ *
+ *  @param service the service that has data update
+ */
++ (void)updateAllInstancesForService:(NSString *)service;
+
 #pragma mark - Subclass Hook
 
 /***

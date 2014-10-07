@@ -53,6 +53,11 @@
 	}
 }
 
++ (void)updateAllInstancesForService:(NSString *)service
+{
+	[[ULDataSourceManager sharedManager] notifyDataSourcesOfService:service];
+}
+
 #pragma mark - Subclass Hook
 
 - (void)handleDataUpdatedForService:(NSString *)serviceName
