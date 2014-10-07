@@ -14,10 +14,37 @@
 
 + (instancetype)sharedManager;
 
+/**
+ *  track a datasource based on service
+ *	multiple datasources can be register under the same service name
+ *
+ *  @param dataSource  the dataSource need to be tracked
+ *  @param serviceName the service that tight to the dataSource
+ */
 - (void)registerDataSource:(ULManagedDataSource *)dataSource forService:(NSString *)serviceName;
 
+/**
+ *  untrack a datasource to allow it to be removed from memory
+ *
+ *  @param dataSource  the dataSource need to be released
+ *  @param serviceName the service that tight to the dataSource
+ */
 - (void)unRegisterDataSource:(ULManagedDataSource *)dataSource fromService:(NSString *)serviceName;
 
+/**
+ *  notify the tracked dataSource that matche the service to reload its internal data
+ *	this method asynchronously triggered the handleDataUpdatedForService: on ULManagedDataSource
+ *
+ *  @param serviceName the service that tight to the dataSource
+ */
 - (void)notifyDataSourcesOfService:(NSString *)serviceName;
+
+/**
+ *  update all tracked dataSource that matched the class name to reload its internal data
+ *	this method synchronously triggered loadData on ULManagedDataSource
+ *
+ *  @param dataSourceClass a subclass of ULManagedDataSource
+ */
+- (void)loadDataForAllClassInstances:(Class)dataSourceClass;
 
 @end

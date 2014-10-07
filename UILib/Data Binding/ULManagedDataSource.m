@@ -53,9 +53,9 @@
 	}
 }
 
-+ (void)updateAllInstancesForService:(NSString *)service
+- (void)loadDataForAllExistingInstances
 {
-	[[ULDataSourceManager sharedManager] notifyDataSourcesOfService:service];
+	[[ULDataSourceManager sharedManager] loadDataForAllClassInstances:[self class]];
 }
 
 #pragma mark - Subclass Hook
