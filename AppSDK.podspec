@@ -32,10 +32,11 @@ Pod::Spec.new do |as|
 	
 	as.subspec 'DataLib' do |dl|
 		dl.name         = 'DataLib'
+		dl.source_files = 'DataLib/**/*.{h,m}'
 
 		dl.subspec 'Shared' do |dls|
-			dls.name			= 'Shared'
-			dls.source_files	= 'DataLib/Shared/**/*.{h.m}'
+			dle.name         = 'Shared'
+			dle.source_files = 'DataLib/Shared/**/*.{h,m}'
 		end
 
 		dl.subspec 'Extension' do |dle|
