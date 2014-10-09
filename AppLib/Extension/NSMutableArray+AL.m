@@ -17,4 +17,25 @@
 	}
 }
 
+- (void)al_removeObject:(id)object
+{
+	if (object) {
+		[self removeObject:object];
+	}
+}
+
+- (void)al_addObjectsFromArray:(NSArray *)array
+{
+	if ([array count] > 0) {
+		[self addObjectsFromArray:array];
+	}
+}
+
+- (void)al_removeObjectAtIndex:(NSInteger)index
+{
+	if (index < [self count]) {
+		[self removeObjectAtIndex:index];
+	}
+}
+
 @end
