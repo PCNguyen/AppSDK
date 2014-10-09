@@ -2,10 +2,10 @@ Pod::Spec.new do |as|
 	as.name         = 'AppSDK'
 	as.version      = '0.2.0'
 	as.license      = 'MIT'
-	as.homepage     = 'https://bitbucket.org/tpthn/appsdk'
+	as.homepage     = 'https://github.com/PCNguyen/AppSDK'
 	as.authors      = { 'PC Nguyen' => 'tpthn@yahoo.com' }
 	as.summary      = 'Collection Of Tools Neccesary To Start An iOS App'
-	as.source       = { :git => 'https://tpthn@bitbucket.org/tpthn/appsdk.git',
+	as.source       = { :git => 'https://github.com/PCNguyen/AppSDK.git',
 						:branch => 'master' }
 	as.requires_arc = true
 	as.ios.deployment_target = '6.0'
