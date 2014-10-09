@@ -11,6 +11,8 @@
 #import "DataLibAppPersistent.h"
 #import "DataLibCoreData.h"
 
+#import "DLStorage.h"
+
 @interface DataLib : NSObject
 
 @end
