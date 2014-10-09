@@ -66,7 +66,7 @@
 		0F8C26C11925967600A6223A /* ULDataSourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C26C01925967600A6223A /* ULDataSourceManager.m */; };
 		0F8C26C4192596A500A6223A /* ULManagedDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C26C3192596A500A6223A /* ULManagedDataSource.m */; };
 		0F8C26C71925986900A6223A /* ULTagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C26C61925986900A6223A /* ULTagTableViewController.m */; };
-		0F91298319E738A300F0111E /* DLStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F91298219E738A300F0111E /* DLStorage.m */; };
+		0F91298719E73BFB00F0111E /* DLStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F91298619E73BFB00F0111E /* DLStorage.m */; };
 		0FC96E201925A36400AB5AE4 /* NSManagedObject+DL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC96E1F1925A36400AB5AE4 /* NSManagedObject+DL.m */; };
 		0FC96E231925A3E500AB5AE4 /* NSManagedObjectContext+DL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC96E221925A3E500AB5AE4 /* NSManagedObjectContext+DL.m */; };
 		0FC96E281925A49100AB5AE4 /* DLMOCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC96E271925A49100AB5AE4 /* DLMOCManager.m */; };
@@ -194,8 +194,8 @@
 		0F8C26C3192596A500A6223A /* ULManagedDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ULManagedDataSource.m; sourceTree = "<group>"; };
 		0F8C26C51925986900A6223A /* ULTagTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ULTagTableViewController.h; sourceTree = "<group>"; };
 		0F8C26C61925986900A6223A /* ULTagTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ULTagTableViewController.m; sourceTree = "<group>"; };
-		0F91298119E738A300F0111E /* DLStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLStorage.h; sourceTree = "<group>"; };
-		0F91298219E738A300F0111E /* DLStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLStorage.m; sourceTree = "<group>"; };
+		0F91298519E73BFB00F0111E /* DLStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLStorage.h; sourceTree = "<group>"; };
+		0F91298619E73BFB00F0111E /* DLStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLStorage.m; sourceTree = "<group>"; };
 		0FC96E1E1925A36400AB5AE4 /* NSManagedObject+DL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+DL.h"; sourceTree = "<group>"; };
 		0FC96E1F1925A36400AB5AE4 /* NSManagedObject+DL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+DL.m"; sourceTree = "<group>"; };
 		0FC96E211925A3E500AB5AE4 /* NSManagedObjectContext+DL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+DL.h"; sourceTree = "<group>"; };
@@ -365,8 +365,7 @@
 			children = (
 				0F8C2696192550C300A6223A /* DataLib.h */,
 				0F8C2697192550C300A6223A /* DataLib.m */,
-				0F91298119E738A300F0111E /* DLStorage.h */,
-				0F91298219E738A300F0111E /* DLStorage.m */,
+				0F91298419E73BD100F0111E /* Shared */,
 				0F8C263B1924FC0300A6223A /* Extension */,
 				0F8C26381924FB4500A6223A /* Disk Persistent */,
 				0F8C26371924FB3700A6223A /* App Persistent */,
@@ -575,6 +574,15 @@
 			name = _Singleton;
 			sourceTree = "<group>";
 		};
+		0F91298419E73BD100F0111E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				0F91298519E73BFB00F0111E /* DLStorage.h */,
+				0F91298619E73BFB00F0111E /* DLStorage.m */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		0FC96E241925A45C00AB5AE4 /* _Singleton */ = {
 			isa = PBXGroup;
 			children = (
@@ -733,7 +741,7 @@
 				0F8C26591925376C00A6223A /* NSObject+AL.m in Sources */,
 				0F8C266B192540BF00A6223A /* UIAlertView+UL.m in Sources */,
 				0FC96E281925A49100AB5AE4 /* DLMOCManager.m in Sources */,
-				0F91298319E738A300F0111E /* DLStorage.m in Sources */,
+				0F91298719E73BFB00F0111E /* DLStorage.m in Sources */,
 				0F8C269B192550F300A6223A /* DataLibExtension.m in Sources */,
 				0F8C26AA1925521400A6223A /* UILibExtension.m in Sources */,
 				0F8C26951925506C00A6223A /* AppLibScheduler.m in Sources */,
