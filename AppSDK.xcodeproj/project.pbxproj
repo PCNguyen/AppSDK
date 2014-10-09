@@ -50,7 +50,6 @@
 		0F8C268419254B3D00A6223A /* UITextField+UL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C268319254B3D00A6223A /* UITextField+UL.m */; };
 		0F8C268719254C8B00A6223A /* UINavigationBar+UL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C268619254C8B00A6223A /* UINavigationBar+UL.m */; };
 		0F8C268F19254F1900A6223A /* AppLibExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C268E19254F1900A6223A /* AppLibExtension.m */; };
-		0F8C269219254F8E00A6223A /* AppLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C269119254F8E00A6223A /* AppLib.m */; };
 		0F8C26951925506C00A6223A /* AppLibScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C26941925506C00A6223A /* AppLibScheduler.m */; };
 		0F8C2698192550C300A6223A /* DataLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C2697192550C300A6223A /* DataLib.m */; };
 		0F8C269B192550F300A6223A /* DataLibExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C269A192550F300A6223A /* DataLibExtension.m */; };
@@ -163,8 +162,6 @@
 		0F8C268619254C8B00A6223A /* UINavigationBar+UL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+UL.m"; sourceTree = "<group>"; };
 		0F8C268D19254F1900A6223A /* AppLibExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppLibExtension.h; sourceTree = "<group>"; };
 		0F8C268E19254F1900A6223A /* AppLibExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppLibExtension.m; sourceTree = "<group>"; };
-		0F8C269019254F8E00A6223A /* AppLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppLib.h; sourceTree = "<group>"; };
-		0F8C269119254F8E00A6223A /* AppLib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppLib.m; sourceTree = "<group>"; };
 		0F8C26931925506C00A6223A /* AppLibScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppLibScheduler.h; sourceTree = "<group>"; };
 		0F8C26941925506C00A6223A /* AppLibScheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppLibScheduler.m; sourceTree = "<group>"; };
 		0F8C2696192550C300A6223A /* DataLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataLib.h; sourceTree = "<group>"; };
@@ -196,6 +193,7 @@
 		0F8C26C61925986900A6223A /* ULTagTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ULTagTableViewController.m; sourceTree = "<group>"; };
 		0F91298519E73BFB00F0111E /* DLStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLStorage.h; sourceTree = "<group>"; };
 		0F91298619E73BFB00F0111E /* DLStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLStorage.m; sourceTree = "<group>"; };
+		0F91298819E74F4300F0111E /* AppLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppLib.h; sourceTree = "<group>"; };
 		0FC96E1E1925A36400AB5AE4 /* NSManagedObject+DL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+DL.h"; sourceTree = "<group>"; };
 		0FC96E1F1925A36400AB5AE4 /* NSManagedObject+DL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+DL.m"; sourceTree = "<group>"; };
 		0FC96E211925A3E500AB5AE4 /* NSManagedObjectContext+DL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+DL.h"; sourceTree = "<group>"; };
@@ -338,8 +336,7 @@
 		0F8C26321924FA2700A6223A /* AppLib */ = {
 			isa = PBXGroup;
 			children = (
-				0F8C269019254F8E00A6223A /* AppLib.h */,
-				0F8C269119254F8E00A6223A /* AppLib.m */,
+				0F91298819E74F4300F0111E /* AppLib.h */,
 				0F8C26351924FB1600A6223A /* Extension */,
 				0F8C26B11925539200A6223A /* Value Transformer */,
 				0F8C263A1924FBC000A6223A /* Scheduler */,
@@ -716,7 +713,6 @@
 				0F8C265219252F8600A6223A /* ALSetterTransformer.m in Sources */,
 				0F8C267B1925460000A6223A /* NSMutableArray+AL.m in Sources */,
 				0F87C7FE19ABAED700E79260 /* UIView+Hierachy.m in Sources */,
-				0F8C269219254F8E00A6223A /* AppLib.m in Sources */,
 				0F8C265319252F8600A6223A /* ALPropertiesTransformer.m in Sources */,
 				0F8C268719254C8B00A6223A /* UINavigationBar+UL.m in Sources */,
 				0F8C2678192544AE00A6223A /* NSArray+AL.m in Sources */,
