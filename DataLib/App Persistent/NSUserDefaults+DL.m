@@ -55,4 +55,35 @@
 	}
 }
 
++ (void)dl_wipe
+{
+	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+	NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+	[userDefaults removePersistentDomainForName:appDomain];
+	[userDefaults synchronize];
+	
+}
+
++ (void)dl_wipeExceptKey:(NSArray *)excludedKeys
+{
+	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+	NSMutableDictionary *tempStorage = [NSMutableDictionary dictionary];
+	
+	//--preserve value in memory
+	for (NSString *key in excludedKeys) {
+		[tempStorage setValue:[self dl_loadValueForKey:key] forKey:key];
+	}
+	
+	//--wipe
+	NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+	[userDefaults removePersistentDomainForName:appDomain];
+	
+	//--put back saved values
+	[tempStorage enumerateKeysAndObjectsUsingBlock:^(NSString *key, id object, BOOL *stop) {
+		[userDefaults setObject:object forKey:key];
+	}];
+	
+	[userDefaults synchronize];
+}
+
 @end

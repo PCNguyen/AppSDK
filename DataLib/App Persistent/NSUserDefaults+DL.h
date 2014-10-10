@@ -46,4 +46,16 @@
  */
 + (void)dl_removeObjectForKey:(NSString *)key sync:(BOOL)shouldSync;
 
+/**
+ *  remove all saved data in NSUserDefault
+ */
++ (void)dl_wipe;
+
+/**
+ *  remove all saved data in NSUserDefault with the options to exlude some
+ *
+ *  @param excludedKeys the key to be kept from wiping
+ */
++ (void)dl_wipeExceptKey:(NSArray *)excludedKeys;
+
 @end
