@@ -40,4 +40,9 @@
 	return object;
 }
 
++ (void)dl_removeObjectForKey:(NSString *)key sync:(BOOL)shouldSync
+{
+
+}
+
 @end
