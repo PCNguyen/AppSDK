@@ -9,9 +9,21 @@
 #ifndef AppSDK_AppLibShared_h
 #define AppSDK_AppLibShared_h
 
-/***************************************
- * Macros
- ***************************************/
+/**
+ *  Singleton Macro
+ *	Usage example:
+ *	
+ *	+ (id)sharedInstance
+ *	{
+ *		SHARE_INSTANCE_BLOC(^{
+ *			return [[self alloc] init];
+ *		});
+ *	}
+ *
+ *  @param block the block to init the object ( e.g ^{return [[self aloc] init]} )
+ *
+ *  @return a shared singleton object
+ */
 
 #define SHARE_INSTANCE_BLOCK(block) \
 	static dispatch_once_t onceToken; \
