@@ -11,4 +11,14 @@
 
 @implementation DLAppStorage
 
+- (void)saveValue:(id)value forKey:(NSString *)key
+{
+
+}
+
+- (id)loadValueForKey:(NSString *)key
+{
+	return nil;
+}
+
 @end
