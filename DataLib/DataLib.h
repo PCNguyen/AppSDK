@@ -9,10 +9,9 @@
 #ifndef AppSDK_DataLib_h
 #define AppSDK_DataLib_h
 
+#import "DataLibShared.h"
 #import "DataLibDiskPersistent.h"
 #import "DataLibAppPersistent.h"
 #import "DataLibCoreData.h"
-
-#import "DLStorage.h"
 
 #endif

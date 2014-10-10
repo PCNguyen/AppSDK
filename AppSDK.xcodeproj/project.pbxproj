@@ -167,6 +167,7 @@
 		0F91299219E843B600F0111E /* UILibAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILibAutoLayout.h; sourceTree = "<group>"; };
 		0F91299319E843E300F0111E /* UILibDataBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILibDataBinding.h; sourceTree = "<group>"; };
 		0F91299419E8441900F0111E /* UILibTagTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILibTagTable.h; sourceTree = "<group>"; };
+		0F9129C719E84B5300F0111E /* DataLibShared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataLibShared.h; sourceTree = "<group>"; };
 		0FC96E1E1925A36400AB5AE4 /* NSManagedObject+DL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+DL.h"; sourceTree = "<group>"; };
 		0FC96E1F1925A36400AB5AE4 /* NSManagedObject+DL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+DL.m"; sourceTree = "<group>"; };
 		0FC96E211925A3E500AB5AE4 /* NSManagedObjectContext+DL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+DL.h"; sourceTree = "<group>"; };
@@ -525,6 +526,7 @@
 		0F91298419E73BD100F0111E /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				0F9129C719E84B5300F0111E /* DataLibShared.h */,
 				0F91298519E73BFB00F0111E /* DLStorage.h */,
 				0F91298619E73BFB00F0111E /* DLStorage.m */,
 			);
