@@ -53,6 +53,7 @@
 		0F8C26C4192596A500A6223A /* ULManagedDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C26C3192596A500A6223A /* ULManagedDataSource.m */; };
 		0F8C26C71925986900A6223A /* ULTagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C26C61925986900A6223A /* ULTagTableViewController.m */; };
 		0F91298719E73BFB00F0111E /* DLStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F91298619E73BFB00F0111E /* DLStorage.m */; };
+		0F9129CC19E857FF00F0111E /* DLAppStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9129CB19E857FF00F0111E /* DLAppStorage.m */; };
 		0FC96E201925A36400AB5AE4 /* NSManagedObject+DL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC96E1F1925A36400AB5AE4 /* NSManagedObject+DL.m */; };
 		0FC96E231925A3E500AB5AE4 /* NSManagedObjectContext+DL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC96E221925A3E500AB5AE4 /* NSManagedObjectContext+DL.m */; };
 		0FC96E281925A49100AB5AE4 /* DLMOCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC96E271925A49100AB5AE4 /* DLMOCManager.m */; };
@@ -169,6 +170,8 @@
 		0F91299419E8441900F0111E /* UILibTagTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILibTagTable.h; sourceTree = "<group>"; };
 		0F9129C719E84B5300F0111E /* DataLibShared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataLibShared.h; sourceTree = "<group>"; };
 		0F9129C819E84CE100F0111E /* SamplePodFile */ = {isa = PBXFileReference; lastKnownFileType = text; path = SamplePodFile; sourceTree = "<group>"; };
+		0F9129CA19E857FF00F0111E /* DLAppStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAppStorage.h; sourceTree = "<group>"; };
+		0F9129CB19E857FF00F0111E /* DLAppStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAppStorage.m; sourceTree = "<group>"; };
 		0FC96E1E1925A36400AB5AE4 /* NSManagedObject+DL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+DL.h"; sourceTree = "<group>"; };
 		0FC96E1F1925A36400AB5AE4 /* NSManagedObject+DL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+DL.m"; sourceTree = "<group>"; };
 		0FC96E211925A3E500AB5AE4 /* NSManagedObjectContext+DL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+DL.h"; sourceTree = "<group>"; };
@@ -376,6 +379,8 @@
 			isa = PBXGroup;
 			children = (
 				0F91298E19E842D700F0111E /* DataLibAppPersistent.h */,
+				0F9129CA19E857FF00F0111E /* DLAppStorage.h */,
+				0F9129CB19E857FF00F0111E /* DLAppStorage.m */,
 				0F8C26BA192575CD00A6223A /* _Extension */,
 			);
 			path = "App Persistent";
@@ -683,6 +688,7 @@
 				0F8C26C4192596A500A6223A /* ULManagedDataSource.m in Sources */,
 				0F8C268419254B3D00A6223A /* UITextField+UL.m in Sources */,
 				0F87C7FF19ABAED700E79260 /* UIView+LayoutPosition.m in Sources */,
+				0F9129CC19E857FF00F0111E /* DLAppStorage.m in Sources */,
 				0F8C26591925376C00A6223A /* NSObject+AL.m in Sources */,
 				0F8C266B192540BF00A6223A /* UIAlertView+UL.m in Sources */,
 				0FC96E281925A49100AB5AE4 /* DLMOCManager.m in Sources */,

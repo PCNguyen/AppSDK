@@ -10,5 +10,6 @@
 #define AppSDK_DataLibAppPersistent_h
 
 #import "NSUserDefaults+DL.h"
+#import "DLAppStorage.h"
 
 #endif

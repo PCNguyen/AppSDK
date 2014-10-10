@@ -12,10 +12,18 @@
 
 + (void)dl_saveValue:(id)object forKey:(NSString *)key
 {
+	[self dl_saveValue:object forKey:key sync:YES];
+}
+
++ (void)dl_saveValue:(id)object forKey:(NSString *)key sync:(BOOL)shouldSync
+{
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSData *objectData = [NSKeyedArchiver archivedDataWithRootObject:object];
-    [userDefaults setObject:objectData forKey:key];
-    [userDefaults synchronize];
+	NSData *objectData = [NSKeyedArchiver archivedDataWithRootObject:object];
+	[userDefaults setObject:objectData forKey:key];
+	
+	if (shouldSync) {
+		[userDefaults synchronize];
+	}
 }
 
 + (id)dl_loadValueForKey:(NSString *)key
