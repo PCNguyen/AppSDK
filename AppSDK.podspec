@@ -13,24 +13,35 @@ Pod::Spec.new do |as|
 	as.subspec 'AppLib' do |al|
 		al.name         = 'AppLib'
 		al.source_files = 'AppLib/*.{h,m}'
-		
+
+		al.subspec 'Shared' do |alsh|
+			alsh.name         = 'Shared'
+			alsh.source_files = 'AppLib/Shared/**/*.{h,m}'
+		end
+
 		al.subspec 'Extension' do |ale|
 			ale.name         = 'Extension'
 			ale.source_files = 'AppLib/Extension/**/*.{h,m}'
 		end
 		
 		al.subspec 'ValueTransformer' do |alvt|
+			alvt.dependency		'AppSDK/AppLib/Shared'
+
 			alvt.name         = 'ValueTransformer'
 			alvt.source_files = 'AppLib/Value Transformer/**/*.{h,m}'
 		end
 		
 		al.subspec 'Scheduler' do |als|
+			als.dependency		'AppSDK/AppLib/Shared'
+
 			als.name         = 'Scheduler'
 			als.source_files = 'AppLib/Scheduler/**/*.{h,m}'
 		end
 	end
 	
 	as.subspec 'DataLib' do |dl|
+		dl.dependency		'AppSDK/AppLib/Shared'
+
 		dl.name         = 'DataLib'
 		dl.source_files = 'DataLib/*.{h,m}'
 
@@ -63,6 +74,7 @@ Pod::Spec.new do |as|
 	end
 	
 	as.subspec 'UILib' do |ul|
+		ul.dependency	'AppSDK/AppLib/Shared'
 		ul.dependency	'AppSDK/AppLib/Extension'
 
 		ul.name         = 'UILib'
