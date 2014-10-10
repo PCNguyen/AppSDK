@@ -172,6 +172,7 @@
 		0F9129C819E84CE100F0111E /* SamplePodFile */ = {isa = PBXFileReference; lastKnownFileType = text; path = SamplePodFile; sourceTree = "<group>"; };
 		0F9129CA19E857FF00F0111E /* DLAppStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAppStorage.h; sourceTree = "<group>"; };
 		0F9129CB19E857FF00F0111E /* DLAppStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAppStorage.m; sourceTree = "<group>"; };
+		0F9129CE19E85C0E00F0111E /* AppLibShared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppLibShared.h; sourceTree = "<group>"; };
 		0FC96E1E1925A36400AB5AE4 /* NSManagedObject+DL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+DL.h"; sourceTree = "<group>"; };
 		0FC96E1F1925A36400AB5AE4 /* NSManagedObject+DL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+DL.m"; sourceTree = "<group>"; };
 		0FC96E211925A3E500AB5AE4 /* NSManagedObjectContext+DL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+DL.h"; sourceTree = "<group>"; };
@@ -544,6 +545,7 @@
 		0F9129CD19E85BA400F0111E /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				0F9129CE19E85C0E00F0111E /* AppLibShared.h */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
