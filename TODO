@@ -1,0 +1,24 @@
+AppLib
+	- Move extension into shared group, create a separate group for object handling
+
+	Shared
+		- Adding logging modules
+	Scheduler
+		- Implement scheduling SDK from MailX project
+
+DataLib
+	App Persistent
+		- implement the InmemoryAppStorage
+	Disk Persistent
+		- implement DiskStorage
+	CoreData
+		- implement CoreDataStorage
+
+UILib
+	Data Binding
+		- add support for collections
+
+	Tag Table
+		- performance tuning
+
+Adding Network modules
