@@ -1,0 +1,20 @@
+#Uncomment the modules you need
+
+#pod 'AppSDK', :git => 'https://github.com/PCNguyen/AppSDK.git'
+
+#pod 'AppSDK/AppLib', :git => 'https://github.com/PCNguyen/AppSDK.git'
+#pod 'AppSDK/AppLib/Extension', :git => 'https://github.com/PCNguyen/AppSDK.git'
+#pod 'AppSDK/AppLib/Scheduler', :git => 'https://github.com/PCNguyen/AppSDK.git'
+#pod 'AppSDK/AppLib/ValueTransformer', :git => 'https://github.com/PCNguyen/AppSDK.git'
+
+#pod 'AppSDK/UILib', :git => 'https://github.com/PCNguyen/AppSDK.git'
+#pod 'AppSDK/UILib/AutoLayout', :git => 'https://github.com/PCNguyen/AppSDK.git'
+#pod 'AppSDK/UILib/DataBinding', :git => 'https://github.com/PCNguyen/AppSDK.git'
+#pod 'AppSDK/UILib/Extension', :git => 'https://github.com/PCNguyen/AppSDK.git'
+#pod 'AppSDK/UILib/TagTable', :git => 'https://github.com/PCNguyen/AppSDK.git'
+
+#pod 'AppSDK/DataLib', :git => 'https://github.com/PCNguyen/AppSDK.git'
+#pod 'AppSDK/DataLib/AppPersistent', :git => 'https://github.com/PCNguyen/AppSDK.git'
+#pod 'AppSDK/DataLib/DiskPersistent', :git => 'https://github.com/PCNguyen/AppSDK.git'
+#pod 'AppSDK/DataLib/CoreData', :git => 'https://github.com/PCNguyen/AppSDK.git'
+#pod 'AppSDK/DataLib/Shared', :git => 'https://github.com/PCNguyen/AppSDK.git'
