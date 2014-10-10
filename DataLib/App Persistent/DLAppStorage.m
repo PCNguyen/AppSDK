@@ -13,12 +13,20 @@
 
 - (void)saveValue:(id)value forKey:(NSString *)key
 {
-
+	if (self.enableCache) {
+		[[self cache] setObject:value forKey:key];
+	}
+		
+	[NSUserDefaults dl_saveValue:value forKey:key];
 }
 
 - (id)loadValueForKey:(NSString *)key
 {
-	return nil;
+	if (self.enableCache) {
+		return [[self cache] objectForKey:key];
+	}
+	
+	return [NSUserDefaults dl_loadValueForKey:key];
 }
 
 @end
