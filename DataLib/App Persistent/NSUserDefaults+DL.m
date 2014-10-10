@@ -12,37 +12,47 @@
 
 + (void)dl_saveValue:(id)object forKey:(NSString *)key
 {
-	[self dl_saveObject:object forKey:key sync:YES];
-}
-
-+ (void)dl_saveObject:(id)object forKey:(NSString *)key sync:(BOOL)shouldSync
-{
-	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-	NSData *objectData = [NSKeyedArchiver archivedDataWithRootObject:object];
-	[userDefaults setObject:objectData forKey:key];
-	
-	if (shouldSync) {
-		[userDefaults synchronize];
-	}
+	[self dl_saveValue:object forKey:key sync:YES];
 }
 
 + (id)dl_loadValueForKey:(NSString *)key
 {
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSData *objectData = [userDefaults objectForKey:key];
+	NSData *objectData = [userDefaults objectForKey:key];
 	
 	id object = nil;
 	
 	if (objectData.length > 0) {
 		object = [NSKeyedUnarchiver unarchiveObjectWithData:objectData];
 	}
-    
+	
 	return object;
+}
+
++ (void)dl_saveValue:(id)object forKey:(NSString *)key sync:(BOOL)shouldSync
+{
+	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+	
+	if (object) {
+		NSData *objectData = [NSKeyedArchiver archivedDataWithRootObject:object];
+		[userDefaults setObject:objectData forKey:key];
+	} else {
+		[userDefaults removeObjectForKey:key];
+	}
+	
+	if (shouldSync) {
+		[userDefaults synchronize];
+	}
 }
 
 + (void)dl_removeObjectForKey:(NSString *)key sync:(BOOL)shouldSync
 {
-
+	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+	[userDefaults removeObjectForKey:key];
+	
+	if (shouldSync) {
+		[userDefaults synchronize];
+	}
 }
 
 @end
