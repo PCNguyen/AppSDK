@@ -315,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				0F91298819E74F4300F0111E /* AppLib.h */,
+				0F9129CD19E85BA400F0111E /* Shared */,
 				0F8C26351924FB1600A6223A /* Extension */,
 				0F8C26B11925539200A6223A /* Value Transformer */,
 				0F8C263A1924FBC000A6223A /* Scheduler */,
@@ -536,6 +537,13 @@
 				0F9129C719E84B5300F0111E /* DataLibShared.h */,
 				0F91298519E73BFB00F0111E /* DLStorage.h */,
 				0F91298619E73BFB00F0111E /* DLStorage.m */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		0F9129CD19E85BA400F0111E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Shared;
 			sourceTree = "<group>";
