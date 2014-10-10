@@ -57,6 +57,7 @@
 
 + (void)dl_wipe
 {
+	//--avoid itterating through the keys since they might include system keys
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 	NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
 	[userDefaults removePersistentDomainForName:appDomain];
