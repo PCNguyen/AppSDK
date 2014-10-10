@@ -26,7 +26,6 @@
 		0F8C261E1924FA1400A6223A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8C26011924FA1400A6223A /* UIKit.framework */; };
 		0F8C261F1924FA1400A6223A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8C26031924FA1400A6223A /* CoreData.framework */; };
 		0F8C26271924FA1400A6223A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0F8C26251924FA1400A6223A /* InfoPlist.strings */; };
-		0F8C26291924FA1400A6223A /* AppSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C26281924FA1400A6223A /* AppSDKTests.m */; };
 		0F8C26411924FE7C00A6223A /* UIView+UL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C26401924FE7C00A6223A /* UIView+UL.m */; };
 		0F8C264519252C7200A6223A /* UIImage+StackBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C264419252C7200A6223A /* UIImage+StackBlur.m */; };
 		0F8C264819252C9700A6223A /* UIView+Blur.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C264719252C9700A6223A /* UIView+Blur.m */; };
@@ -103,7 +102,6 @@
 		0F8C261B1924FA1400A6223A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		0F8C26241924FA1400A6223A /* AppSDKTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AppSDKTests-Info.plist"; sourceTree = "<group>"; };
 		0F8C26261924FA1400A6223A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		0F8C26281924FA1400A6223A /* AppSDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppSDKTests.m; sourceTree = "<group>"; };
 		0F8C263F1924FE7C00A6223A /* UIView+UL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UL.h"; sourceTree = "<group>"; };
 		0F8C26401924FE7C00A6223A /* UIView+UL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UL.m"; sourceTree = "<group>"; };
 		0F8C264319252C7200A6223A /* UIImage+StackBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+StackBlur.h"; sourceTree = "<group>"; };
@@ -299,7 +297,6 @@
 		0F8C26221924FA1400A6223A /* AppSDKTests */ = {
 			isa = PBXGroup;
 			children = (
-				0F8C26281924FA1400A6223A /* AppSDKTests.m */,
 				0F8C26231924FA1400A6223A /* Supporting Files */,
 			);
 			path = AppSDKTests;
@@ -725,7 +722,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F8C26291924FA1400A6223A /* AppSDKTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
