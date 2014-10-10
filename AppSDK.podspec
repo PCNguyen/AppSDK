@@ -40,16 +40,22 @@ Pod::Spec.new do |as|
 		end
 		
 		dl.subspec 'DiskPersistent' do |dldp|
+			dldp.dependency		'AppSDK/DataLib/Shared'
+
 			dldp.name         = 'DiskPersistent'
 			dldp.source_files = 'DataLib/Disk Persistent/**/*.{h,m}'
 		end
 		
 		dl.subspec 'AppPersistent' do |dlap|
+			dlap.dependency		'AppSDK/DataLib/Shared'
+
 			dlap.name         = 'AppPersistent'
 			dlap.source_files = 'DataLib/App Persistent/**/*.{h,m}'
 		end
 		
 		dl.subspec 'CoreData' do |dlcd|
+			dlcd.dependency		'AppSDK/DataLib/Shared'
+
 			dlcd.name         = 'CoreData'
 			dlcd.source_files = 'DataLib/CoreData/**/*.{h,m}'
 			dlcd.frameworks   = 'CoreData'

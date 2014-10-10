@@ -430,9 +430,9 @@
 		0F8C263D1924FC3400A6223A /* Tag Table */ = {
 			isa = PBXGroup;
 			children = (
+				0F91299419E8441900F0111E /* UILibTagTable.h */,
 				0F8C26C51925986900A6223A /* ULTagTableViewController.h */,
 				0F8C26C61925986900A6223A /* ULTagTableViewController.m */,
-				0F91299419E8441900F0111E /* UILibTagTable.h */,
 			);
 			path = "Tag Table";
 			sourceTree = "<group>";
