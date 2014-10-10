@@ -1,6 +1,6 @@
 Pod::Spec.new do |as|
 	as.name         = 'AppSDK'
-	as.version      = '0.2.0'
+	as.version      = '0.3.0'
 	as.license      = 'MIT'
 	as.homepage     = 'https://github.com/PCNguyen/AppSDK'
 	as.authors      = { 'PC Nguyen' => 'tpthn@yahoo.com' }
