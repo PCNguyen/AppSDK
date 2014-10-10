@@ -38,11 +38,6 @@ Pod::Spec.new do |as|
 			dls.name         = 'Shared'
 			dls.source_files = 'DataLib/Shared/**/*.{h,m}'
 		end
-
-		dl.subspec 'Extension' do |dle|
-			dle.name         = 'Extension'
-			dle.source_files = 'DataLib/Extension/**/*.{h,m}'
-		end
 		
 		dl.subspec 'DiskPersistent' do |dldp|
 			dldp.name         = 'DiskPersistent'

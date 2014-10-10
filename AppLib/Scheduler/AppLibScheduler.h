@@ -2,12 +2,12 @@
 //  AppLibScheduler.h
 //  AppSDK
 //
-//  Created by PC Nguyen on 5/15/14.
+//  Created by PC Nguyen on 10/10/14.
 //  Copyright (c) 2014 PC Nguyen. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#ifndef AppSDK_AppLibScheduler_h
+#define AppSDK_AppLibScheduler_h
 
-@interface AppLibScheduler : NSObject
 
-@end
+#endif

@@ -2,16 +2,15 @@
 //  UILibAutoLayout.h
 //  AppSDK
 //
-//  Created by PC Nguyen on 8/25/14.
+//  Created by PC Nguyen on 10/10/14.
 //  Copyright (c) 2014 PC Nguyen. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#ifndef AppSDK_UILibAutoLayout_h
+#define AppSDK_UILibAutoLayout_h
 
 #import "NSLayoutConstraint+UL.h"
 #import "UIView+Hierachy.h"
 #import "UIView+LayoutPosition.h"
 
-@interface UILibAutoLayout : NSObject
-
-@end
+#endif

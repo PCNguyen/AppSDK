@@ -2,9 +2,12 @@
 //  UILibExtension.h
 //  AppSDK
 //
-//  Created by PC Nguyen on 5/15/14.
+//  Created by PC Nguyen on 10/10/14.
 //  Copyright (c) 2014 PC Nguyen. All rights reserved.
 //
+
+#ifndef AppSDK_UILibExtension_h
+#define AppSDK_UILibExtension_h
 
 #import "UIImage+StackBlur.h"
 #import "UIView+Blur.h"
@@ -21,6 +24,4 @@
 #import "UITextView+UL.h"
 #import "UINavigationBar+UL.h"
 
-@interface UILibExtension : NSObject
-
-@end
+#endif
