@@ -53,6 +53,7 @@
 		0F8C26C71925986900A6223A /* ULTagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C26C61925986900A6223A /* ULTagTableViewController.m */; };
 		0F91298719E73BFB00F0111E /* DLStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F91298619E73BFB00F0111E /* DLStorage.m */; };
 		0F9129CC19E857FF00F0111E /* DLAppStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9129CB19E857FF00F0111E /* DLAppStorage.m */; };
+		0F912A0619E89E0A00F0111E /* NSUserDefaultsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F912A0519E89E0A00F0111E /* NSUserDefaultsTest.m */; };
 		0FC96E201925A36400AB5AE4 /* NSManagedObject+DL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC96E1F1925A36400AB5AE4 /* NSManagedObject+DL.m */; };
 		0FC96E231925A3E500AB5AE4 /* NSManagedObjectContext+DL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC96E221925A3E500AB5AE4 /* NSManagedObjectContext+DL.m */; };
 		0FC96E281925A49100AB5AE4 /* DLMOCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC96E271925A49100AB5AE4 /* DLMOCManager.m */; };
@@ -172,6 +173,7 @@
 		0F9129CB19E857FF00F0111E /* DLAppStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAppStorage.m; sourceTree = "<group>"; };
 		0F9129CE19E85C0E00F0111E /* AppLibShared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppLibShared.h; sourceTree = "<group>"; };
 		0F9129CF19E85F7800F0111E /* TODO */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		0F912A0519E89E0A00F0111E /* NSUserDefaultsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSUserDefaultsTest.m; sourceTree = "<group>"; };
 		0FC96E1E1925A36400AB5AE4 /* NSManagedObject+DL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+DL.h"; sourceTree = "<group>"; };
 		0FC96E1F1925A36400AB5AE4 /* NSManagedObject+DL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+DL.m"; sourceTree = "<group>"; };
 		0FC96E211925A3E500AB5AE4 /* NSManagedObjectContext+DL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+DL.h"; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 		0F8C26221924FA1400A6223A /* AppSDKTests */ = {
 			isa = PBXGroup;
 			children = (
+				0F912A0519E89E0A00F0111E /* NSUserDefaultsTest.m */,
 				0F8C26231924FA1400A6223A /* Supporting Files */,
 			);
 			path = AppSDKTests;
@@ -722,6 +725,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F912A0619E89E0A00F0111E /* NSUserDefaultsTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
