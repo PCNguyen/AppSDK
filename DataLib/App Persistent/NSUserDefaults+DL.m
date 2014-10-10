@@ -12,10 +12,10 @@
 
 + (void)dl_saveValue:(id)object forKey:(NSString *)key
 {
-	[self dl_saveValue:object forKey:key sync:YES];
+	[self dl_saveObject:object forKey:key sync:YES];
 }
 
-+ (void)dl_saveValue:(id)object forKey:(NSString *)key sync:(BOOL)shouldSync
++ (void)dl_saveObject:(id)object forKey:(NSString *)key sync:(BOOL)shouldSync
 {
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 	NSData *objectData = [NSKeyedArchiver archivedDataWithRootObject:object];

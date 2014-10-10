@@ -25,7 +25,7 @@
  *  @param key        the key to identify the object
  *  @param shouldSync whether or not we should call synchronize on NSUserDefault
  */
-+ (void)dl_saveValue:(id)object forKey:(NSString *)key sync:(BOOL)shouldSync;
++ (void)dl_saveObject:(id)object forKey:(NSString *)key sync:(BOOL)shouldSync;
 
 /**
  *  load the value stored in NSUserDefault based on specific key
