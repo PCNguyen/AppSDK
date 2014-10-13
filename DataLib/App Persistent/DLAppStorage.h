@@ -58,4 +58,16 @@
  */
 - (id)loadValueForKey:(NSString *)key;
 
+/**
+ *  wipe the persistent store
+ */
+- (void)wipe;
+
+/**
+ *  wipe the persistent store except excluded keys
+ *
+ *  @param excludedKeys the keys not to be wiped
+ */
+- (void)wipeExceptKeys:(NSArray *)excludedKeys;
+
 @end

@@ -55,6 +55,7 @@
 		0F9129CC19E857FF00F0111E /* DLAppStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9129CB19E857FF00F0111E /* DLAppStorage.m */; };
 		0F912A0619E89E0A00F0111E /* NSUserDefaultsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F912A0519E89E0A00F0111E /* NSUserDefaultsTest.m */; };
 		0F912A0819EC50F300F0111E /* AppStorageTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F912A0719EC50F300F0111E /* AppStorageTest.m */; };
+		0F912A0B19EC5C8C00F0111E /* DLInMemoryAppStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F912A0A19EC5C8C00F0111E /* DLInMemoryAppStorage.m */; };
 		0FC96E201925A36400AB5AE4 /* NSManagedObject+DL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC96E1F1925A36400AB5AE4 /* NSManagedObject+DL.m */; };
 		0FC96E231925A3E500AB5AE4 /* NSManagedObjectContext+DL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC96E221925A3E500AB5AE4 /* NSManagedObjectContext+DL.m */; };
 		0FC96E281925A49100AB5AE4 /* DLMOCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC96E271925A49100AB5AE4 /* DLMOCManager.m */; };
@@ -176,6 +177,8 @@
 		0F9129CF19E85F7800F0111E /* TODO */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		0F912A0519E89E0A00F0111E /* NSUserDefaultsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSUserDefaultsTest.m; sourceTree = "<group>"; };
 		0F912A0719EC50F300F0111E /* AppStorageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppStorageTest.m; sourceTree = "<group>"; };
+		0F912A0919EC5C8C00F0111E /* DLInMemoryAppStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLInMemoryAppStorage.h; sourceTree = "<group>"; };
+		0F912A0A19EC5C8C00F0111E /* DLInMemoryAppStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLInMemoryAppStorage.m; sourceTree = "<group>"; };
 		0FC96E1E1925A36400AB5AE4 /* NSManagedObject+DL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+DL.h"; sourceTree = "<group>"; };
 		0FC96E1F1925A36400AB5AE4 /* NSManagedObject+DL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+DL.m"; sourceTree = "<group>"; };
 		0FC96E211925A3E500AB5AE4 /* NSManagedObjectContext+DL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+DL.h"; sourceTree = "<group>"; };
@@ -388,6 +391,8 @@
 				0F91298E19E842D700F0111E /* DataLibAppPersistent.h */,
 				0F9129CA19E857FF00F0111E /* DLAppStorage.h */,
 				0F9129CB19E857FF00F0111E /* DLAppStorage.m */,
+				0F912A0919EC5C8C00F0111E /* DLInMemoryAppStorage.h */,
+				0F912A0A19EC5C8C00F0111E /* DLInMemoryAppStorage.m */,
 				0F8C26BA192575CD00A6223A /* _Extension */,
 			);
 			path = "App Persistent";
@@ -719,6 +724,7 @@
 				0F8C26721925435B00A6223A /* NSUserDefaults+DL.m in Sources */,
 				0F87C7FC19ABAED700E79260 /* NSLayoutConstraint+UL.m in Sources */,
 				0F8C26411924FE7C00A6223A /* UIView+UL.m in Sources */,
+				0F912A0B19EC5C8C00F0111E /* DLInMemoryAppStorage.m in Sources */,
 				0FC96E391925BA6F00AB5AE4 /* DLFileManager.m in Sources */,
 				0F8C2681192547D900A6223A /* UIBarButtonItem+UL.m in Sources */,
 			);

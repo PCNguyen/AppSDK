@@ -33,6 +33,24 @@
 	return [NSUserDefaults dl_loadValueForKey:key];
 }
 
+- (void)wipe
+{
+	if (self.enableCache) {
+		[[self cache] removeAllObjects];
+	}
+	
+	[NSUserDefaults dl_wipe];
+}
+
+- (void)wipeExceptKeys:(NSArray *)excludedKeys
+{
+	if (self.enableCache) {
+		[[self cache] removeAllObjects];
+	}
+	
+	[NSUserDefaults dl_wipeExceptKeys:excludedKeys];
+}
+
 - (void)saveCacheObject:(id)object forKey:(NSString *)key
 {
 	if ([self.delegate respondsToSelector:@selector(appStorage:saveCacheObject:forKey:)]) {
