@@ -8,7 +8,35 @@
 
 #import "DLStorage.h"
 
+@class DLAppStorage;
+
+@protocol DLAppStorageDelegate <NSObject>
+
+@optional
+
+/**
+ *  provide an entry point to custom save cache object with calculating cost
+ *	default to save to cache without cost calculation
+ *
+ *  @param storage the appStorage
+ *  @param object  the object to be saved to cache
+ *  @param key     the key to identify the object
+ */
+- (void)appStorage:(DLAppStorage *)storage saveCacheObject:(id)object forKey:(NSString *)key;
+
+/**
+ *  provide an entry point to custom remove cache object
+ *
+ *  @param storage the appStorage
+ *  @param key     the key to identify the object
+ */
+- (void)appStorage:(DLAppStorage *)storage removeCacheObjectForKey:(NSString *)key;
+
+@end
+
 @interface DLAppStorage : DLStorage
+
+@property (nonatomic, weak) id<DLAppStorageDelegate>delegate;
 
 /**
  *  Save specific value for key, nil to remove the previous value
@@ -29,24 +57,5 @@
  *  @return the object in cache or persisted object if cache not exist
  */
 - (id)loadValueForKey:(NSString *)key;
-
-#pragma mark - Subclass Hook
-
-/**
- *  provide a custom method to save cache object with calculating cost
- *	default to save to cache without cost calculation
- *
- *  @param object the object to be saved to cache
- *  @param key    the key to identify the object
- */
-- (void)saveCacheObject:(id)object forKey:(NSString *)key;
-
-/**
- *  provide custom method to remove cache object
- *	default to remove object from the assigned cache
- *
- *  @param key the key to identify the object
- */
-- (void)removeCacheObjectForKey:(NSString *)key;
 
 @end

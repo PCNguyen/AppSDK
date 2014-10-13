@@ -35,12 +35,20 @@
 
 - (void)saveCacheObject:(id)object forKey:(NSString *)key
 {
-	[[self cache] setObject:object forKey:key];
+	if ([self.delegate respondsToSelector:@selector(appStorage:saveCacheObject:forKey:)]) {
+		[self.delegate appStorage:self saveCacheObject:object forKey:key];
+	} else {
+		[[self cache] setObject:object forKey:key];
+	}
 }
 
 - (void)removeCacheObjectForKey:(NSString *)key
 {
-	[[self cache] removeObjectForKey:key];
+	if ([self.delegate respondsToSelector:@selector(appStorage:removeCacheObjectForKey:)]) {
+		[self.delegate appStorage:self removeCacheObjectForKey:key];
+	} else {
+		[[self cache] removeObjectForKey:key];
+	}
 }
 
 @end
