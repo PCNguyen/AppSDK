@@ -39,14 +39,6 @@
 + (void)dl_saveValue:(id)object forKey:(NSString *)key sync:(BOOL)shouldSync;
 
 /**
- *  remove the object for specific key, option to sync immediatly or not
- *
- *  @param key        the key to identify the object
- *  @param shouldSync whether or not we should call synchronize on NSUserDefault
- */
-+ (void)dl_removeObjectForKey:(NSString *)key sync:(BOOL)shouldSync;
-
-/**
  *  remove all saved data in NSUserDefault
  */
 + (void)dl_wipe;

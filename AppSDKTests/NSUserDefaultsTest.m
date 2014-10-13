@@ -96,18 +96,6 @@ NSString *const UDDictionaryKey = @"UDDictionaryKey";
 	[NSUserDefaults dl_saveValue:nil forKey:UDDictionaryKey];
 }
 
-- (void)testRemoveValue
-{
-	NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-	XCTAssertNil([userDefault objectForKey:UDDictionaryKey]);
-	
-	[NSUserDefaults dl_saveValue:self.dictionaryValue forKey:UDDictionaryKey];
-	[NSUserDefaults dl_removeObjectForKey:UDDictionaryKey sync:YES];
-	NSDictionary *dictionary = [NSUserDefaults dl_loadValueForKey:UDDictionaryKey];
-	
-	XCTAssertNil(dictionary);
-}
-
 - (void)testWipe
 {
 	NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];

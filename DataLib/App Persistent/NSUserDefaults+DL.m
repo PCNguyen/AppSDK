@@ -45,16 +45,6 @@
 	}
 }
 
-+ (void)dl_removeObjectForKey:(NSString *)key sync:(BOOL)shouldSync
-{
-	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-	[userDefaults removeObjectForKey:key];
-	
-	if (shouldSync) {
-		[userDefaults synchronize];
-	}
-}
-
 + (void)dl_wipe
 {
 	//--avoid itterating through the keys since they might include system keys
