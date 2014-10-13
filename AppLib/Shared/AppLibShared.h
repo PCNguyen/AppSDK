@@ -15,7 +15,7 @@
  *	
  *	+ (id)sharedInstance
  *	{
- *		SHARE_INSTANCE_BLOC(^{
+ *		SHARE_INSTANCE_BLOCK(^{
  *			return [[self alloc] init];
  *		});
  *	}

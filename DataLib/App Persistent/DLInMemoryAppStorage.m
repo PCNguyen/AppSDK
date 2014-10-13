@@ -7,6 +7,7 @@
 //
 
 #import "DLInMemoryAppStorage.h"
+#import "AppLibShared.h"
 
 @interface DLInMemoryAppStorage ()
 
@@ -15,6 +16,13 @@
 @end
 
 @implementation DLInMemoryAppStorage
+
++ (instancetype)sharedInstance
+{
+	SHARE_INSTANCE_BLOCK(^{
+		return [[self alloc] initWithCache:nil];
+	});
+}
 
 - (id)initWithCache:(NSCache *)cache
 {

@@ -10,4 +10,13 @@
 
 @interface DLInMemoryAppStorage : DLAppStorage
 
++ (instancetype)sharedInstance;
+
+/**
+ *  provide read access for the internal data store
+ *
+ *  @return a dictionary structure of the data store
+ */
+- (NSDictionary *)dataStore;
+
 @end
