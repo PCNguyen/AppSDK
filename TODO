@@ -7,8 +7,6 @@ AppLib
 		- Implement scheduling SDK from MailX project
 
 DataLib
-	App Persistent
-		- implement the InmemoryAppStorage
 	Disk Persistent
 		- implement DiskStorage
 	CoreData
