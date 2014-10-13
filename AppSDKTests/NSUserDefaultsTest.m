@@ -84,22 +84,91 @@ NSString *const UDDictionaryKey = @"UDDictionaryKey";
 
 - (void)testLoadValue
 {
+	NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
 	
+	XCTAssertNil([userDefault objectForKey:UDDictionaryKey]);
+	
+	[NSUserDefaults dl_saveValue:self.dictionaryValue forKey:UDDictionaryKey];
+	NSDictionary *dictionary = [NSUserDefaults dl_loadValueForKey:UDDictionaryKey];
+	XCTAssertEqualObjects(dictionary, self.dictionaryValue);
+	
+	//--clean up
+	[NSUserDefaults dl_saveValue:nil forKey:UDDictionaryKey];
 }
 
 - (void)testRemoveValue
 {
-
+	NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+	XCTAssertNil([userDefault objectForKey:UDDictionaryKey]);
+	
+	[NSUserDefaults dl_saveValue:self.dictionaryValue forKey:UDDictionaryKey];
+	[NSUserDefaults dl_removeObjectForKey:UDDictionaryKey sync:YES];
+	NSDictionary *dictionary = [NSUserDefaults dl_loadValueForKey:UDDictionaryKey];
+	
+	XCTAssertNil(dictionary);
 }
 
 - (void)testWipe
 {
-
+	NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+	NSInteger systemKeyCount = [[[userDefault dictionaryRepresentation] allKeys] count];
+	
+	//--make sure we start with a clean slate
+	XCTAssertNil([userDefault objectForKey:UDNumberKey]);
+	XCTAssertNil([userDefault objectForKey:UDStringKey]);
+	XCTAssertNil([userDefault objectForKey:UDArrayKey]);
+	XCTAssertNil([userDefault objectForKey:UDDictionaryKey]);
+	
+	//--save something
+	[NSUserDefaults dl_saveValue:self.numberValue forKey:UDNumberKey];
+	[NSUserDefaults dl_saveValue:self.stringValue forKey:UDStringKey];
+	[NSUserDefaults dl_saveValue:self.arrayValue forKey:UDArrayKey];
+	[NSUserDefaults dl_saveValue:self.dictionaryValue forKey:UDDictionaryKey];
+	
+	//--wipe
+	[NSUserDefaults dl_wipe];
+	
+	//--test
+	XCTAssertNil([userDefault objectForKey:UDNumberKey]);
+	XCTAssertNil([userDefault objectForKey:UDStringKey]);
+	XCTAssertNil([userDefault objectForKey:UDArrayKey]);
+	XCTAssertNil([userDefault objectForKey:UDDictionaryKey]);
+	
+	//--make sure we didn't wipe system keys
+	XCTAssertEqual([[[userDefault dictionaryRepresentation] allKeys] count], systemKeyCount);
 }
 
 - (void)testWipeExcluded
 {
-
+	NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+	NSInteger systemKeyCount = [[[userDefault dictionaryRepresentation] allKeys] count];
+	
+	//--make sure we start with a clean slate
+	XCTAssertNil([userDefault objectForKey:UDNumberKey]);
+	XCTAssertNil([userDefault objectForKey:UDStringKey]);
+	XCTAssertNil([userDefault objectForKey:UDArrayKey]);
+	XCTAssertNil([userDefault objectForKey:UDDictionaryKey]);
+	
+	//--save something
+	[NSUserDefaults dl_saveValue:self.numberValue forKey:UDNumberKey];
+	[NSUserDefaults dl_saveValue:self.stringValue forKey:UDStringKey];
+	[NSUserDefaults dl_saveValue:self.arrayValue forKey:UDArrayKey];
+	[NSUserDefaults dl_saveValue:self.dictionaryValue forKey:UDDictionaryKey];
+	
+	//--wipe everthing except String and Numbers
+	[NSUserDefaults dl_wipeExceptKeys:@[UDStringKey, UDNumberKey]];
+	
+	//--test
+	XCTAssertNotNil([userDefault objectForKey:UDNumberKey]);
+	XCTAssertNotNil([userDefault objectForKey:UDStringKey]);
+	XCTAssertNil([userDefault objectForKey:UDArrayKey]);
+	XCTAssertNil([userDefault objectForKey:UDDictionaryKey]);
+	
+	//--clean up
+	[NSUserDefaults dl_wipe];
+	
+	//--make sure we didn't wipe system keys
+	XCTAssertEqual([[[userDefault dictionaryRepresentation] allKeys] count], systemKeyCount);
 }
 
 @end
