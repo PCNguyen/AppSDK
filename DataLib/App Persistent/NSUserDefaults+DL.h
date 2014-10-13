@@ -56,6 +56,6 @@
  *
  *  @param excludedKeys the key to be kept from wiping
  */
-+ (void)dl_wipeExceptKey:(NSArray *)excludedKeys;
++ (void)dl_wipeExceptKeys:(NSArray *)excludedKeys;
 
 @end

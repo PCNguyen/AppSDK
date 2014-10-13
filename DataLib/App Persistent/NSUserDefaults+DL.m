@@ -65,7 +65,7 @@
 	
 }
 
-+ (void)dl_wipeExceptKey:(NSArray *)excludedKeys
++ (void)dl_wipeExceptKeys:(NSArray *)excludedKeys
 {
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 	NSMutableDictionary *tempStorage = [NSMutableDictionary dictionary];
