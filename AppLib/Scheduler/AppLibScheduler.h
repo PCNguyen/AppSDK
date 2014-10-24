@@ -9,5 +9,7 @@
 #ifndef AppSDK_AppLibScheduler_h
 #define AppSDK_AppLibScheduler_h
 
+#import "ALScheduleManager.h"
+#import "ALScheduledTask.h"
 
 #endif
