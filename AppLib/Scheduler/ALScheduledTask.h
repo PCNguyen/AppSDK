@@ -8,6 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^ALScheduledTaskHandler)();
+
 @interface ALScheduledTask : NSObject
+
+- (id)initWithTaskInterval:(NSTimeInterval)interval taskBlock:(ALScheduledTaskHandler)taskBlock;
+
+#pragma mark - Scheduling
+
+- (void)start;
+- (void)stop;
+- (void)triggerTask;
 
 @end
