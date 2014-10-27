@@ -3,6 +3,7 @@ AppLib
 
 	Shared
 		- Adding logging modules
+		- Adding data structure for multiple value key dictionary
 	Scheduler
 		- Implement scheduling SDK from MailX project
 
