@@ -13,11 +13,17 @@
 @property (nonatomic, assign) NSTimeInterval timeInterval;
 @property (readwrite, copy) ALScheduledTaskHandler taskBlock;
 @property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic, strong) NSMutableArray *terminationFlags;
+@property (nonatomic, strong) NSMutableSet *stopFlags;
+@property (nonatomic, strong) NSMutableSet *startFlags;
 
 @end
 
 @implementation ALScheduledTask
+
+- (void)dealloc
+{
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (id)initWithTaskInterval:(NSTimeInterval)interval taskBlock:(ALScheduledTaskHandler)taskBlock
 {
@@ -33,7 +39,14 @@
 
 - (void)start
 {
+	[self startAtDate:[NSDate date]];
+}
+
+- (void)startAtDate:(NSDate *)scheduledDate
+{
 	self.timer = [NSTimer timerWithTimeInterval:self.timeInterval target:self selector:@selector(triggerTask) userInfo:nil repeats:YES];
+	self.timer.fireDate = scheduledDate;
+
 	[[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
 }
 
@@ -53,5 +66,97 @@
 }
 
 #pragma mark - Termination Flag
+
+- (NSMutableSet *)stopFlags
+{
+	if (!_stopFlags) {
+		_stopFlags = [NSMutableSet set];
+	}
+	
+	return _stopFlags;
+}
+
+- (void)setTerminationFlags:(NSArray *)terminationFlags
+{
+	//--remove any previous registered notification
+	for (NSString *notificationName in self.stopFlags) {
+		[[NSNotificationCenter defaultCenter] removeObserver:self name:notificationName object:nil];
+	}
+	
+	self.stopFlags = [NSMutableSet setWithArray:terminationFlags];
+	
+	//--adding new notification
+	for (NSString *notificationName in self.stopFlags) {
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTerminationNotification:) name:notificationName object:nil];
+	}
+}
+
+- (void)addTerminationFlag:(NSString *)terminationFlag
+{
+	if (![self.stopFlags containsObject:terminationFlag]) {
+		[self.stopFlags addObject:terminationFlag];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTerminationNotification:) name:terminationFlag object:nil];
+	}
+}
+
+- (void)removeTerminationFlag:(NSString *)terminationFlag
+{
+	if ([self.stopFlags containsObject:terminationFlag]) {
+		[self.stopFlags removeObject:terminationFlag];
+		[[NSNotificationCenter defaultCenter] removeObserver:self name:terminationFlag object:nil];
+	}
+}
+
+- (void)handleTerminationNotification:(NSNotification *)notification
+{
+	[self stop];
+}
+
+#pragma mark - Resume Flag
+
+- (NSMutableSet *)startFlags
+{
+	if (!_startFlags) {
+		_startFlags = [NSMutableSet set];
+	}
+	
+	return _startFlags;
+}
+
+- (void)setResumeFlags:(NSArray *)resumeFlags
+{
+	//--remove any previous registered notification
+	for (NSString *notificationName in self.startFlags) {
+		[[NSNotificationCenter defaultCenter] removeObserver:self name:notificationName object:nil];
+	}
+	
+	self.startFlags = [NSMutableSet setWithArray:resumeFlags];
+	
+	//--adding new notification
+	for (NSString *notificationName in self.startFlags) {
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleResumeNotification:) name:notificationName object:nil];
+	}
+}
+
+- (void)addResumeFlag:(NSString *)resumeFlag
+{
+	if (![self.startFlags containsObject:resumeFlag]) {
+		[self.startFlags addObject:resumeFlag];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleResumeNotification:) name:resumeFlag object:nil];
+	}
+}
+
+- (void)removeResumeFlag:(NSString *)resumeFlag
+{
+	if ([self.startFlags containsObject:resumeFlag]) {
+		[self.startFlags removeObject:resumeFlag];
+		[[NSNotificationCenter defaultCenter] removeObserver:self name:resumeFlag object:nil];
+	}
+}
+
+- (void)handleResumeNotification:(NSNotification *)notification
+{
+	[self start];
+}
 
 @end
