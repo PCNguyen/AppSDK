@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NSMutableSet *stopFlags;
 @property (nonatomic, strong) NSMutableSet *startFlags;
+@property (nonatomic, strong) NSDate *stopDate;
 
 @end
 
@@ -46,7 +47,8 @@
 {
 	self.timer = [NSTimer timerWithTimeInterval:self.timeInterval target:self selector:@selector(triggerTask) userInfo:nil repeats:YES];
 	self.timer.fireDate = scheduledDate;
-
+	self.stopDate = nil;
+	
 	[[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
 }
 
@@ -55,6 +57,7 @@
 	if (self.timer) {
 		[self.timer invalidate];
 		self.timer = nil;
+		self.stopDate = [NSDate date];
 	}
 }
 
@@ -156,7 +159,15 @@
 
 - (void)handleResumeNotification:(NSNotification *)notification
 {
-	[self start];
+	NSTimeInterval timeElapsed = [self.stopDate timeIntervalSinceNow];
+	long timeRemain = self.timeInterval + timeElapsed; //--since timeElapse is negative
+	
+	if (timeRemain <= 0) {
+		[self start];
+	} else {
+		[self startAtDate:[NSDate dateWithTimeIntervalSinceNow:timeRemain]];
+	}
+	
 }
 
 @end
