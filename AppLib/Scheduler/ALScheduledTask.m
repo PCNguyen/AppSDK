@@ -29,6 +29,7 @@
 - (id)initWithTaskInterval:(NSTimeInterval)interval taskBlock:(ALScheduledTaskHandler)taskBlock
 {
 	if (self = [super init]) {
+		_taskID = [[NSUUID UUID] UUIDString];
 		_timeInterval = interval;
 		_taskBlock = taskBlock;
 	}
