@@ -14,6 +14,7 @@
 		0F69E0A819FEFFE400898CC5 /* ASMainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F69E0A719FEFFE400898CC5 /* ASMainMenu.m */; };
 		0F69E0AB19FF011D00898CC5 /* ASMainMenuDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F69E0AA19FF011D00898CC5 /* ASMainMenuDataSource.m */; };
 		0F69E0AE19FF02A700898CC5 /* ASScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F69E0AD19FF02A700898CC5 /* ASScheduleViewController.m */; };
+		0F69E0B119FF09FA00898CC5 /* ASScheduleDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F69E0B019FF09FA00898CC5 /* ASScheduleDataSource.m */; };
 		0F87C7FC19ABAED700E79260 /* NSLayoutConstraint+UL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F87C7F519ABAED600E79260 /* NSLayoutConstraint+UL.m */; };
 		0F87C7FE19ABAED700E79260 /* UIView+Hierachy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F87C7F919ABAED700E79260 /* UIView+Hierachy.m */; };
 		0F87C7FF19ABAED700E79260 /* UIView+LayoutPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F87C7FB19ABAED700E79260 /* UIView+LayoutPosition.m */; };
@@ -98,6 +99,8 @@
 		0F69E0AA19FF011D00898CC5 /* ASMainMenuDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMainMenuDataSource.m; sourceTree = "<group>"; };
 		0F69E0AC19FF02A700898CC5 /* ASScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASScheduleViewController.h; sourceTree = "<group>"; };
 		0F69E0AD19FF02A700898CC5 /* ASScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASScheduleViewController.m; sourceTree = "<group>"; };
+		0F69E0AF19FF09FA00898CC5 /* ASScheduleDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASScheduleDataSource.h; sourceTree = "<group>"; };
+		0F69E0B019FF09FA00898CC5 /* ASScheduleDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASScheduleDataSource.m; sourceTree = "<group>"; };
 		0F87C7F419ABAED600E79260 /* NSLayoutConstraint+UL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+UL.h"; sourceTree = "<group>"; };
 		0F87C7F519ABAED600E79260 /* NSLayoutConstraint+UL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+UL.m"; sourceTree = "<group>"; };
 		0F87C7F819ABAED700E79260 /* UIView+Hierachy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Hierachy.h"; sourceTree = "<group>"; };
@@ -249,6 +252,8 @@
 			children = (
 				0F69E0AC19FF02A700898CC5 /* ASScheduleViewController.h */,
 				0F69E0AD19FF02A700898CC5 /* ASScheduleViewController.m */,
+				0F69E0AF19FF09FA00898CC5 /* ASScheduleDataSource.h */,
+				0F69E0B019FF09FA00898CC5 /* ASScheduleDataSource.m */,
 			);
 			name = Scheduler;
 			sourceTree = "<group>";
@@ -748,6 +753,7 @@
 				0F8C268419254B3D00A6223A /* UITextField+UL.m in Sources */,
 				0F87C7FF19ABAED700E79260 /* UIView+LayoutPosition.m in Sources */,
 				0F9129CC19E857FF00F0111E /* DLAppStorage.m in Sources */,
+				0F69E0B119FF09FA00898CC5 /* ASScheduleDataSource.m in Sources */,
 				0F8C26591925376C00A6223A /* NSObject+AL.m in Sources */,
 				0F8C266B192540BF00A6223A /* UIAlertView+UL.m in Sources */,
 				0FC96E281925A49100AB5AE4 /* DLMOCManager.m in Sources */,

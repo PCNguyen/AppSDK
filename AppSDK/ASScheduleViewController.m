@@ -7,6 +7,7 @@
 //
 
 #import "ASScheduleViewController.h"
+#import "ALScheduleManager.h"
 
 @implementation ASScheduleViewController
 
