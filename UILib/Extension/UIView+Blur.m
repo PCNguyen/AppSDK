@@ -9,7 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "UIView+Blur.h"
-#import "UIImage+StackBlur.h"
+#import "UIImage+ImageEffects.h"
 
 static int kUIViewBlurOverlayTag = -2000;
 
@@ -17,19 +17,22 @@ static int kUIViewBlurOverlayTag = -2000;
 
 - (UIImage *)ul_screenShot
 {
-	UIGraphicsBeginImageContext(self.bounds.size);
-	[[self layer] renderInContext:UIGraphicsGetCurrentContext()];
-	UIImage *screenshot = UIGraphicsGetImageFromCurrentImageContext();
+	CGRect windowBounds = self.window.bounds;
+	CGSize windowSize = windowBounds.size;
+	
+	UIGraphicsBeginImageContextWithOptions(windowSize, YES, 0.0);
+	[self.window drawViewHierarchyInRect:windowBounds afterScreenUpdates:NO];
+	UIImage *snapshot = UIGraphicsGetImageFromCurrentImageContext();
+	
 	UIGraphicsEndImageContext();
 	
-	return screenshot;
+	return snapshot;
 }
 
 - (UIImageView *)__blurImageView
 {
 	UIImage *screenShot = [self ul_screenShot];
-	screenShot = [screenShot ul_stackBlur:10];
-	UIImageView *imageView = [[UIImageView alloc] initWithImage:screenShot];
+	UIImageView *imageView = [[UIImageView alloc] initWithImage:[screenShot applyBlurWithRadius:15.0f tintColor:nil saturationDeltaFactor:1.0f maskImage:nil]];
 	imageView.frame = self.bounds;
 	imageView.contentMode = UIViewContentModeScaleToFill;
 	imageView.tag = kUIViewBlurOverlayTag;
