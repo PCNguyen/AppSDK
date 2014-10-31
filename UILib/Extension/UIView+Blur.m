@@ -32,7 +32,7 @@ static int kUIViewBlurOverlayTag = -2000;
 - (UIImageView *)__blurImageView
 {
 	UIImage *screenShot = [self ul_screenShot];
-	UIImageView *imageView = [[UIImageView alloc] initWithImage:[screenShot applyLightEffect]];
+	UIImageView *imageView = [[UIImageView alloc] initWithImage:[screenShot applyBlurWithRadius:15.0f tintColor:nil saturationDeltaFactor:1.0f maskImage:nil]];
 	imageView.frame = self.bounds;
 	imageView.contentMode = UIViewContentModeScaleToFill;
 	imageView.tag = kUIViewBlurOverlayTag;
