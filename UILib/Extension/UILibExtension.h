@@ -10,6 +10,7 @@
 #define AppSDK_UILibExtension_h
 
 #import "UIImage+StackBlur.h"
+#import "UIImage+ImageEffects.h"
 #import "UIView+Blur.h"
 #import "UIView+Border.h"
 
