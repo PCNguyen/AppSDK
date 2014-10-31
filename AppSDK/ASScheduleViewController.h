@@ -9,6 +9,25 @@
 #import <UIKit/UIKit.h>
 #import "ASScheduleDataSource.h"
 
+@class ASTimerCell;
+
+@protocol ASTimerCellDelegate <NSObject>
+
+@optional
+- (void)timerCell:(ASTimerCell *)timerCell updateInterval:(CGFloat)interval;
+
+@end
+
+@interface ASTimerCell : UICollectionViewCell
+
+@property (nonatomic, assign) NSInteger index;
+@property (nonatomic, strong) UILabel *counterLabel;
+@property (nonatomic, strong) UITextField *intervalTextField;
+@property (nonatomic, strong) UIButton *updateButton;
+@property (nonatomic, weak) id<ASTimerCellDelegate>delegate;
+
+@end
+
 @interface ASScheduleViewController : UIViewController <ULViewDataBinding>
 
 @end
