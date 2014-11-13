@@ -11,6 +11,7 @@
 @interface ASBindingDataSource : ULViewDataSource
 
 @property (nonatomic, strong) NSString *textUpdate;
+
 @property (nonatomic, strong) NSNumber *numberUpdate;
 
 @end
