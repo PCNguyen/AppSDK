@@ -26,6 +26,10 @@
 	
 	self.view.backgroundColor = [UIColor whiteColor];
 	
+	/*
+	 * set up views here to get the free loadData called 
+	 * from UIViewController + AutoBinding
+	 */
 	[self.view addSubview:self.dynamicWidthLabel];
 	[self.view addSubview:self.autoUpdateView];
 }
@@ -35,6 +39,8 @@
 	[super viewDidLoad];
 
 	[self ul_adjustIOS7Boundaries];
+	
+	//--DEBUG: comment this out to see what happen
 	[self ul_setLayoutOnDataChange:YES];
 }
 
