@@ -34,6 +34,11 @@
  */
 - (void)ul_setLayoutOnDataChange:(BOOL)shouldLayout;
 
+/**
+ *  Load initial data from data source
+ */
+- (void)ul_loadData;
+
 #pragma mark - ULManagedDataSource Convenients
 
 /**
