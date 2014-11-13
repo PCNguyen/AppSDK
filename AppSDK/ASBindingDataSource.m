@@ -30,10 +30,11 @@
 	//--grabing new value
 	NSInteger nextUpdate = [self.numberUpdate integerValue] + 1;
 	
-	//--UI Automatic update when value is set
+	//--use begin and end batch update when changing multiple item
+	[self beginBatchUpdate];
 	self.numberUpdate = @(nextUpdate);
-	
 	[self updateText];
+	[self endBatchUpdate];
 }
 
 - (NSDictionary *)selectiveUpdateMap
