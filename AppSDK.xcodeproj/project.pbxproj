@@ -15,6 +15,9 @@
 		0F69E0AB19FF011D00898CC5 /* ASMainMenuDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F69E0AA19FF011D00898CC5 /* ASMainMenuDataSource.m */; };
 		0F69E0AE19FF02A700898CC5 /* ASScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F69E0AD19FF02A700898CC5 /* ASScheduleViewController.m */; };
 		0F69E0B119FF09FA00898CC5 /* ASScheduleDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F69E0B019FF09FA00898CC5 /* ASScheduleDataSource.m */; };
+		0F875B0B1A153E60008C25A6 /* ASBindingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F875B0A1A153E60008C25A6 /* ASBindingViewController.m */; };
+		0F875B0E1A153F21008C25A6 /* ASBindingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F875B0D1A153F21008C25A6 /* ASBindingView.m */; };
+		0F875B111A153F3F008C25A6 /* ASBindingDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F875B101A153F3F008C25A6 /* ASBindingDataSource.m */; };
 		0F87C7FC19ABAED700E79260 /* NSLayoutConstraint+UL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F87C7F519ABAED600E79260 /* NSLayoutConstraint+UL.m */; };
 		0F87C7FE19ABAED700E79260 /* UIView+Hierachy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F87C7F919ABAED700E79260 /* UIView+Hierachy.m */; };
 		0F87C7FF19ABAED700E79260 /* UIView+LayoutPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F87C7FB19ABAED700E79260 /* UIView+LayoutPosition.m */; };
@@ -102,6 +105,12 @@
 		0F69E0AD19FF02A700898CC5 /* ASScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASScheduleViewController.m; sourceTree = "<group>"; };
 		0F69E0AF19FF09FA00898CC5 /* ASScheduleDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASScheduleDataSource.h; sourceTree = "<group>"; };
 		0F69E0B019FF09FA00898CC5 /* ASScheduleDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASScheduleDataSource.m; sourceTree = "<group>"; };
+		0F875B091A153E60008C25A6 /* ASBindingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASBindingViewController.h; sourceTree = "<group>"; };
+		0F875B0A1A153E60008C25A6 /* ASBindingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASBindingViewController.m; sourceTree = "<group>"; };
+		0F875B0C1A153F21008C25A6 /* ASBindingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASBindingView.h; sourceTree = "<group>"; };
+		0F875B0D1A153F21008C25A6 /* ASBindingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASBindingView.m; sourceTree = "<group>"; };
+		0F875B0F1A153F3F008C25A6 /* ASBindingDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASBindingDataSource.h; sourceTree = "<group>"; };
+		0F875B101A153F3F008C25A6 /* ASBindingDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASBindingDataSource.m; sourceTree = "<group>"; };
 		0F87C7F419ABAED600E79260 /* NSLayoutConstraint+UL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+UL.h"; sourceTree = "<group>"; };
 		0F87C7F519ABAED600E79260 /* NSLayoutConstraint+UL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+UL.m"; sourceTree = "<group>"; };
 		0F87C7F819ABAED700E79260 /* UIView+Hierachy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Hierachy.h"; sourceTree = "<group>"; };
@@ -261,6 +270,19 @@
 			name = Scheduler;
 			sourceTree = "<group>";
 		};
+		0F875B081A153DFD008C25A6 /* DataBinding */ = {
+			isa = PBXGroup;
+			children = (
+				0F875B091A153E60008C25A6 /* ASBindingViewController.h */,
+				0F875B0A1A153E60008C25A6 /* ASBindingViewController.m */,
+				0F875B0C1A153F21008C25A6 /* ASBindingView.h */,
+				0F875B0D1A153F21008C25A6 /* ASBindingView.m */,
+				0F875B0F1A153F3F008C25A6 /* ASBindingDataSource.h */,
+				0F875B101A153F3F008C25A6 /* ASBindingDataSource.m */,
+			);
+			name = DataBinding;
+			sourceTree = "<group>";
+		};
 		0F87C7F319ABAEA100E79260 /* Autolayout */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +337,7 @@
 		0F8C26051924FA1400A6223A /* AppSDK */ = {
 			isa = PBXGroup;
 			children = (
+				0F875B081A153DFD008C25A6 /* DataBinding */,
 				0F69E0A519FEFF6E00898CC5 /* Scheduler */,
 				0F8C260E1924FA1400A6223A /* ASAppDelegate.h */,
 				0F8C260F1924FA1400A6223A /* ASAppDelegate.m */,
@@ -731,6 +754,7 @@
 			files = (
 				0F8C26C11925967600A6223A /* ULDataSourceManager.m in Sources */,
 				0F8C264519252C7200A6223A /* UIImage+StackBlur.m in Sources */,
+				0F875B0B1A153E60008C25A6 /* ASBindingViewController.m in Sources */,
 				0F8C266519253E9A00A6223A /* UIColor+UL.m in Sources */,
 				0FC96F5D192A6EAE00AB5AE4 /* UIView+Border.m in Sources */,
 				0F8C26101924FA1400A6223A /* ASAppDelegate.m in Sources */,
@@ -764,6 +788,8 @@
 				0FC96E281925A49100AB5AE4 /* DLMOCManager.m in Sources */,
 				0F91298719E73BFB00F0111E /* DLStorage.m in Sources */,
 				0F8C265619252F9500A6223A /* ULViewDataSource.m in Sources */,
+				0F875B111A153F3F008C25A6 /* ASBindingDataSource.m in Sources */,
+				0F875B0E1A153F21008C25A6 /* ASBindingView.m in Sources */,
 				0F8C260C1924FA1400A6223A /* main.m in Sources */,
 				0F69E0AE19FF02A700898CC5 /* ASScheduleViewController.m in Sources */,
 				0F8C26C71925986900A6223A /* ULTagTableViewController.m in Sources */,
