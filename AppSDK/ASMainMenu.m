@@ -11,13 +11,6 @@
 
 @implementation ASMainMenu
 
-- (void)viewDidLoad
-{
-	[super viewDidLoad];
-	
-	[[self dataSource] loadData];
-}
-
 #pragma mark - ULViewDataBinding
 
 - (Class)ul_binderClass

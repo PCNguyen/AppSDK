@@ -20,20 +20,22 @@
 
 @implementation ASBindingViewController
 
-- (void)viewDidLoad
+- (void)loadView
 {
-	[super viewDidLoad];
+	[super loadView];
 	
-	[self ul_adjustIOS7Boundaries];
 	self.view.backgroundColor = [UIColor whiteColor];
-	
-	[self ul_setLayoutOnDataChange:YES];
-	[self ul_loadData]; //--load initial data for this view
 	
 	[self.view addSubview:self.dynamicWidthLabel];
 	[self.view addSubview:self.autoUpdateView];
-	
-	[self.autoUpdateView ul_loadData]; //--load initial data for sub view
+}
+
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
+
+	[self ul_adjustIOS7Boundaries];
+	[self ul_setLayoutOnDataChange:YES];
 }
 
 - (void)viewWillLayoutSubviews
