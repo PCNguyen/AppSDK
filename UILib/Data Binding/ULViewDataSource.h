@@ -57,13 +57,6 @@
  */
 @property (nonatomic, assign) BOOL shouldUpdateLayout;
 
-/**
- *  Determine if data should reload when view layout happens
- *	If set to YES, observer pull data from dataSource upon layoutSubview call
- *	Default is NO
- */
-@property (nonatomic, assign) BOOL shouldReloadWithLayoutUpdate;
-
 /***
  * If we don't want UI change until all the updates finished.
  * Wrap this before and after properties update.

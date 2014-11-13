@@ -28,10 +28,8 @@ static void *kUSViewDataSourceUpdatingContext = &kUSViewDataSourceUpdatingContex
 		[self ignoreUpdateProperty:@selector(ignoreUpdateProperties)];
 		[self ignoreUpdateProperty:@selector(isBatchUpdate)];
 		[self ignoreUpdateProperty:@selector(shouldUpdateLayout)];
-		[self ignoreUpdateProperty:@selector(shouldReloadWithLayoutUpdate)];
 		
 		_shouldUpdateLayout = NO;
-		_shouldReloadWithLayoutUpdate = NO;
 		
 		[self registerAllPropertiesForKVO];
 	}
