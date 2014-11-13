@@ -27,7 +27,9 @@
 		[self addSubview:self.numberLabel];
 		
 		//--DEBUG: Comment this out to see what happen
-		[[self dataSource] setShouldUpdateLayout:YES];
+		[self ul_setLayoutOnDataChange:YES];
+		
+		//--load initial data
 		[[self dataSource] loadData];
 	}
 	
