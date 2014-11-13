@@ -18,24 +18,36 @@
 - (void)loadData
 {
 	//--UI Automatic update when value is set
-	self.numberUpdate = @(0);
+	self.numberUpdate = @(3);
 	
-	//--Same with this
-	self.textUpdate = [NSString stringWithFormat:@"%@", [NSDate date]];
+	[self updateText];
 	
-	[NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(updateValueProcess) userInfo:nil repeats:YES];
+	[NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateValueProcess) userInfo:nil repeats:YES];
 }
 
 - (void)updateValueProcess
 {
 	//--grabing new value
-	NSInteger nextUpdate = [self.numberUpdate integerValue];
+	NSInteger nextUpdate = [self.numberUpdate integerValue] + 1;
 	
-	//--UI automatic update via binding for free! You are welcome!
-	self.numberUpdate = @(nextUpdate++);
+	//--UI Automatic update when value is set
+	self.numberUpdate = @(nextUpdate);
 	
-	//--same with this
-	self.textUpdate = [NSString stringWithFormat:@"%@", [NSDate date]];
+	[self updateText];
+}
+
+- (NSDictionary *)selectiveUpdateMap
+{
+	return @{}; //--need to fix this
+}
+
+- (void)updateText
+{
+	NSString *timeStamp = [NSString stringWithFormat:@"%@", [NSDate date]];
+	NSInteger subStringLength = [self.numberUpdate integerValue] % 7;
+	
+	//--UI Automatic update when value is set
+	self.textUpdate = [timeStamp  substringToIndex:subStringLength];
 }
 
 @end

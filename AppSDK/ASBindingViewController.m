@@ -8,6 +8,7 @@
 
 #import "ASBindingViewController.h"
 #import "ASBindingView.h"
+#import "UIViewController+UL.h"
 
 @interface ASBindingViewController ()
 
@@ -22,6 +23,7 @@
 {
 	[super viewDidLoad];
 	
+	[self ul_adjustIOS7Boundaries];
 	self.view.backgroundColor = [UIColor whiteColor];
 	
 	[self.view addSubview:self.dynamicWidthLabel];

@@ -25,6 +25,10 @@
 	if (self = [super initWithFrame:frame]) {
 		[self addSubview:self.dynamicLabel];
 		[self addSubview:self.numberLabel];
+		
+		//--DEBUG: Comment this out to see what happen
+		[[self dataSource] setShouldUpdateLayout:YES];
+		[[self dataSource] loadData];
 	}
 	
 	return self;
