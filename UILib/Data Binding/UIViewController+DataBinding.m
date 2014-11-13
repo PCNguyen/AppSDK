@@ -117,6 +117,11 @@
 	[self ul_currentBinderSource].shouldUpdateLayout = shouldLayout;
 }
 
+- (void)ul_loadData
+{
+	[[self ul_currentBinderSource] loadData];
+}
+
 #pragma mark - RPViewDataSourceDelegate
 
 - (void)viewDataSource:(ULViewDataSource *)dataSource updateBindingKey:(NSString *)bindKey
