@@ -9,6 +9,7 @@
 #import "ASBindingViewController.h"
 #import "ASBindingView.h"
 #import "UIViewController+UL.h"
+#import "UIViewController+DataBinding.h"
 
 @interface ASBindingViewController ()
 
@@ -26,8 +27,13 @@
 	[self ul_adjustIOS7Boundaries];
 	self.view.backgroundColor = [UIColor whiteColor];
 	
+	[self ul_setLayoutOnDataChange:YES];
+	[self ul_loadData]; //--load initial data for this view
+	
 	[self.view addSubview:self.dynamicWidthLabel];
 	[self.view addSubview:self.autoUpdateView];
+	
+	[self.autoUpdateView ul_loadData]; //--load initial data for sub view
 }
 
 - (void)viewWillLayoutSubviews

@@ -7,7 +7,6 @@
 //
 
 #import "ASBindingView.h"
-#import "UIView+DataBinding.h"
 
 @interface ASBindingView ()
 
@@ -28,9 +27,6 @@
 		
 		//--DEBUG: Comment this out to see what happen
 		[self ul_setLayoutOnDataChange:YES];
-		
-		//--load initial data
-		[[self dataSource] loadData];
 	}
 	
 	return self;

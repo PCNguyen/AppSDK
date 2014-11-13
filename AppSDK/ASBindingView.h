@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ASBindingDataSource.h"
+#import "UIView+DataBinding.h"
 
 @interface ASBindingView : UIView <ULViewDataBinding>
 
