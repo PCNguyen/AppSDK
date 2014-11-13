@@ -15,25 +15,6 @@
 
 @implementation UIViewController (DataBinding)
 
-+ (void)load
-{
-	static dispatch_once_t token;
-	[self al_swizzleSelector:@selector(viewWillLayoutSubviews)
-				  bySelector:@selector(__swizzlingViewWillLayoutSubViews)
-			   dispatchToken:token];
-}
-
-#pragma mark - SWIZZLING - DANGEROUS STUFF
-
-- (void)__swizzlingViewWillLayoutSubViews
-{
-	if ([[self ul_currentBinderSource] shouldReloadWithLayoutUpdate]) {
-		[self __handleBindinUpdate];
-	}
-	
-	[self __swizzlingViewWillLayoutSubViews];
-}
-
 #pragma mark - Auto Binding
 
 - (void)__handleBindingUpdateValue:(id)key withBindedValue:(id)bindingKey
@@ -135,26 +116,26 @@
 
 - (void)viewDataSource:(ULViewDataSource *)dataSource updateBindingKey:(NSString *)bindKey
 {
-	if (dataSource.shouldUpdateLayout) {
-		[self viewWillLayoutSubviews];
-	} else {
-		if ([self __isBindingMode]) {
-			[[self ul_bindingInfo] enumerateKeysAndObjectsUsingBlock:^(id uiValue, id sourceValue, BOOL *stop){
-				if ([sourceValue isEqualToString:bindKey]) {
-					[self __handleBindingUpdateValue:uiValue withBindedValue:sourceValue];
-				}
-			}];
+	if ([self __isBindingMode]) {
+		[[self ul_bindingInfo] enumerateKeysAndObjectsUsingBlock:^(id uiValue, id sourceValue, BOOL *stop){
+			if ([sourceValue isEqualToString:bindKey]) {
+				[self __handleBindingUpdateValue:uiValue withBindedValue:sourceValue];
+			}
+		}];
+		
+		if (dataSource.shouldUpdateLayout) {
+			[self viewWillLayoutSubviews];
 		}
 	}
 }
 
 - (void)viewDataSourceUpdateAllBindingKey:(ULViewDataSource *)dataSource
 {
-	if (dataSource.shouldUpdateLayout) {
-		[self viewWillLayoutSubviews];
-	} else {
-		if ([self __isBindingMode]) {
-			[self __handleBindinUpdate];
+	if ([self __isBindingMode]) {
+		[self __handleBindinUpdate];
+		
+		if (dataSource.shouldUpdateLayout) {
+			[self viewWillLayoutSubviews];
 		}
 	}
 }
