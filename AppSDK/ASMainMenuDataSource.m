@@ -7,8 +7,10 @@
 //
 
 #import "ASMainMenuDataSource.h"
-#import "ASScheduleViewController.h"
 #import "NSArray+AL.h"
+
+#import "ASScheduleViewController.h"
+#import "ASBindingViewController.h"
 
 @implementation ASMenuItem
 
@@ -35,6 +37,7 @@
 {
 	[self beginBatchUpdate];
 	[self addTopic:@"Scheduler" viewControllerClass:[ASScheduleViewController class]];
+	[self addTopic:@"View Binding" viewControllerClass:[ASBindingViewController class]];
 	[self endBatchUpdate];
 }
 

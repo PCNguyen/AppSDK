@@ -113,6 +113,8 @@ NSString *const SVCCellIdentifier = @"SVCCellIdentifier";
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
+	
+	self.view.backgroundColor = [UIColor whiteColor];
 }
 
 #pragma mark - ULViewDataBinding
