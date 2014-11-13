@@ -112,6 +112,11 @@
 	return bindingExist;
 }
 
+- (void)ul_setLayoutOnDataChange:(BOOL)shouldLayout
+{
+	[self ul_currentBinderSource].shouldUpdateLayout = shouldLayout;
+}
+
 #pragma mark - RPViewDataSourceDelegate
 
 - (void)viewDataSource:(ULViewDataSource *)dataSource updateBindingKey:(NSString *)bindKey

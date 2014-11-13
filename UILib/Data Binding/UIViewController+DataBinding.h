@@ -27,6 +27,15 @@
  */
 - (ULViewDataSource *)ul_currentBinderSource;
 
+/**
+ *  determine if we should relayout
+ *	if set to YES, this will trigger viewWillLayoutSubViews
+ *	upon data updates
+ *
+ *  @param shouldLayout layout or not layout
+ */
+- (void)ul_setLayoutOnDataChange:(BOOL)shouldLayout;
+
 #pragma mark - ULManagedDataSource Convenients
 
 /**

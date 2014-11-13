@@ -41,6 +41,7 @@
 /***
  * this get called on [ULDataSourceManager notifyDataSourcesOfService:]
  * if managedService match notified service
+ * if not override, it will call loadData by default
  */
 - (void)handleDataUpdatedForService:(NSString *)serviceName;
 

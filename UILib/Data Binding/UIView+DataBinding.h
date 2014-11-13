@@ -27,6 +27,13 @@
  */
 - (ULViewDataSource *)ul_currentBinderSource;
 
+/**
+ *  determine if we should relayout automaticly when data update
+ *
+ *  @param shouldLayout layout or not layout
+ */
+- (void)ul_setLayoutOnDataChange:(BOOL)shouldLayout;
+
 #pragma mark - ULManagedDataSource Convenients
 
 /**
