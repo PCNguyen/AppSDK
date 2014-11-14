@@ -231,14 +231,16 @@ NSString *const SVCCellIdentifier = @"SVCCellIdentifier";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
 	ASTimerCell *timerCell = [collectionView dequeueReusableCellWithReuseIdentifier:SVCCellIdentifier forIndexPath:indexPath];
+	timerCell.index = indexPath.item;
+	
 	timerCell.backgroundColor = [UIColor whiteColor];
 	timerCell.layer.borderColor = [[UIColor grayColor] CGColor];
 	timerCell.layer.borderWidth = 1.0f;
 	timerCell.layer.cornerRadius = 2.0f;
-	
+
 	ASCounterTask *counterTask = [[self dataSource] counterTaskAtIndexPath:indexPath];
 	timerCell.counterLabel.text = [NSString stringWithFormat:@"%ld", counterTask.currentCount];
-	timerCell.intervalTextField.text = [NSString stringWithFormat:@"%f", counterTask.timeInterval];
+	timerCell.intervalTextField.text = [NSString stringWithFormat:@"%.0f", counterTask.timeInterval];
 	timerCell.delegate = self;
 	
 	return timerCell;

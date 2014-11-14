@@ -59,8 +59,12 @@
 
 - (void)updateTimeInterval:(NSTimeInterval)timeInterval forIndexPath:(NSIndexPath *)indexPath
 {
-	ASCounterTask *counterTask = [self counterTaskAtIndexPath:indexPath];
-	counterTask.timeInterval = timeInterval;
+	NSMutableArray *updatedArray = [NSMutableArray arrayWithArray:self.counterList];
+	ASCounterTask *counterTask = [updatedArray al_objectAtIndex:indexPath.item];
+	if (counterTask) {
+		counterTask.timeInterval = timeInterval;
+		self.counterList = [NSArray arrayWithArray:updatedArray];
+	}
 }
 
 - (NSString *)masterCountText
