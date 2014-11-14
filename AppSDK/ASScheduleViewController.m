@@ -110,11 +110,18 @@ NSString *const SVCCellIdentifier = @"SVCCellIdentifier";
 
 @implementation ASScheduleViewController
 
+- (void)loadView
+{
+	[super loadView];
+	
+	self.view.backgroundColor = [UIColor whiteColor];
+	[self.view addSubview:self.mainCounter];
+	[self.view addSubview:self.counterView];
+}
+
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
-	
-	self.view.backgroundColor = [UIColor whiteColor];
 }
 
 #pragma mark - ULViewDataBinding
