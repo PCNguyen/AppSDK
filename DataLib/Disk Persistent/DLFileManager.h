@@ -70,4 +70,9 @@
  */
 - (void)trackFileURL:(NSURL *)fileURL expirationDate:(NSDate *)expirationDate;
 
+/**
+ *  Execute file clean up directly. Any expired file will be removed
+ */
+- (void)handleFileCleanUp;
+
 @end
