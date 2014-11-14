@@ -8,8 +8,7 @@
 
 #import "UIView+DataBinding.h"
 #import "ULManagedDataSource.h"
-#import "ALPropertiesTransformer.h"
-#import "ALSetterTransformer.h"
+#import "AppLibValueTransformer.h"
 
 #import "NSObject+AL.h"
 
