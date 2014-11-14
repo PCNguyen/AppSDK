@@ -13,6 +13,8 @@
 
 - (void)loadData
 {
+	[DLFileManager sharedManager].cleanUpInterval = 2*60;
+	
 	NSURL *documentDirectory = [[DLFileManager sharedManager] urlForDocumentsDirectory];
 	NSArray *allFileURLs = [[DLFileManager sharedManager] contentsOfDirectoryAtPath:[documentDirectory path] error:NULL];
 	
