@@ -10,7 +10,6 @@
 
 @interface ALScheduledTask ()
 
-@property (nonatomic, assign) NSTimeInterval timeInterval;
 @property (readwrite, copy) ALScheduledTaskHandler taskBlock;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NSMutableSet *stopFlags;

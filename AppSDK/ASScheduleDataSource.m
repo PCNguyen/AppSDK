@@ -11,7 +11,7 @@
 #import "ALScheduleManager.h"
 
 #define kSDSCounterNumber				6
-#define kSDSDefaultTimeInterval			2
+#define kSDSDefaultTimeInterval			5
 
 /*************************
  *  ASCounterTask
@@ -83,6 +83,7 @@
 			
 		}];
 		
+		scheduledTask.taskID = counterID;
 		[scheduledTask setTerminationFlags:[ALScheduledTask defaultTerminationFlags]];
 		[scheduledTask setResumeFlags:[ALScheduledTask defaultResumeFlags]];
 		
@@ -106,7 +107,15 @@
 	ASCounterTask *counterTask = [updatedArray al_objectAtIndex:indexPath.item];
 	if (counterTask) {
 		counterTask.timeInterval = timeInterval;
+		
+		//--update UI
 		self.counterList = [NSArray arrayWithArray:updatedArray];
+		
+		//--udate scheudler
+		ALScheduledTask *scheduledTask = [[ALScheduleManager sharedManager] scheduledTaskForID:counterTask.counterID];
+		scheduledTask.timeInterval = timeInterval;
+		[[ALScheduleManager sharedManager] unScheduleTaskID:counterTask.counterID];
+		[[ALScheduleManager sharedManager] scheduleTask:scheduledTask];
 	}
 }
 

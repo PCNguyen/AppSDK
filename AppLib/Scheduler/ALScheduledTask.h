@@ -14,6 +14,8 @@ typedef void(^ALScheduledTaskHandler)();
 
 @property (nonatomic, strong) NSString *taskID;
 
+@property (nonatomic, assign) NSTimeInterval timeInterval;
+
 - (id)initWithTaskInterval:(NSTimeInterval)interval taskBlock:(ALScheduledTaskHandler)taskBlock;
 
 #pragma mark - Scheduling
