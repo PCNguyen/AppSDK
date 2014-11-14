@@ -32,15 +32,18 @@
 	[self beginBatchUpdate];
 	self.masterCount = 0;
 	
+	NSMutableArray *counterList = [NSMutableArray array];
+	
 	for (int i = 0; i < 6; i++) {
 		ASCounterTask *counterTask = [ASCounterTask new];
 		counterTask.currentCount = i;
 		counterTask.timeInterval = kSDSDefaultTimeInterval;
 		counterTask.counterID = [NSString stringWithFormat:@"%d", i];
 		
-		[self.counterList addObject:counterTask];
+		[counterList addObject:counterTask];
 	}
 	
+	self.counterList = counterList;
 	[self endBatchUpdate];
 }
 

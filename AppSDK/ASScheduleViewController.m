@@ -23,11 +23,16 @@
 		[self.contentView addSubview:self.updateButton];
 		[self.contentView addSubview:self.intervalTextField];
 		[self.contentView addSubview:self.counterLabel];
-		
+
 		[self layoutViews]; //--quick autolayout since we have only a couple of cell
 	}
 	
 	return self;
+}
+
+- (void)layoutSubviews
+{
+	[super layoutSubviews];
 }
 
 - (void)layoutViews
@@ -59,6 +64,7 @@
 		_intervalTextField.textAlignment = NSTextAlignmentCenter;
 		_intervalTextField.borderStyle = UITextBorderStyleLine;
 		[_intervalTextField ul_enableAutoLayout];
+		[_intervalTextField ul_tightenContentWithPriority:UILayoutPriorityDefaultHigh];
 	}
 	
 	return _intervalTextField;
@@ -68,8 +74,10 @@
 {
 	if (!_updateButton) {
 		_updateButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+		_updateButton.backgroundColor = [UIColor greenColor];
 		[_updateButton setTitle:@"Update" forState:UIControlStateNormal];
 		[_updateButton ul_enableAutoLayout];
+		[_updateButton ul_tightenContentWithPriority:UILayoutPriorityDefaultHigh];
 		[_updateButton addTarget:self action:@selector(handleUpdateButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
 	}
 	
@@ -200,8 +208,11 @@ NSString *const SVCCellIdentifier = @"SVCCellIdentifier";
 - (UICollectionView *)counterView
 {
 	if (!_counterView) {
-		_counterView = [[UICollectionView alloc] initWithFrame:CGRectZero];
-		_counterView.collectionViewLayout = [[UICollectionViewFlowLayout alloc] init];
+		UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+		flowLayout.minimumInteritemSpacing = 5.0f;
+		flowLayout.minimumLineSpacing = 5.0f;
+		_counterView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+		_counterView.backgroundColor = [UIColor whiteColor];
 		[_counterView registerClass:[ASTimerCell class] forCellWithReuseIdentifier:SVCCellIdentifier];
 		_counterView.delegate = self;
 		_counterView.dataSource = self;
@@ -220,6 +231,10 @@ NSString *const SVCCellIdentifier = @"SVCCellIdentifier";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
 	ASTimerCell *timerCell = [collectionView dequeueReusableCellWithReuseIdentifier:SVCCellIdentifier forIndexPath:indexPath];
+	timerCell.backgroundColor = [UIColor whiteColor];
+	timerCell.layer.borderColor = [[UIColor grayColor] CGColor];
+	timerCell.layer.borderWidth = 1.0f;
+	timerCell.layer.cornerRadius = 2.0f;
 	
 	ASCounterTask *counterTask = [[self dataSource] counterTaskAtIndexPath:indexPath];
 	timerCell.counterLabel.text = [NSString stringWithFormat:@"%ld", counterTask.currentCount];
@@ -227,6 +242,11 @@ NSString *const SVCCellIdentifier = @"SVCCellIdentifier";
 	timerCell.delegate = self;
 	
 	return timerCell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+	return CGSizeMake(collectionView.bounds.size.width / 3 - 5.0f, collectionView.bounds.size.width / 3 - 5.0f);
 }
 
 #pragma mark - ASTimerCellDelegate

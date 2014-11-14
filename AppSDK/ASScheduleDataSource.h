@@ -19,7 +19,7 @@
 @interface ASScheduleDataSource : ULViewDataSource
 
 @property (nonatomic, assign) NSInteger masterCount;
-@property (nonatomic, strong) NSMutableArray *counterList;
+@property (nonatomic, strong) NSArray *counterList;
 
 - (ASCounterTask *)counterTaskAtIndexPath:(NSIndexPath *)indexPath;
 
