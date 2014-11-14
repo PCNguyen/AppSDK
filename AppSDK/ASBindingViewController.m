@@ -42,6 +42,8 @@
 	
 	//--DEBUG: comment this out to see what happen
 	[self ul_setLayoutOnDataChange:YES];
+	[self ul_loadData];
+	[self.dynamicWidthLabel ul_loadData];
 }
 
 - (void)viewWillLayoutSubviews

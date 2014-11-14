@@ -136,6 +136,7 @@ NSString *const SVCCellIdentifier = @"SVCCellIdentifier";
 	[super viewDidLoad];
 	
 	[self ul_adjustIOS7Boundaries];
+	[self ul_loadData];
 }
 
 - (void)viewWillLayoutSubviews

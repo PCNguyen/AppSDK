@@ -18,7 +18,6 @@
 		0F875B0B1A153E60008C25A6 /* ASBindingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F875B0A1A153E60008C25A6 /* ASBindingViewController.m */; };
 		0F875B0E1A153F21008C25A6 /* ASBindingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F875B0D1A153F21008C25A6 /* ASBindingView.m */; };
 		0F875B111A153F3F008C25A6 /* ASBindingDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F875B101A153F3F008C25A6 /* ASBindingDataSource.m */; };
-		0F875B151A1565F5008C25A6 /* UIViewController+AutoBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F875B141A1565F5008C25A6 /* UIViewController+AutoBinding.m */; };
 		0F875B181A158670008C25A6 /* DLFileStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F875B171A158670008C25A6 /* DLFileStorage.m */; };
 		0F87C7FC19ABAED700E79260 /* NSLayoutConstraint+UL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F87C7F519ABAED600E79260 /* NSLayoutConstraint+UL.m */; };
 		0F87C7FE19ABAED700E79260 /* UIView+Hierachy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F87C7F919ABAED700E79260 /* UIView+Hierachy.m */; };
@@ -113,8 +112,6 @@
 		0F875B0D1A153F21008C25A6 /* ASBindingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASBindingView.m; sourceTree = "<group>"; };
 		0F875B0F1A153F3F008C25A6 /* ASBindingDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASBindingDataSource.h; sourceTree = "<group>"; };
 		0F875B101A153F3F008C25A6 /* ASBindingDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASBindingDataSource.m; sourceTree = "<group>"; };
-		0F875B131A1565F5008C25A6 /* UIViewController+AutoBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AutoBinding.h"; sourceTree = "<group>"; };
-		0F875B141A1565F5008C25A6 /* UIViewController+AutoBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AutoBinding.m"; sourceTree = "<group>"; };
 		0F875B161A158670008C25A6 /* DLFileStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFileStorage.h; sourceTree = "<group>"; };
 		0F875B171A158670008C25A6 /* DLFileStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFileStorage.m; sourceTree = "<group>"; };
 		0F87C7F419ABAED600E79260 /* NSLayoutConstraint+UL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+UL.h"; sourceTree = "<group>"; };
@@ -285,8 +282,6 @@
 				0F875B0D1A153F21008C25A6 /* ASBindingView.m */,
 				0F875B0F1A153F3F008C25A6 /* ASBindingDataSource.h */,
 				0F875B101A153F3F008C25A6 /* ASBindingDataSource.m */,
-				0F875B131A1565F5008C25A6 /* UIViewController+AutoBinding.h */,
-				0F875B141A1565F5008C25A6 /* UIViewController+AutoBinding.m */,
 			);
 			name = DataBinding;
 			sourceTree = "<group>";
@@ -779,7 +774,6 @@
 				0F8C2678192544AE00A6223A /* NSArray+AL.m in Sources */,
 				0FC96E361925B19F00AB5AE4 /* DLMOCInteraction.m in Sources */,
 				0F8C2675192543BF00A6223A /* UIViewController+UL.m in Sources */,
-				0F875B151A1565F5008C25A6 /* UIViewController+AutoBinding.m in Sources */,
 				0FC96E231925A3E500AB5AE4 /* NSManagedObjectContext+DL.m in Sources */,
 				0FC96E351925B19F00AB5AE4 /* DLMOCMonitor+Section.m in Sources */,
 				0FC96E201925A36400AB5AE4 /* NSManagedObject+DL.m in Sources */,
