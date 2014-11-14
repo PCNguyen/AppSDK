@@ -119,11 +119,6 @@ NSString *const SVCCellIdentifier = @"SVCCellIdentifier";
 	[self.view addSubview:self.counterView];
 }
 
-- (void)viewDidLoad
-{
-	[super viewDidLoad];
-}
-
 #pragma mark - ULViewDataBinding
 
 - (Class)ul_binderClass
@@ -185,7 +180,8 @@ NSString *const SVCCellIdentifier = @"SVCCellIdentifier";
 
 - (void)timerCell:(ASTimerCell *)timerCell updateInterval:(CGFloat)interval
 {
-	//--TODO: change the dataSource sync interval
+	[[self dataSource] updateTimeInterval:interval
+							 forIndexPath:[NSIndexPath indexPathForRow:timerCell.index inSection:0]];
 }
 
 @end

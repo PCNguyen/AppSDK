@@ -10,6 +10,7 @@
 
 @interface ASCounterTask : NSObject
 
+@property (nonatomic, strong) NSString *counterID;
 @property (nonatomic, assign) NSTimeInterval timeInterval;
 @property (nonatomic, assign) NSInteger currentCount;
 
@@ -18,7 +19,7 @@
 @interface ASScheduleDataSource : ULViewDataSource
 
 @property (nonatomic, assign) NSInteger masterCount;
-@property (nonatomic, strong) NSArray *counterList;
+@property (nonatomic, strong) NSMutableArray *counterList;
 
 - (ASCounterTask *)counterTaskAtIndexPath:(NSIndexPath *)indexPath;
 

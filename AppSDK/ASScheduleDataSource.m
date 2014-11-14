@@ -8,12 +8,28 @@
 
 #import "ASScheduleDataSource.h"
 #import "NSArray+AL.h"
+#import "ALScheduleManager.h"
+
+#define kSDSCounterNumber				6
+#define kSDSDefaultTimeInterval			2
 
 @implementation ASScheduleDataSource
 
 - (void)loadData
 {
-
+	[self beginBatchUpdate];
+	self.masterCount = 0;
+	
+	for (int i = 0; i < 6; i++) {
+		ASCounterTask *counterTask = [ASCounterTask new];
+		counterTask.currentCount = i;
+		counterTask.timeInterval = kSDSDefaultTimeInterval;
+		counterTask.counterID = [NSString stringWithFormat:@"%d", i];
+		
+		[self.counterList addObject:counterTask];
+	}
+	
+	[self endBatchUpdate];
 }
 
 - (NSDictionary *)selectiveUpdateMap
