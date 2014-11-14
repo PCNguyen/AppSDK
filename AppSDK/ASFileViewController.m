@@ -11,7 +11,18 @@
 
 NSString *const FVCCellIdentifier = @"FVCCellIdentifier";
 
+@interface ASFileViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+
+@end
+
 @implementation ASFileViewController
+
+- (void)loadView
+{
+	[super loadView];
+	
+	self.navigationItem.rightBarButtonItem = [self addImageItem];
+}
 
 #pragma mark - ULViewDataBinding Protocol
 
@@ -54,6 +65,38 @@ NSString *const FVCCellIdentifier = @"FVCCellIdentifier";
 	cell.textLabel.text = fileName;
 	
 	return cell;
+}
+
+#pragma mark - Navigation Item
+
+- (UIBarButtonItem *)addImageItem
+{
+	UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(handleAddImageItemTapped:)];
+	
+	return barButtonItem;
+}
+
+- (void)handleAddImageItemTapped:(id)sender
+{
+	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+	imagePicker.delegate = self;
+	imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+	
+	NSArray *mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:imagePicker.sourceType];
+	NSArray *imageMediaTypesOnly = [mediaTypes filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(SELF contains %@)", @"image"]];
+	imagePicker.mediaTypes = imageMediaTypesOnly;
+	[self presentViewController:imagePicker animated:YES completion:NULL];
+}
+
+#pragma mark - Image Handling
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+	UIImage *image = info[UIImagePickerControllerOriginalImage];
+	
+	if (image) {
+		[[self dataSource] saveImage:image];
+	}
 }
 
 @end
