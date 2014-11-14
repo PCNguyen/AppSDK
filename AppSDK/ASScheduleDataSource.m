@@ -45,6 +45,8 @@
 	
 	self.counterList = counterList;
 	[self endBatchUpdate];
+	
+	[NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateMasterCount) userInfo:nil repeats:YES];
 }
 
 - (NSDictionary *)selectiveUpdateMap
@@ -70,6 +72,13 @@
 - (NSString *)masterCountText
 {
 	return [NSString stringWithFormat:@"%ld", self.masterCount];
+}
+
+#pragma mark - Updater
+
+- (void)updateMasterCount
+{
+	self.masterCount = self.masterCount + 1;
 }
 
 @end
