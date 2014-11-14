@@ -10,6 +10,7 @@
 		0F069BD6195C989000B9BEB8 /* UITextView+UL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F069BD5195C989000B9BEB8 /* UITextView+UL.m */; };
 		0F2FD5961A16A2EF006C3292 /* ASFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2FD5951A16A2EF006C3292 /* ASFileViewController.m */; };
 		0F2FD5991A16A3B9006C3292 /* ASFileDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2FD5981A16A3B9006C3292 /* ASFileDataSource.m */; };
+		0F2FD59C1A16A983006C3292 /* UIImage+FileStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2FD59B1A16A983006C3292 /* UIImage+FileStorage.m */; };
 		0F3FA72C192D622200475394 /* UIViewController+DataBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3FA72B192D622200475394 /* UIViewController+DataBinding.m */; };
 		0F69E09519FB03BE00898CC5 /* ALScheduleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F69E09419FB03BE00898CC5 /* ALScheduleManager.m */; };
 		0F69E09819FB060B00898CC5 /* ALScheduledTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F69E09719FB060B00898CC5 /* ALScheduledTask.m */; };
@@ -99,6 +100,8 @@
 		0F2FD5951A16A2EF006C3292 /* ASFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASFileViewController.m; sourceTree = "<group>"; };
 		0F2FD5971A16A3B9006C3292 /* ASFileDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFileDataSource.h; sourceTree = "<group>"; };
 		0F2FD5981A16A3B9006C3292 /* ASFileDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASFileDataSource.m; sourceTree = "<group>"; };
+		0F2FD59A1A16A983006C3292 /* UIImage+FileStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FileStorage.h"; sourceTree = "<group>"; };
+		0F2FD59B1A16A983006C3292 /* UIImage+FileStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FileStorage.m"; sourceTree = "<group>"; };
 		0F3FA72A192D622200475394 /* UIViewController+DataBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DataBinding.h"; sourceTree = "<group>"; };
 		0F3FA72B192D622200475394 /* UIViewController+DataBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DataBinding.m"; sourceTree = "<group>"; };
 		0F69E09319FB03BE00898CC5 /* ALScheduleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALScheduleManager.h; sourceTree = "<group>"; };
@@ -274,6 +277,8 @@
 		0F2FD5931A16A2B4006C3292 /* FileStorage */ = {
 			isa = PBXGroup;
 			children = (
+				0F2FD59A1A16A983006C3292 /* UIImage+FileStorage.h */,
+				0F2FD59B1A16A983006C3292 /* UIImage+FileStorage.m */,
 				0F2FD5941A16A2EF006C3292 /* ASFileViewController.h */,
 				0F2FD5951A16A2EF006C3292 /* ASFileViewController.m */,
 				0F2FD5971A16A3B9006C3292 /* ASFileDataSource.h */,
@@ -810,6 +815,7 @@
 				0F8C264C19252F1D00A6223A /* UIView+DataBinding.m in Sources */,
 				0F8C26C4192596A500A6223A /* ULManagedDataSource.m in Sources */,
 				0F8C268419254B3D00A6223A /* UITextField+UL.m in Sources */,
+				0F2FD59C1A16A983006C3292 /* UIImage+FileStorage.m in Sources */,
 				0F87C7FF19ABAED700E79260 /* UIView+LayoutPosition.m in Sources */,
 				0F9129CC19E857FF00F0111E /* DLAppStorage.m in Sources */,
 				0F875B181A158670008C25A6 /* DLFileStorage.m in Sources */,
