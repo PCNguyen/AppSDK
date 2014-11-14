@@ -13,7 +13,15 @@
 
 - (void)loadData
 {
+	NSURL *documentDirectory = [[DLFileManager sharedManager] urlForDocumentsDirectory];
+	NSArray *allFileURLs = [[DLFileManager sharedManager] contentsOfDirectoryAtPath:[documentDirectory path] error:NULL];
+	
+	self.fileList = allFileURLs;
+}
 
+- (NSDictionary *)selectiveUpdateMap
+{
+	return @{};
 }
 
 @end

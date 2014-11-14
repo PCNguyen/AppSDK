@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASFileDataSource.h"
 
-@interface ASFileViewController : UIViewController
+@interface ASFileViewController : UITableViewController <ULViewDataBinding>
 
 @end

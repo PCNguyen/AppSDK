@@ -7,7 +7,53 @@
 //
 
 #import "ASFileViewController.h"
+#import "UIViewController+DataBinding.h"
+
+NSString *const FVCCellIdentifier = @"FVCCellIdentifier";
 
 @implementation ASFileViewController
+
+#pragma mark - ULViewDataBinding Protocol
+
+- (Class)ul_binderClass
+{
+	return [ASFileDataSource class];
+}
+
+- (NSDictionary *)ul_bindingInfo
+{
+	return @{@"handleFileList:" : @"fileList"};
+}
+
+- (void)handleFileList:(NSArray *)fileList
+{
+	[self.tableView reloadData];
+}
+
+- (ASFileDataSource *)dataSource
+{
+	return (ASFileDataSource *)[self ul_currentBinderSource];
+}
+
+#pragma mark UITableView Delegate / DataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+	return [[self dataSource].fileList count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:FVCCellIdentifier];
+	
+	if (!cell) {
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:FVCCellIdentifier];
+	}
+	
+	NSString *fileName = [[self dataSource].fileList objectAtIndex:indexPath.row];
+	cell.textLabel.text = fileName;
+	
+	return cell;
+}
 
 @end
