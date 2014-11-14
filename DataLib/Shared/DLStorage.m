@@ -16,7 +16,7 @@
 
 @implementation DLStorage
 
-- (id)initWithCache:(NSCache *)cache
+- (instancetype)initWithCache:(NSCache *)cache
 {
 	if (self = [super init]) {
 		_cache = cache;

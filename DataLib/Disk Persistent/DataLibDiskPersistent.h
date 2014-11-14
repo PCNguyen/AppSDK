@@ -10,5 +10,6 @@
 #define AppSDK_DataLibDiskPersistent_h
 
 #import "DLFileManager.h"
+#import "DLFileStorage.h"
 
 #endif

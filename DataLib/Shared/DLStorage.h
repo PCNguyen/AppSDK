@@ -23,7 +23,7 @@
  *
  *  @return instance of DLStorage
  */
-- (id)initWithCache:(NSCache *)cache;
+- (instancetype)initWithCache:(NSCache *)cache;
 
 /**
  *  lazy created a cache if one is not provided in the constructor

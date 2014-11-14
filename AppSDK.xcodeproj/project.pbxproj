@@ -19,6 +19,7 @@
 		0F875B0E1A153F21008C25A6 /* ASBindingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F875B0D1A153F21008C25A6 /* ASBindingView.m */; };
 		0F875B111A153F3F008C25A6 /* ASBindingDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F875B101A153F3F008C25A6 /* ASBindingDataSource.m */; };
 		0F875B151A1565F5008C25A6 /* UIViewController+AutoBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F875B141A1565F5008C25A6 /* UIViewController+AutoBinding.m */; };
+		0F875B181A158670008C25A6 /* DLFileStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F875B171A158670008C25A6 /* DLFileStorage.m */; };
 		0F87C7FC19ABAED700E79260 /* NSLayoutConstraint+UL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F87C7F519ABAED600E79260 /* NSLayoutConstraint+UL.m */; };
 		0F87C7FE19ABAED700E79260 /* UIView+Hierachy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F87C7F919ABAED700E79260 /* UIView+Hierachy.m */; };
 		0F87C7FF19ABAED700E79260 /* UIView+LayoutPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F87C7FB19ABAED700E79260 /* UIView+LayoutPosition.m */; };
@@ -114,6 +115,8 @@
 		0F875B101A153F3F008C25A6 /* ASBindingDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASBindingDataSource.m; sourceTree = "<group>"; };
 		0F875B131A1565F5008C25A6 /* UIViewController+AutoBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AutoBinding.h"; sourceTree = "<group>"; };
 		0F875B141A1565F5008C25A6 /* UIViewController+AutoBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AutoBinding.m"; sourceTree = "<group>"; };
+		0F875B161A158670008C25A6 /* DLFileStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFileStorage.h; sourceTree = "<group>"; };
+		0F875B171A158670008C25A6 /* DLFileStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFileStorage.m; sourceTree = "<group>"; };
 		0F87C7F419ABAED600E79260 /* NSLayoutConstraint+UL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+UL.h"; sourceTree = "<group>"; };
 		0F87C7F519ABAED600E79260 /* NSLayoutConstraint+UL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+UL.m"; sourceTree = "<group>"; };
 		0F87C7F819ABAED700E79260 /* UIView+Hierachy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Hierachy.h"; sourceTree = "<group>"; };
@@ -472,6 +475,8 @@
 				0F91298D19E842AD00F0111E /* DataLibDiskPersistent.h */,
 				0FC96E371925BA6F00AB5AE4 /* DLFileManager.h */,
 				0FC96E381925BA6F00AB5AE4 /* DLFileManager.m */,
+				0F875B161A158670008C25A6 /* DLFileStorage.h */,
+				0F875B171A158670008C25A6 /* DLFileStorage.m */,
 			);
 			path = "Disk Persistent";
 			sourceTree = "<group>";
@@ -788,6 +793,7 @@
 				0F8C268419254B3D00A6223A /* UITextField+UL.m in Sources */,
 				0F87C7FF19ABAED700E79260 /* UIView+LayoutPosition.m in Sources */,
 				0F9129CC19E857FF00F0111E /* DLAppStorage.m in Sources */,
+				0F875B181A158670008C25A6 /* DLFileStorage.m in Sources */,
 				0F69E0B119FF09FA00898CC5 /* ASScheduleDataSource.m in Sources */,
 				0F8C26591925376C00A6223A /* NSObject+AL.m in Sources */,
 				0F8C266B192540BF00A6223A /* UIAlertView+UL.m in Sources */,

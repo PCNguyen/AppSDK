@@ -24,7 +24,7 @@
 	});
 }
 
-- (id)initWithCache:(NSCache *)cache
+- (instancetype)initWithCache:(NSCache *)cache
 {
 	if (self = [super init]) {
 		self.enableCache = NO; //--we don't need caching for inmmemory data
