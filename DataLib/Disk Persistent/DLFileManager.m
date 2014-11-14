@@ -28,8 +28,6 @@ NSString *const FMFileCleanUpTaskID					= @"FMFileCleanUpTaskID";
 + (void)configure
 {
 	[DLFileManager sharedManager];
-	
-	[DLFileManager sharedManager].fileMetaData = [NSUserDefaults dl_loadValueForKey:kFMFileMetaDataKey];
 }
 
 + (instancetype)sharedManager
@@ -43,6 +41,7 @@ NSString *const FMFileCleanUpTaskID					= @"FMFileCleanUpTaskID";
 {
 	if (self = [super init]) {
 		_metaDataPersistInterval = 0;
+		_fileMetaData =  [NSUserDefaults dl_loadValueForKey:kFMFileMetaDataKey];
 	}
 	
 	return self;
