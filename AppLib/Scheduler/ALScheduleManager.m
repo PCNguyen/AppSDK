@@ -25,6 +25,16 @@
 	});
 }
 
+- (instancetype)init
+{
+	if (self = [super init]) {
+		_defaultTerminationFlags = @[UIApplicationDidEnterBackgroundNotification];
+		_defaultResumeFlags = @[UIApplicationWillEnterForegroundNotification];
+	}
+	
+	return self;
+}
+
 #pragma mark - Scheduling
 
 - (ALScheduledTask *)scheduleTaskBlock:(void (^)())taskBock
