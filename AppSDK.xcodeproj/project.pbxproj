@@ -291,6 +291,15 @@
 			name = DataBinding;
 			sourceTree = "<group>";
 		};
+		0F875B191A1594BF008C25A6 /* _extension */ = {
+			isa = PBXGroup;
+			children = (
+				0F8C26701925435B00A6223A /* NSUserDefaults+DL.h */,
+				0F8C26711925435B00A6223A /* NSUserDefaults+DL.m */,
+			);
+			name = _extension;
+			sourceTree = "<group>";
+		};
 		0F87C7F319ABAEA100E79260 /* Autolayout */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,7 +473,6 @@
 				0F9129CB19E857FF00F0111E /* DLAppStorage.m */,
 				0F912A0919EC5C8C00F0111E /* DLInMemoryAppStorage.h */,
 				0F912A0A19EC5C8C00F0111E /* DLInMemoryAppStorage.m */,
-				0F8C26BA192575CD00A6223A /* _Extension */,
 			);
 			path = "App Persistent";
 			sourceTree = "<group>";
@@ -581,15 +589,6 @@
 			path = "Value Transformer";
 			sourceTree = "<group>";
 		};
-		0F8C26BA192575CD00A6223A /* _Extension */ = {
-			isa = PBXGroup;
-			children = (
-				0F8C26701925435B00A6223A /* NSUserDefaults+DL.h */,
-				0F8C26711925435B00A6223A /* NSUserDefaults+DL.m */,
-			);
-			name = _Extension;
-			sourceTree = "<group>";
-		};
 		0F8C26BB1925765600A6223A /* _Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -625,6 +624,7 @@
 			isa = PBXGroup;
 			children = (
 				0F9129C719E84B5300F0111E /* DataLibShared.h */,
+				0F875B191A1594BF008C25A6 /* _extension */,
 				0F91298519E73BFB00F0111E /* DLStorage.h */,
 				0F91298619E73BFB00F0111E /* DLStorage.m */,
 			);

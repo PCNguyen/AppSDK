@@ -9,7 +9,7 @@
 #ifndef AppSDK_DataLibAppPersistent_h
 #define AppSDK_DataLibAppPersistent_h
 
-#import "NSUserDefaults+DL.h"
 #import "DLAppStorage.h"
+#import "DLInMemoryAppStorage.h"
 
 #endif

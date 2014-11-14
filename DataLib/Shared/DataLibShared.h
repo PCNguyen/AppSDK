@@ -10,5 +10,6 @@
 #define AppSDK_DataLibShared_h
 
 #import "DLStorage.h"
+#import "NSUserDefaults+DL.h"
 
 #endif

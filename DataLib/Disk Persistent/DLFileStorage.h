@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 PC Nguyen. All rights reserved.
 //
 
-#import "DLStorage.h"
+#import "DataLibShared.h"
 
 @protocol DLFileStorageProtocol <NSObject>
 
