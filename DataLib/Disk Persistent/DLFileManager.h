@@ -17,6 +17,11 @@
 @property (nonatomic, assign) NSTimeInterval metaDataPersistInterval;
 
 /**
+ *  The time interval that expired file should be checked and remove
+ */
+@property (nonatomic, assign) NSTimeInterval cleanUpInterval;
+
+/**
  *  Create the shared instance
  *  this should be called in AppDidFinishLaunching
  */
@@ -29,6 +34,8 @@
  */
 + (DLFileManager *)sharedManager;
 
+#pragma mark - Directory Helper
+
 /**
  *  Convenient method to access the document directory
  *
@@ -36,7 +43,11 @@
  */
 - (NSURL *)urlForDocumentsDirectory;
 
+#pragma mark - Security
+
 - (void)applyClassBProtectionForFileAtPath:(NSString *)path;
+
+#pragma mark - File Maintenance
 
 /**
  *  Tracking a file with expiration date. Upon the date reach,

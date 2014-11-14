@@ -10,7 +10,10 @@
 #import "ALScheduleManager.h"
 #import "NSUserDefaults+DL.h"
 
-#define kFMFileMetaDataKey       @"FileMetaDataKey"
+#define kFMFileMetaDataKey			@"FileMetaDataKey"
+
+NSString *const FMFileMetaDataPersistTaskID			= @"FMFileMetaDataPersistTaskID";
+NSString *const FMFileCleanUpTaskID					= @"FMFileCleanUpTaskID";
 
 @interface DLFileManager ()
 
@@ -23,6 +26,8 @@
 + (void)configure
 {
 	[DLFileManager sharedManager];
+	
+	[DLFileManager sharedManager].fileMetaData = [NSUserDefaults dl_loadValueForKey:kFMFileMetaDataKey];
 }
 
 + (DLFileManager *)sharedManager {
@@ -38,6 +43,17 @@
 	
 	return fileManager;
 }
+
+- (instancetype)init
+{
+	if (self = [super init]) {
+		_metaDataPersistInterval = 0;
+	}
+	
+	return self;
+}
+
+#pragma mark - Directory Helper
 
 - (NSURL *)urlForDocumentsDirectory
 {
@@ -57,20 +73,11 @@
 
 #pragma mark - File Maintenance
 
-- (NSMutableDictionary *)fileMetaData
-{
-	if (!_fileMetaData) {
-		_fileMetaData = [NSMutableDictionary dictionary];
-	}
-	
-	return _fileMetaData;
-}
-
 - (void)setMetaDataPersistInterval:(NSTimeInterval)metaDataPersistInterval
 {
 	_metaDataPersistInterval = metaDataPersistInterval;
 	
-	[[ALScheduleManager sharedManager] unScheduleTaskID:kFMFileMetaDataKey];
+	[[ALScheduleManager sharedManager] unScheduleTaskID:FMFileMetaDataPersistTaskID];
 	
 	if (metaDataPersistInterval > 0) {
 		__weak DLFileManager *selfPointer = self;
@@ -79,10 +86,39 @@
 			[NSUserDefaults dl_saveValue:selfPointer forKey:kFMFileMetaDataKey];
 		}];
 		
-		scheduledTask.taskID = kFMFileMetaDataKey;
+		scheduledTask.taskID = FMFileMetaDataPersistTaskID;
 		
 		[[ALScheduleManager sharedManager] scheduleTask:scheduledTask];
 	}
+}
+
+- (void)setCleanUpInterval:(NSTimeInterval)cleanUpInterval
+{
+	_cleanUpInterval = cleanUpInterval;
+	
+	[[ALScheduleManager sharedManager] unScheduleTaskID:FMFileCleanUpTaskID];
+	
+	if (cleanUpInterval > 0) {
+		__weak DLFileManager *selfPointer = self;
+		
+		ALScheduledTask *scheduledTask = [[ALScheduledTask alloc] initWithTaskInterval:cleanUpInterval taskBlock:^{
+			[selfPointer handleFileCleanUp];
+		}];
+		
+		scheduledTask.taskID = FMFileMetaDataPersistTaskID;
+		
+		[[ALScheduleManager sharedManager] scheduleTask:scheduledTask];
+	}
+	
+}
+
+- (NSMutableDictionary *)fileMetaData
+{
+	if (!_fileMetaData) {
+		_fileMetaData = [NSMutableDictionary dictionary];
+	}
+	
+	return _fileMetaData;
 }
 
 - (void)trackFileURL:(NSURL *)fileURL expirationDate:(NSDate *)expirationDate
@@ -93,6 +129,35 @@
 		if (self.metaDataPersistInterval == 0) {
 			[NSUserDefaults dl_saveValue:self.fileMetaData forKey:kFMFileMetaDataKey];
 		}
+	}
+}
+
+- (void)handleFileCleanUp
+{
+	NSMutableArray *removedURLs = [NSMutableArray array];
+	
+	//--clean up the file on disk
+	[self.fileMetaData enumerateKeysAndObjectsUsingBlock:^(NSURL *fileURL, NSDate *expiredDate, BOOL *stop) {
+		if ([expiredDate timeIntervalSinceNow] <= 0) {
+			
+			if ([self fileExistsAtPath:[fileURL path]]) {
+				NSError *error = nil;
+				[self removeItemAtPath:[fileURL path] error:&error];
+				if (error) {
+					NSLog(@"File Clean Up Error: %@", error);
+				} else {
+					[removedURLs addObject:fileURL];
+				}
+			
+			} else {
+				[removedURLs addObject:fileURL];
+			}
+		}
+	}];
+	
+	//--clean up the meta data
+	for (NSURL *removedURL in removedURLs) {
+		[self.fileMetaData removeObjectForKey:removedURL];
 	}
 }
 
