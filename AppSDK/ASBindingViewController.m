@@ -20,6 +20,13 @@
 
 @implementation ASBindingViewController
 
+- (void)dealloc
+{
+	if ([self ul_bindingExist]) {
+		[[self dataSource].timer invalidate];
+	}
+}
+
 - (void)loadView
 {
 	[super loadView];
@@ -62,6 +69,11 @@
 - (NSDictionary *)ul_bindingInfo
 {
 	return @{@"dynamicWidthLabel.text":@"textUpdate"};
+}
+
+- (ASBindingDataSource *)dataSource
+{
+	return (ASBindingDataSource *)[self ul_currentBinderSource];
 }
 
 #pragma mark - Label

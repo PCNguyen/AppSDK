@@ -10,6 +10,8 @@
 
 @interface ASBindingDataSource : ULViewDataSource
 
+@property (nonatomic, strong) NSTimer *timer;
+
 @property (nonatomic, strong) NSString *textUpdate;
 
 @property (nonatomic, strong) NSNumber *numberUpdate;

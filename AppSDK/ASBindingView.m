@@ -17,6 +17,13 @@
 
 @implementation ASBindingView
 
+- (void)dealloc
+{
+	if ([self ul_bindingExist]) {
+		[[self dataSource].timer invalidate];
+	}
+}
+
 #pragma mark - View Life Cycle
 
 - (instancetype)initWithFrame:(CGRect)frame

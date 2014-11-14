@@ -10,6 +10,15 @@
 
 @implementation ASBindingDataSource
 
+- (instancetype)init
+{
+	if (self = [super init]) {
+		[self ignoreUpdateProperty:@selector(timer)];
+	}
+	
+	return self;
+}
+
 #pragma mark - ULViewDataSource Subclass
 
 /**
@@ -22,7 +31,7 @@
 	
 	[self updateText];
 	
-	[NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateValueProcess) userInfo:nil repeats:YES];
+	self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateValueProcess) userInfo:nil repeats:YES];
 }
 
 - (void)updateValueProcess
