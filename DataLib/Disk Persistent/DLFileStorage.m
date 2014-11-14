@@ -9,12 +9,17 @@
 #import "DLFileStorage.h"
 #import "DLFileManager.h"
 
+@interface DLFileStorage ()
+
+@property (nonatomic, strong) NSURL *directoryURL;
+
+@end
+
 @implementation DLFileStorage
 
-- (instancetype)initWithCache:(NSCache *)cache directoryURL:(NSURL *)directoryURL
+- (instancetype)initWithCache:(NSCache *)cache
 {
 	if (self = [super initWithCache:cache]) {
-		_directoryURL = directoryURL;
 		_persistentInterval = kDLFileStorageUnExpiredInterval;
 	}
 	

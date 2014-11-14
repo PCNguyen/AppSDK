@@ -22,7 +22,7 @@
 
 - (void)loadData
 {
-	[DLFileManager sharedManager].cleanUpInterval = 3*60;
+	[DLFileManager sharedManager].cleanUpInterval = 1*60;
 	
 	[self refreshFileList];
 }
@@ -61,10 +61,9 @@
 - (DLFileStorage *)fileStorage
 {
 	if (!_fileStorage) {
-		NSURL *documentDirectory = [[DLFileManager sharedManager] urlForDocumentsDirectory];
 		NSCache *cache = [DLFileManager sharedCache];
-		_fileStorage = [[DLFileStorage alloc] initWithCache:cache directoryURL:documentDirectory];
-		_fileStorage.persistentInterval = 1*60;
+		_fileStorage = [[DLFileStorage alloc] initWithCache:cache];
+		_fileStorage.persistentInterval = 0.5*60;
 	}
 	
 	return _fileStorage;

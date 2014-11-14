@@ -135,7 +135,8 @@ NSString *const FMFileCleanUpTaskID					= @"FMFileCleanUpTaskID";
 - (void)trackFileURL:(NSURL *)fileURL expirationDate:(NSDate *)expirationDate
 {
 	if (expirationDate && fileURL) {
-		[self.fileMetaData setObject:expirationDate forKey:fileURL];
+		NSString *fileName = [fileURL lastPathComponent];
+		[self.fileMetaData setValue:expirationDate forKey:fileName];
 		
 		if (self.metaDataPersistInterval == 0) {
 			[self persistMedaData];
@@ -145,30 +146,29 @@ NSString *const FMFileCleanUpTaskID					= @"FMFileCleanUpTaskID";
 
 - (void)handleFileCleanUp
 {
-	NSMutableArray *removedURLs = [NSMutableArray array];
+	NSMutableArray *removedFiles = [NSMutableArray array];
 	
 	//--clean up the file on disk
-	[self.fileMetaData enumerateKeysAndObjectsUsingBlock:^(NSURL *fileURL, NSDate *expiredDate, BOOL *stop) {
+	[self.fileMetaData enumerateKeysAndObjectsUsingBlock:^(NSString *fileName, NSDate *expiredDate, BOOL *stop) {
 		if ([expiredDate timeIntervalSinceNow] <= 0) {
-			
+			NSURL *fileURL = [[self urlForDocumentsDirectory] URLByAppendingPathComponent:fileName];
 			if ([self fileExistsAtPath:[fileURL path]]) {
 				NSError *error = nil;
 				[self removeItemAtPath:[fileURL path] error:&error];
 				if (error) {
 					NSLog(@"File Clean Up Error: %@", error);
 				} else {
-					[removedURLs addObject:fileURL];
+					[removedFiles addObject:fileName];
 				}
-			
 			} else {
-				[removedURLs addObject:fileURL];
+				[removedFiles addObject:fileName];
 			}
 		}
 	}];
 	
 	//--clean up the meta data
-	for (NSURL *removedURL in removedURLs) {
-		[self.fileMetaData removeObjectForKey:removedURL];
+	for (NSString *fileName in removedFiles) {
+		[self.fileMetaData setValue:nil forKey:fileName];
 	}
 	
 	//--persist the update meta data

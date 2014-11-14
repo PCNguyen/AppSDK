@@ -19,26 +19,10 @@
 @interface DLFileStorage : DLStorage
 
 /**
- *  The directory for to save all file to
- *	Default to Document Directory
- */
-@property (nonatomic, strong) NSURL *directoryURL;
-
-/**
  *  The time interval that file should remain persistent on disk
  *	Default to kDLFileStorageUnExpiredInterval, which mean forever
  */
 @property (nonatomic, assign) NSTimeInterval persistentInterval;
-
-/**
- *  Create the file storage with cache and directory where all file should be save to
- *
- *  @param cache        the cache (optional)
- *  @param directoryURL directoryURL (optional), if not set will use the Document directory
- *
- *  @return a file storage object
- */
-- (instancetype)initWithCache:(NSCache *)cache directoryURL:(NSURL *)directoryURL;
 
 /**
  *  Save item to particular file name in the directory
