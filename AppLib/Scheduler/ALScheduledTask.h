@@ -12,19 +12,48 @@ typedef void(^ALScheduledTaskHandler)();
 
 @interface ALScheduledTask : NSObject
 
+/**
+ *  The task ID
+ *	Default to Random NSUUID string
+ */
 @property (nonatomic, strong) NSString *taskID;
 
+/**
+ *  The frequency to carry out task
+ */
 @property (nonatomic, assign) NSTimeInterval timeInterval;
 
+/**
+ *  Whether or not the task should start immediately
+ *	when added to ScheduleManager
+ *	default To YES
+ */
+@property (nonatomic, assign) BOOL startImmediately;
+
+/**
+ *  Create a schedule task
+ *
+ *  @param interval  the time interval task should run
+ *  @param taskBlock the task block
+ *
+ *  @return the task scheduled
+ */
 - (id)initWithTaskInterval:(NSTimeInterval)interval taskBlock:(ALScheduledTaskHandler)taskBlock;
 
 #pragma mark - Scheduling
 
 /**
- *  start scheduling the task on specified interval.
- *	this only put the task on schedule. To execute it immediately, use triggerTask
+ *  start scheduling the task on specified interval. 
+ *	Execute the task immediately also
  */
 - (void)start;
+
+/**
+ *  Start scheduling on specific date with specific interval
+ *
+ *  @param scheduledDate the date the task will be execute
+ */
+- (void)startAtDate:(NSDate *)scheduledDate;
 
 /**
  *  stop scheduling the task

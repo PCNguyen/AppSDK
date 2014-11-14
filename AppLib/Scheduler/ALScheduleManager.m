@@ -60,7 +60,12 @@
 - (void)scheduleTask:(ALScheduledTask *)task
 {
 	if (task) {
-		[task start];
+		if (task.startImmediately) {
+			[task start];
+		} else {
+			[task startAtDate:[[NSDate date] dateByAddingTimeInterval:task.timeInterval]];
+		}
+		
 		[self.scheduleList addObject:task];
 	}
 }

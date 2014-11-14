@@ -31,6 +31,7 @@
 		_taskID = [[NSUUID UUID] UUIDString];
 		_timeInterval = interval;
 		_taskBlock = taskBlock;
+		_startImmediately = YES;
 	}
 	
 	return self;
