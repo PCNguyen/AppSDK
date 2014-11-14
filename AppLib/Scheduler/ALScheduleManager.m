@@ -9,7 +9,6 @@
 #import "ALScheduleManager.h"
 #import "AppLibShared.h"
 
-
 @interface ALScheduleManager ()
 
 @property (nonatomic, strong) NSMutableArray *scheduleList;
@@ -28,8 +27,9 @@
 - (instancetype)init
 {
 	if (self = [super init]) {
-		_defaultTerminationFlags = @[UIApplicationDidEnterBackgroundNotification];
-		_defaultResumeFlags = @[UIApplicationWillEnterForegroundNotification];
+		_defaultTimeInterval = [ALScheduledTask defaultScheduleInterval];
+		_defaultTerminationFlags = [ALScheduledTask defaultTerminationFlags];
+		_defaultResumeFlags = [ALScheduledTask defaultResumeFlags];
 	}
 	
 	return self;

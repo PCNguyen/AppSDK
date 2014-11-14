@@ -81,4 +81,25 @@ typedef void(^ALScheduledTaskHandler)();
  */
 - (void)removeResumeFlag:(NSString *)resumeFlag;
 
+#pragma mark - Class Helper
+
+/**
+ *  a default interval for scheduling task
+ */
++ (NSTimeInterval)defaultScheduleInterval;
+
+/**
+ *  The default termination flags
+ *
+ *  @return an array of String representation of Notification Name
+ */
++ (NSArray *)defaultTerminationFlags;
+
+/**
+ *  The default resume flags
+ *
+ *  @return an array of String representation of Notification Name
+ */
++ (NSArray *)defaultResumeFlags;
+
 @end

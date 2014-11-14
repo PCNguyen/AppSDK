@@ -171,4 +171,21 @@
 	
 }
 
+#pragma mark - Class Helpers
+
++ (NSTimeInterval)defaultScheduleInterval
+{
+	return 24*60*60;
+}
+
++ (NSArray *)defaultResumeFlags
+{
+	return @[UIApplicationWillEnterForegroundNotification];
+}
+
++ (NSArray *)defaultTerminationFlags
+{
+	return @[UIApplicationDidEnterBackgroundNotification];
+}
+
 @end
