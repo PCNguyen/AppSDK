@@ -66,6 +66,11 @@
  */
 - (void)unScheduleTaskID:(NSString *)taskID;
 
+/**
+ *  Unschedule all registered task
+ */
+- (void)unScheduleAllTasks;
+
 #pragma mark - Accessing
 
 /**

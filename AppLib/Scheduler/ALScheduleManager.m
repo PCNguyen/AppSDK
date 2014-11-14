@@ -67,6 +67,15 @@
 	}
 }
 
+- (void)unScheduleAllTasks
+{
+	for (ALScheduledTask *runningTask in self.scheduleList) {
+		[runningTask stop];
+	}
+	
+	[self.scheduleList removeAllObjects];
+}
+
 #pragma mark - Accessing
 
 - (ALScheduledTask *)scheduledTaskForID:(NSString *)taskID
