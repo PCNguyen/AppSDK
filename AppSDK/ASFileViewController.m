@@ -97,6 +97,8 @@ NSString *const FVCCellIdentifier = @"FVCCellIdentifier";
 	if (image) {
 		[[self dataSource] saveImage:image];
 	}
+	
+	[picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
 @end
