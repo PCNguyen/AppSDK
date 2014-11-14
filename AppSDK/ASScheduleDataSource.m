@@ -13,6 +13,18 @@
 #define kSDSCounterNumber				6
 #define kSDSDefaultTimeInterval			2
 
+/*************************
+ *  ASCounterTask
+ *************************/
+@implementation ASCounterTask
+
+@end
+
+#pragma mark -
+
+/*************************
+ *  ASScheduleDataSource
+ *************************/
 @implementation ASScheduleDataSource
 
 - (void)loadData
