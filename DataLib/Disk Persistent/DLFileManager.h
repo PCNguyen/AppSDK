@@ -45,6 +45,11 @@
 
 #pragma mark - Security
 
+/**
+ *  Protect the file at path with class B security compliance
+ *
+ *  @param path the file path to protect
+ */
 - (void)applyClassBProtectionForFileAtPath:(NSString *)path;
 
 #pragma mark - File Maintenance
