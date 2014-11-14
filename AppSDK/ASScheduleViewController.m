@@ -239,7 +239,7 @@ NSString *const SVCCellIdentifier = @"SVCCellIdentifier";
 	timerCell.layer.cornerRadius = 2.0f;
 
 	ASCounterTask *counterTask = [[self dataSource] counterTaskAtIndexPath:indexPath];
-	timerCell.counterLabel.text = [NSString stringWithFormat:@"%ld", counterTask.currentCount];
+	timerCell.counterLabel.text = [NSString stringWithFormat:@"%ld", (long)counterTask.currentCount];
 	timerCell.intervalTextField.text = [NSString stringWithFormat:@"%.0f", counterTask.timeInterval];
 	timerCell.delegate = self;
 	

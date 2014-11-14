@@ -103,7 +103,7 @@
 
 - (NSString *)masterCountText
 {
-	return [NSString stringWithFormat:@"%ld", self.masterCount];
+	return [NSString stringWithFormat:@"%ld", (long)self.masterCount];
 }
 
 #pragma mark - Updater
