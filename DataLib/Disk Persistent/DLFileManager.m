@@ -121,7 +121,7 @@ NSString *const FMFileCleanUpTaskID					= @"FMFileCleanUpTaskID";
 		[self.fileMetaData setObject:expirationDate forKey:fileURL];
 		
 		if (self.metaDataPersistInterval == 0) {
-			[NSUserDefaults dl_saveValue:self.fileMetaData forKey:kFMFileMetaDataKey];
+			[self persistMedaData];
 		}
 	}
 }
@@ -153,6 +153,14 @@ NSString *const FMFileCleanUpTaskID					= @"FMFileCleanUpTaskID";
 	for (NSURL *removedURL in removedURLs) {
 		[self.fileMetaData removeObjectForKey:removedURL];
 	}
+	
+	//--persist the update meta data
+	[self persistMedaData];
+}
+
+- (void)persistMedaData
+{
+	[NSUserDefaults dl_saveValue:self.fileMetaData forKey:kFMFileMetaDataKey];
 }
 
 @end
