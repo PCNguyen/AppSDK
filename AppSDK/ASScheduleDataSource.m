@@ -32,6 +32,15 @@
 	[[ALScheduleManager sharedManager] unScheduleAllTasks];
 }
 
+- (instancetype)init
+{
+	if (self = [super init]) {
+		[self ignoreUpdateProperty:@selector(timer)];
+	}
+	
+	return self;
+}
+
 - (void)loadData
 {
 	[self beginBatchUpdate];
@@ -51,7 +60,7 @@
 	self.counterList = counterList;
 	[self endBatchUpdate];
 	
-	[NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateMasterCount) userInfo:nil repeats:YES];
+	self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateMasterCount) userInfo:nil repeats:YES];
 	for (ASCounterTask *counterTask in self.counterList) {
 		
 		//--to not capture the counter task in block since it will be dealloc when list updated
@@ -69,7 +78,7 @@
 					}
 				}
 				
-				self.counterList = [NSArray arrayWithArray:updatedArray];
+				selfPointer.counterList = [NSArray arrayWithArray:updatedArray];
 			}
 			
 		}];

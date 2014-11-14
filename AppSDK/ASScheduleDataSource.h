@@ -18,6 +18,7 @@
 
 @interface ASScheduleDataSource : ULViewDataSource
 
+@property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, assign) NSInteger masterCount;
 @property (nonatomic, strong) NSArray *counterList;
 

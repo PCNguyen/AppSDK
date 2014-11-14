@@ -122,6 +122,13 @@ NSString *const SVCCellIdentifier = @"SVCCellIdentifier";
 
 @implementation ASScheduleViewController
 
+- (void)dealloc
+{
+	if ([self ul_bindingExist]) {
+		[[self dataSource].timer invalidate];
+	}
+}
+
 - (void)loadView
 {
 	[super loadView];
