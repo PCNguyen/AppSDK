@@ -98,6 +98,15 @@
 	[self wipeDirectory];
 }
 
+- (NSURL *)directoryURL
+{
+	if (!_directoryURL) {
+		_directoryURL = [[DLFileManager sharedManager] urlForDocumentsDirectory];
+	}
+	
+	return _directoryURL;
+}
+
 #pragma mark - Private
 
 - (NSURL *)fullURLForFileName:(NSString *)fileName
