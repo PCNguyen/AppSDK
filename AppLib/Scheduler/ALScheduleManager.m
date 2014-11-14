@@ -37,6 +37,15 @@
 
 #pragma mark - Scheduling
 
+- (NSMutableArray *)scheduleList
+{
+	if (!_scheduleList) {
+		_scheduleList = [NSMutableArray array];
+	}
+	
+	return _scheduleList;
+}
+
 - (ALScheduledTask *)scheduleTaskBlock:(void (^)())taskBock
 {
 	ALScheduledTask *scheduledTask = [[ALScheduledTask alloc] initWithTaskInterval:self.defaultTimeInterval taskBlock:taskBock];
