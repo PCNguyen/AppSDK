@@ -7,6 +7,7 @@
 //
 
 #import "DLFileStorage.h"
+#import "NSUserDefaults+DL.h"
 
 @implementation DLFileStorage
 

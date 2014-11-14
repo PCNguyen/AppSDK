@@ -7,7 +7,7 @@
 //
 
 #import "DLAppStorage.h"
-#import "DataLibShared.h"
+#import "NSUserDefaults+DL.h"
 
 @implementation DLAppStorage
 
