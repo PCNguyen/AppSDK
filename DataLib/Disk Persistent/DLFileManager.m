@@ -7,6 +7,7 @@
 //
 
 #import "DLFileManager.h"
+#import "AppLibShared.h"
 #import "ALScheduleManager.h"
 #import "NSUserDefaults+DL.h"
 
@@ -30,18 +31,11 @@ NSString *const FMFileCleanUpTaskID					= @"FMFileCleanUpTaskID";
 	[DLFileManager sharedManager].fileMetaData = [NSUserDefaults dl_loadValueForKey:kFMFileMetaDataKey];
 }
 
-+ (DLFileManager *)sharedManager {
-	
-	static DLFileManager *fileManager;
-	static dispatch_once_t onceToken;
-	
-	dispatch_once(&onceToken, ^{
-		
-		fileManager = [[DLFileManager alloc] init];
-		
++ (instancetype)sharedManager
+{
+	SHARE_INSTANCE_BLOCK(^{
+		return [[self alloc] init];
 	});
-	
-	return fileManager;
 }
 
 - (instancetype)init
