@@ -27,6 +27,11 @@
  *************************/
 @implementation ASScheduleDataSource
 
+- (void)dealloc
+{
+	[[ALScheduleManager sharedManager] unScheduleAllTasks];
+}
+
 - (void)loadData
 {
 	[self beginBatchUpdate];
@@ -47,6 +52,33 @@
 	[self endBatchUpdate];
 	
 	[NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateMasterCount) userInfo:nil repeats:YES];
+	for (ASCounterTask *counterTask in self.counterList) {
+		
+		//--to not capture the counter task in block since it will be dealloc when list updated
+		NSString *counterID = counterTask.counterID;
+		__weak ASScheduleDataSource *selfPointer = self;
+		
+		//--create the schedule task
+		ALScheduledTask *scheduledTask = [[ALScheduledTask alloc] initWithTaskInterval:counterTask.timeInterval taskBlock:^{
+			if (selfPointer) {
+				NSMutableArray *updatedArray = [NSMutableArray arrayWithArray:selfPointer.counterList];
+				for (ASCounterTask *counterTask in updatedArray) {
+					if ([counterTask.counterID isEqualToString:counterID]) {
+						counterTask.currentCount = counterTask.currentCount + 1;
+						break;
+					}
+				}
+				
+				self.counterList = [NSArray arrayWithArray:updatedArray];
+			}
+			
+		}];
+		
+		[scheduledTask setTerminationFlags:[ALScheduledTask defaultTerminationFlags]];
+		[scheduledTask setResumeFlags:[ALScheduledTask defaultResumeFlags]];
+		
+		[[ALScheduleManager sharedManager] scheduleTask:scheduledTask];
+	}
 }
 
 - (NSDictionary *)selectiveUpdateMap
