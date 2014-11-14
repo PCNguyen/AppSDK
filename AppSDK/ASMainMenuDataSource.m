@@ -11,6 +11,7 @@
 
 #import "ASScheduleViewController.h"
 #import "ASBindingViewController.h"
+#import "ASFileViewController.h"
 
 @implementation ASMenuItem
 
@@ -36,8 +37,9 @@
 - (void)loadData
 {
 	[self beginBatchUpdate];
-	[self addTopic:@"Scheduler" viewControllerClass:[ASScheduleViewController class]];
 	[self addTopic:@"View Binding" viewControllerClass:[ASBindingViewController class]];
+	[self addTopic:@"Scheduler" viewControllerClass:[ASScheduleViewController class]];
+	[self addTopic:@"File Storage" viewControllerClass:[ASFileViewController class]];
 	[self endBatchUpdate];
 }
 
