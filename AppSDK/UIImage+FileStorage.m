@@ -15,4 +15,9 @@
 	return UIImagePNGRepresentation(self);
 }
 
++ (instancetype)convertFromData:(NSData *)data
+{
+	return [UIImage imageWithData:data];
+}
+
 @end

@@ -12,4 +12,6 @@
 
 @interface UIImage (FileStorage) <DLFileStorageProtocol>
 
++ (instancetype)convertFromData:(NSData *)data;
+
 @end
