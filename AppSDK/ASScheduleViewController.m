@@ -10,6 +10,7 @@
 #import "ALScheduleManager.h"
 #import "UIViewController+DataBinding.h"
 #import "UIView+LayoutPosition.h"
+#import "UIViewController+UL.h"
 
 /****************
  *  ASTimerCell
@@ -85,7 +86,7 @@
 	}
 }
 
-#pragma mark Private
+#pragma mark - Private
 
 - (BOOL)stringIsNumeric:(NSString *)text {
 	NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
@@ -95,9 +96,12 @@
 
 @end
 
+#pragma mark -
+
 /****************************
  *  ASScheduleViewController
  ****************************/
+#define kSVCMainCounterHeight				50.0f
 
 NSString *const SVCCellIdentifier = @"SVCCellIdentifier";
 
@@ -117,6 +121,21 @@ NSString *const SVCCellIdentifier = @"SVCCellIdentifier";
 	self.view.backgroundColor = [UIColor whiteColor];
 	[self.view addSubview:self.mainCounter];
 	[self.view addSubview:self.counterView];
+}
+
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
+	
+	[self ul_adjustIOS7Boundaries];
+}
+
+- (void)viewWillLayoutSubviews
+{
+	[super viewWillLayoutSubviews];
+	
+	self.mainCounter.frame = [self mainCounterFrame];
+	self.counterView.frame = [self counterViewFrame:self.mainCounter.frame];
 }
 
 #pragma mark - ULViewDataBinding
@@ -142,7 +161,41 @@ NSString *const SVCCellIdentifier = @"SVCCellIdentifier";
 	[self.counterView reloadData];
 }
 
+#pragma mark - Main Counter
+
+- (CGRect)mainCounterFrame
+{
+	CGFloat xOffset = 0.0f;
+	CGFloat yOffset = 0.0f;
+	CGFloat width = self.view.bounds.size.width;
+	CGFloat height = kSVCMainCounterHeight;
+	
+	return CGRectMake(xOffset, yOffset, width, height);
+}
+
+- (UILabel *)mainCounter
+{
+	if (!_mainCounter) {
+		_mainCounter = [[UILabel alloc] initWithFrame:CGRectZero];
+		_mainCounter.textAlignment = NSTextAlignmentCenter;
+		_mainCounter.font = [UIFont boldSystemFontOfSize:25.0f];
+		_mainCounter.adjustsFontSizeToFitWidth = YES;
+	}
+	
+	return _mainCounter;
+}
+
 #pragma mark - CollectionView
+
+- (CGRect)counterViewFrame:(CGRect)preferenceFrame
+{
+	CGFloat xOffset = 0.0f;
+	CGFloat yOffset = preferenceFrame.origin.y + preferenceFrame.size.height;
+	CGFloat width = self.view.bounds.size.width;
+	CGFloat height = self.view.bounds.size.height - yOffset;
+	
+	return CGRectMake(xOffset, yOffset, width, height);
+}
 
 - (UICollectionView *)counterView
 {
