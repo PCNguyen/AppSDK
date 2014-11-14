@@ -34,6 +34,13 @@
  */
 + (DLFileManager *)sharedManager;
 
+/**
+ *  Accessing the share cache for file
+ *
+ *  @return the share cache
+ */
++ (NSCache *)sharedCache;
+
 #pragma mark - Directory Helper
 
 /**

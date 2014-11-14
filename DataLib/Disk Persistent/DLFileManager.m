@@ -19,6 +19,7 @@ NSString *const FMFileCleanUpTaskID					= @"FMFileCleanUpTaskID";
 @interface DLFileManager ()
 
 @property (nonatomic, strong) NSMutableDictionary *fileMetaData;
+@property (nonatomic, strong) NSCache *cache;
 
 @end
 
@@ -45,6 +46,23 @@ NSString *const FMFileCleanUpTaskID					= @"FMFileCleanUpTaskID";
 	}
 	
 	return self;
+}
+
+#pragma mark - Caching
+
++ (NSCache *)sharedCache
+{
+	return [[DLFileManager sharedManager] cache];
+}
+
+- (NSCache *)cache
+{
+	if (!_cache) {
+		_cache = [[NSCache alloc] init];
+		_cache.totalCostLimit = 0;
+	}
+	
+	return _cache;
 }
 
 #pragma mark - Directory Helper
