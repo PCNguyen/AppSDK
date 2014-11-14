@@ -7,37 +7,101 @@
 //
 
 #import "DLFileStorage.h"
-#import "NSUserDefaults+DL.h"
+#import "DLFileManager.h"
 
 @implementation DLFileStorage
 
-- (instancetype)initWithCache:(NSCache *)cache directoryPath:(NSString *)directoryPath
+- (instancetype)initWithCache:(NSCache *)cache directoryURL:(NSURL *)directoryURL
 {
 	if (self = [super initWithCache:cache]) {
-		_directoryPath = directoryPath;
+		_directoryURL = directoryURL;
+		_persistentInterval = kDLFileStorageUnExpiredInterval;
 	}
 	
 	return self;
 }
 
-- (void)saveItem:(id<DLFileStorageProtocol>)item toPath:(NSString *)relativePath
+- (void)saveItem:(id<DLFileStorageProtocol>)item toFile:(NSString *)fileName
 {
-
+	if ([fileName length] > 0) {
+		//--cache writing
+		if (self.enableCache) {
+			if (item) {
+				[[self cache] setObject:item forKey:fileName];
+			} else {
+				[[self cache] removeObjectForKey:fileName];
+			}
+		}
+		
+		//--persistent writing
+		NSURL *fileURL = [self fullURLForFileName:fileName];
+		if (item) {
+			NSData *storedData = [item dataPresentation];
+			[storedData writeToURL:fileURL atomically:YES];
+			
+			//--set expiredDate so the file can be removed from disk automatically by FileManager
+			NSDate *expirationDate = nil;
+			if (self.persistentInterval > kDLFileStorageUnExpiredInterval) {
+				expirationDate = [[NSDate date] dateByAddingTimeInterval:self.persistentInterval];
+				[[DLFileManager sharedManager] trackFileURL:fileURL expirationDate:expirationDate];
+			}
+			
+		} else {
+			if ([[DLFileManager sharedManager] fileExistsAtPath:[fileURL path]]) {
+				[[DLFileManager sharedManager] removeItemAtURL:fileURL error:NULL];
+			}
+		}
+	}
 }
 
-- (id)loadItemFromPath:(NSString *)relativePath
+- (id)loadItemFromFile:(NSString *)fileName parseRawDataBlock:(id (^)(NSData *))parseBlock
 {
-	return nil;
+	id storedItem = nil;
+	
+	if ([fileName length] > 0) {
+		//--cache reading
+		if (self.enableCache) {
+			storedItem = [[self cache] objectForKey:fileName];
+		}
+		
+		//--persistent reading
+		if (!storedItem) {
+			NSURL *fileURL = [self fullURLForFileName:fileName];
+			NSData *fileData = [[DLFileManager sharedManager] contentsAtPath:[fileURL path]];
+			if (parseBlock) {
+				storedItem = parseBlock(fileData);
+			} else {
+				storedItem = fileData;
+			}
+		}
+		
+	}
+	
+	return storedItem;
 }
 
 - (void)wipeDirectory
 {
-
+	NSArray *contents = [[DLFileManager sharedManager] contentsOfDirectoryAtPath:[self.directoryURL path] error:NULL];
+	
+	[contents enumerateObjectsUsingBlock:^(NSString *removedPath, NSUInteger index, BOOL *stop) {
+		[[DLFileManager sharedManager] removeItemAtPath:removedPath error:NULL];
+	}];
 }
 
 - (void)wipeStorage
 {
-
+	if (self.enableCache) {
+		[[self cache] removeAllObjects];
+	}
+	
+	[self wipeDirectory];
 }
 
+#pragma mark - Private
+
+- (NSURL *)fullURLForFileName:(NSString *)fileName
+{
+	return [self.directoryURL URLByAppendingPathComponent:fileName];
+}
 @end
