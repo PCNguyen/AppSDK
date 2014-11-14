@@ -98,6 +98,10 @@ NSString *const FMFileCleanUpTaskID					= @"FMFileCleanUpTaskID";
 		}];
 		
 		scheduledTask.taskID = FMFileMetaDataPersistTaskID;
+		scheduledTask.startImmediately = NO;
+		
+		[scheduledTask setTerminationFlags:[ALScheduledTask defaultTerminationFlags]];
+		[scheduledTask setResumeFlags:[ALScheduledTask defaultResumeFlags]];
 		
 		[[ALScheduleManager sharedManager] scheduleTask:scheduledTask];
 	}
@@ -117,6 +121,8 @@ NSString *const FMFileCleanUpTaskID					= @"FMFileCleanUpTaskID";
 		}];
 		
 		scheduledTask.taskID = FMFileMetaDataPersistTaskID;
+		scheduledTask.startImmediately = NO;
+		
 		[scheduledTask setTerminationFlags:[ALScheduledTask defaultTerminationFlags]];
 		[scheduledTask setResumeFlags:[ALScheduledTask defaultResumeFlags]];
 		
