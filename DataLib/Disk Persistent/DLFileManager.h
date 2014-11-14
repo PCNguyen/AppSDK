@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString *const DLFileManagerCleanUpBeginNotification;
+extern NSString *const DLFileManagerCleanUpCompleteNotification;
+
 @interface DLFileManager : NSFileManager
 
 /**

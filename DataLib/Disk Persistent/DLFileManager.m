@@ -13,6 +13,9 @@
 
 #define kFMFileMetaDataKey			@"FileMetaDataKey"
 
+NSString *const DLFileManagerCleanUpBeginNotification		= @"DLFileManagerCleanUpBeginNotification";
+NSString *const DLFileManagerCleanUpCompleteNotification	= @"DLFileManagerCleanUpCompleteNotification";
+
 NSString *const FMFileMetaDataPersistTaskID			= @"FMFileMetaDataPersistTaskID";
 NSString *const FMFileCleanUpTaskID					= @"FMFileCleanUpTaskID";
 
@@ -154,6 +157,8 @@ NSString *const FMFileCleanUpTaskID					= @"FMFileCleanUpTaskID";
 
 - (void)handleFileCleanUp
 {
+	[[NSNotificationCenter defaultCenter] postNotificationName:DLFileManagerCleanUpBeginNotification object:nil];
+	
 	NSMutableArray *removedFiles = [NSMutableArray array];
 	
 	//--clean up the file on disk
@@ -181,6 +186,8 @@ NSString *const FMFileCleanUpTaskID					= @"FMFileCleanUpTaskID";
 	
 	//--persist the update meta data
 	[self persistMedaData];
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:DLFileManagerCleanUpCompleteNotification object:nil];
 }
 
 - (void)persistMedaData
