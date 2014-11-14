@@ -20,6 +20,21 @@
 
 @implementation ASFileDataSource
 
+- (void)dealloc
+{
+	[self unRegisterNotification];
+}
+
+- (id)init
+{
+	if (self = [super init]) {
+		[self ignoreUpdateProperty:@selector(fileStorage)];
+		[self registerNotification];
+	}
+	
+	return self;
+}
+
 - (void)loadData
 {
 	[DLFileManager sharedManager].cleanUpInterval = 1*60;
@@ -67,6 +82,28 @@
 	}
 	
 	return _fileStorage;
+}
+
+#pragma mark - Notification
+
+- (void)registerNotification
+{
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(handleFileCleanUpCompleteNotification:)
+												 name:DLFileManagerCleanUpCompleteNotification
+											   object:nil];
+}
+
+- (void)unRegisterNotification
+{
+	[[NSNotificationCenter defaultCenter] removeObserver:self
+													name:DLFileManagerCleanUpCompleteNotification
+												  object:nil];
+}
+
+- (void)handleFileCleanUpCompleteNotification:(NSNotification *)notification
+{
+	[self refreshFileList];
 }
 
 @end
