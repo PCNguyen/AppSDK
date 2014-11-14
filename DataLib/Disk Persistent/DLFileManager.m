@@ -117,6 +117,8 @@ NSString *const FMFileCleanUpTaskID					= @"FMFileCleanUpTaskID";
 		}];
 		
 		scheduledTask.taskID = FMFileMetaDataPersistTaskID;
+		[scheduledTask setTerminationFlags:[ALScheduledTask defaultTerminationFlags]];
+		[scheduledTask setResumeFlags:[ALScheduledTask defaultResumeFlags]];
 		
 		[[ALScheduleManager sharedManager] scheduleTask:scheduledTask];
 	}
