@@ -10,4 +10,33 @@
 
 @implementation DLFileStorage
 
+- (instancetype)initWithCache:(NSCache *)cache directoryPath:(NSString *)directoryPath
+{
+	if (self = [super initWithCache:cache]) {
+		_directoryPath = directoryPath;
+	}
+	
+	return self;
+}
+
+- (void)saveItem:(id<DLFileStorageProtocol>)item toPath:(NSString *)relativePath
+{
+
+}
+
+- (id)loadItemFromPath:(NSString *)relativePath
+{
+	return nil;
+}
+
+- (void)wipeDirectory
+{
+
+}
+
+- (void)wipeStorage
+{
+
+}
+
 @end
