@@ -12,4 +12,8 @@
 
 @property (nonatomic, strong) NSArray *fileList;
 
+- (void)saveImage:(UIImage *)image;
+
+- (UIImage *)imageForName:(NSString *)fileName;
+
 @end
