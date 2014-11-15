@@ -7,6 +7,7 @@
 //
 
 #import "ASFileViewController.h"
+#import "ASImageViewController.h"
 #import "UIViewController+DataBinding.h"
 
 NSString *const FVCCellIdentifier = @"FVCCellIdentifier";

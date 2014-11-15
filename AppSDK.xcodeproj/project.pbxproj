@@ -71,6 +71,7 @@
 		0F912A0819EC50F300F0111E /* AppStorageTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F912A0719EC50F300F0111E /* AppStorageTest.m */; };
 		0F912A0B19EC5C8C00F0111E /* DLInMemoryAppStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F912A0A19EC5C8C00F0111E /* DLInMemoryAppStorage.m */; };
 		0F912A0D19EC74C000F0111E /* InMemoryAppStorageTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F912A0C19EC74C000F0111E /* InMemoryAppStorageTest.m */; };
+		0F9B93F81A16CF0800A2AE29 /* ASImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9B93F71A16CF0800A2AE29 /* ASImageViewController.m */; };
 		0FB0FEB61A03237C00E55B40 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB0FEB51A03237C00E55B40 /* UIImage+ImageEffects.m */; };
 		0FC96E201925A36400AB5AE4 /* NSManagedObject+DL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC96E1F1925A36400AB5AE4 /* NSManagedObject+DL.m */; };
 		0FC96E231925A3E500AB5AE4 /* NSManagedObjectContext+DL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC96E221925A3E500AB5AE4 /* NSManagedObjectContext+DL.m */; };
@@ -224,6 +225,8 @@
 		0F912A0919EC5C8C00F0111E /* DLInMemoryAppStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLInMemoryAppStorage.h; sourceTree = "<group>"; };
 		0F912A0A19EC5C8C00F0111E /* DLInMemoryAppStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLInMemoryAppStorage.m; sourceTree = "<group>"; };
 		0F912A0C19EC74C000F0111E /* InMemoryAppStorageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InMemoryAppStorageTest.m; sourceTree = "<group>"; };
+		0F9B93F61A16CF0800A2AE29 /* ASImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASImageViewController.h; sourceTree = "<group>"; };
+		0F9B93F71A16CF0800A2AE29 /* ASImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASImageViewController.m; sourceTree = "<group>"; };
 		0FB0FEB41A03237C00E55B40 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		0FB0FEB51A03237C00E55B40 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		0FC96E1E1925A36400AB5AE4 /* NSManagedObject+DL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+DL.h"; sourceTree = "<group>"; };
@@ -283,6 +286,8 @@
 				0F2FD5951A16A2EF006C3292 /* ASFileViewController.m */,
 				0F2FD5971A16A3B9006C3292 /* ASFileDataSource.h */,
 				0F2FD5981A16A3B9006C3292 /* ASFileDataSource.m */,
+				0F9B93F61A16CF0800A2AE29 /* ASImageViewController.h */,
+				0F9B93F71A16CF0800A2AE29 /* ASImageViewController.m */,
 			);
 			name = FileStorage;
 			sourceTree = "<group>";
@@ -809,6 +814,7 @@
 				0FC96E201925A36400AB5AE4 /* NSManagedObject+DL.m in Sources */,
 				0F8C26131924FA1400A6223A /* AppSDK.xcdatamodeld in Sources */,
 				0F8C264819252C9700A6223A /* UIView+Blur.m in Sources */,
+				0F9B93F81A16CF0800A2AE29 /* ASImageViewController.m in Sources */,
 				0F8C267E192546FF00A6223A /* NSString+AL.m in Sources */,
 				0F8C266219253CBB00A6223A /* UIDevice+Compatibility.m in Sources */,
 				0F69E09819FB060B00898CC5 /* ALScheduledTask.m in Sources */,
