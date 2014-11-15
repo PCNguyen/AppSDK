@@ -112,8 +112,6 @@
 	return _directoryURL;
 }
 
-#pragma mark - Private
-
 - (NSURL *)fullURLForFileName:(NSString *)fileName
 {
 	return [self.directoryURL URLByAppendingPathComponent:fileName];

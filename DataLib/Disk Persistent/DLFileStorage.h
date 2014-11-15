@@ -52,4 +52,12 @@
  */
 - (void)wipeStorage;
 
+/**
+ *  Access the full URL where the file is stored
+ *
+ *  @param fileName the file name
+ *
+ *  @return the url on disk where the file is stored
+ */
+- (NSURL *)fullURLForFileName:(NSString *)fileName;
 @end
