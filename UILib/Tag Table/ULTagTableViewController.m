@@ -668,7 +668,7 @@ static NSInteger const kDefaultCellTag						= -1;
 		if (isCurrentlyVisible != visible) {
 			
 			//--update cell info dictionary
-			cellInfo = [self updateAttribute:kCellIsVisible withNewValue:[NSNumber numberWithBool:visible] forCellInfo:cellInfo];
+			[self updateAttribute:kCellIsVisible withNewValue:[NSNumber numberWithBool:visible] forCellInfo:cellInfo];
 		}
 	}];
 	
