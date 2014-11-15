@@ -35,12 +35,21 @@
 	return self;
 }
 
+#pragma mark - ULViewDataSource Override
+
 - (void)loadData
 {
 	[DLFileManager sharedManager].cleanUpInterval = 1*60;
 	
 	[self refreshFileList];
 }
+
+- (NSDictionary *)selectiveUpdateMap
+{
+	return @{};
+}
+
+#pragma mark - Handle file
 
 - (void)refreshFileList
 {
@@ -52,9 +61,14 @@
 
 - (void)saveImage:(UIImage *)image
 {
-	NSString *imageName = [[NSUUID UUID] UUIDString];
-	[self.fileStorage saveItem:image toFile:imageName];
-	[self refreshFileList];
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul), ^{
+		NSString *imageName = [[NSUUID UUID] UUIDString];
+		[self.fileStorage saveItem:image toFile:imageName];
+		
+		dispatch_sync(dispatch_get_main_queue(), ^{
+			[self refreshFileList];
+		});
+	});
 }
 
 - (UIImage *)imageForName:(NSString *)fileName
@@ -64,11 +78,6 @@
 	}];
 	
 	return storedImage;
-}
-
-- (NSDictionary *)selectiveUpdateMap
-{
-	return @{};
 }
 
 #pragma mark - Storage

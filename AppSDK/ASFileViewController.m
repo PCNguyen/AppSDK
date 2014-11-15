@@ -68,6 +68,17 @@ NSString *const FVCCellIdentifier = @"FVCCellIdentifier";
 	return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+	
+	NSString *fileName = [[self dataSource].fileList objectAtIndex:indexPath.row];
+	UIImage *image = [[self dataSource] imageForName:fileName];
+	
+	ASImageViewController *imageViewController = [[ASImageViewController alloc] initWithImage:image];
+	[self.navigationController pushViewController:imageViewController animated:YES];
+}
+
 #pragma mark - Navigation Item
 
 - (UIBarButtonItem *)addImageItem
