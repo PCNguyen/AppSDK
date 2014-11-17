@@ -32,9 +32,9 @@
 		//--cache writing
 		if (self.enableCache) {
 			if (item) {
-				[[self cache] setObject:item forKey:fileName cost:1];
+				[self saveCacheObject:item forKey:fileName];
 			} else {
-				[[self cache] removeObjectForKey:fileName];
+				[self removeCacheObjectForKey:fileName];
 			}
 		}
 		
