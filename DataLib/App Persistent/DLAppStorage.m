@@ -51,22 +51,4 @@
 	[NSUserDefaults dl_wipeExceptKeys:excludedKeys];
 }
 
-- (void)saveCacheObject:(id)object forKey:(NSString *)key
-{
-	if ([self.delegate respondsToSelector:@selector(appStorage:saveCacheObject:forKey:)]) {
-		[self.delegate appStorage:self saveCacheObject:object forKey:key];
-	} else {
-		[[self cache] setObject:object forKey:key];
-	}
-}
-
-- (void)removeCacheObjectForKey:(NSString *)key
-{
-	if ([self.delegate respondsToSelector:@selector(appStorage:removeCacheObjectForKey:)]) {
-		[self.delegate appStorage:self removeCacheObjectForKey:key];
-	} else {
-		[[self cache] removeObjectForKey:key];
-	}
-}
-
 @end

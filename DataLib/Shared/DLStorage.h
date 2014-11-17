@@ -8,6 +8,32 @@
 
 #import <Foundation/Foundation.h>
 
+@class DLStorage;
+
+@protocol DLStorageCacheDelegate <NSObject>
+
+@optional
+
+/**
+ *  provide an entry point to custom save cache object with calculating cost
+ *	default to save to cache without cost calculation
+ *
+ *  @param storage the appStorage
+ *  @param object  the object to be saved to cache
+ *  @param key     the key to identify the object
+ */
+- (void)appStorage:(DLStorage *)storage saveCacheObject:(id)object forKey:(NSString *)key;
+
+/**
+ *  provide an entry point to custom remove cache object
+ *
+ *  @param storage the appStorage
+ *  @param key     the key to identify the object
+ */
+- (void)appStorage:(DLStorage *)storage removeCacheObjectForKey:(NSString *)key;
+
+@end
+
 @interface DLStorage : NSObject
 
 /**
@@ -15,6 +41,11 @@
  *	default is YES if a cache is provided with initWithCache:
  */
 @property (nonatomic, assign) BOOL enableCache;
+
+/**
+ *  Enable custom cache handling
+ */
+@property (nonatomic, weak) id<DLStorageCacheDelegate>cacheDelegate;
 
 /**
  *  construct a storage with a cache
@@ -32,5 +63,20 @@
  *  @return the interal cache for storage
  */
 - (NSCache *)cache;
+
+/**
+ *  save object to cache
+ *
+ *  @param object the object need to save
+ *  @param key    the object identifier
+ */
+- (void)saveCacheObject:(id)object forKey:(NSString *)key;
+
+/**
+ *  Remove cache object
+ *
+ *  @param key the object identifier
+ */
+- (void)removeCacheObjectForKey:(NSString *)key;
 
 @end

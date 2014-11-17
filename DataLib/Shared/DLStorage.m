@@ -37,4 +37,22 @@
 	return _cache;
 }
 
+- (void)saveCacheObject:(id)object forKey:(NSString *)key
+{
+	if ([self.cacheDelegate respondsToSelector:@selector(appStorage:saveCacheObject:forKey:)]) {
+		[self.cacheDelegate appStorage:self saveCacheObject:object forKey:key];
+	} else {
+		[[self cache] setObject:object forKey:key cost:1];
+	}
+}
+
+- (void)removeCacheObjectForKey:(NSString *)key
+{
+	if ([self.cacheDelegate respondsToSelector:@selector(appStorage:removeCacheObjectForKey:)]) {
+		[self.cacheDelegate appStorage:self removeCacheObjectForKey:key];
+	} else {
+		[[self cache] removeObjectForKey:key];
+	}
+}
+
 @end
