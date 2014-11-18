@@ -117,6 +117,7 @@
 		0F69E0AD19FF02A700898CC5 /* ASScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASScheduleViewController.m; sourceTree = "<group>"; };
 		0F69E0AF19FF09FA00898CC5 /* ASScheduleDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASScheduleDataSource.h; sourceTree = "<group>"; };
 		0F69E0B019FF09FA00898CC5 /* ASScheduleDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASScheduleDataSource.m; sourceTree = "<group>"; };
+		0F7BD59C1A1C115B00EE76ED /* AppLibThreading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppLibThreading.h; sourceTree = "<group>"; };
 		0F875B091A153E60008C25A6 /* ASBindingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASBindingViewController.h; sourceTree = "<group>"; };
 		0F875B0A1A153E60008C25A6 /* ASBindingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASBindingViewController.m; sourceTree = "<group>"; };
 		0F875B0C1A153F21008C25A6 /* ASBindingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASBindingView.h; sourceTree = "<group>"; };
@@ -303,6 +304,14 @@
 			name = Scheduler;
 			sourceTree = "<group>";
 		};
+		0F7BD59B1A1C111700EE76ED /* Threading */ = {
+			isa = PBXGroup;
+			children = (
+				0F7BD59C1A1C115B00EE76ED /* AppLibThreading.h */,
+			);
+			path = Threading;
+			sourceTree = "<group>";
+		};
 		0F875B081A153DFD008C25A6 /* DataBinding */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +445,7 @@
 				0F8C26351924FB1600A6223A /* Extension */,
 				0F8C26B11925539200A6223A /* Value Transformer */,
 				0F8C263A1924FBC000A6223A /* Scheduler */,
+				0F7BD59B1A1C111700EE76ED /* Threading */,
 			);
 			path = AppLib;
 			sourceTree = "<group>";
