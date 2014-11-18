@@ -37,8 +37,15 @@ Pod::Spec.new do |as|
 			als.name         = 'Scheduler'
 			als.source_files = 'AppLib/Scheduler/**/*.{h,m}'
 		end
+
+		al.subspec 'Threading' do |alt|
+			alt.dependency		'AppSDK/AppLib/Shared'
+
+			alt.name         = 'Threading'
+			alt.source_files = 'AppLib/Threading/**/*.{h,m}'
+		end
 	end
-	
+
 	as.subspec 'DataLib' do |dl|
 		dl.dependency		'AppSDK/AppLib/Shared'
 
