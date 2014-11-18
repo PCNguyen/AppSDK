@@ -12,5 +12,6 @@
 #import "AppLibExtension.h"
 #import "AppLibValueTransformer.h"
 #import "AppLibScheduler.h"
+#import "AppLibThreading.h"
 
 #endif
