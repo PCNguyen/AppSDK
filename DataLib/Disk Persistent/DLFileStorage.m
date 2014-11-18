@@ -72,14 +72,16 @@
 		//--persistent reading
 		if (!storedItem) {
 			NSURL *fileURL = [self fullURLForFileName:fileName];
-			NSData *fileData = [[DLFileManager sharedManager] contentsAtPath:[fileURL path]];
-			if (parseBlock) {
-				storedItem = parseBlock(fileData);
-			} else {
-				storedItem = fileData;
+			
+			if ([[DLFileManager sharedManager] fileExistsAtPath:[fileURL path]]) {
+				NSData *fileData = [[DLFileManager sharedManager] contentsAtPath:[fileURL path]];
+				if (parseBlock) {
+					storedItem = parseBlock(fileData);
+				} else {
+					storedItem = fileData;
+				}
 			}
 		}
-		
 	}
 	
 	return storedItem;
