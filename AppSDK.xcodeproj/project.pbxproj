@@ -18,6 +18,7 @@
 		0F69E0AB19FF011D00898CC5 /* ASMainMenuDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F69E0AA19FF011D00898CC5 /* ASMainMenuDataSource.m */; };
 		0F69E0AE19FF02A700898CC5 /* ASScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F69E0AD19FF02A700898CC5 /* ASScheduleViewController.m */; };
 		0F69E0B119FF09FA00898CC5 /* ASScheduleDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F69E0B019FF09FA00898CC5 /* ASScheduleDataSource.m */; };
+		0F7BD59F1A1C12B200EE76ED /* ALSafeOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7BD59E1A1C12B200EE76ED /* ALSafeOperation.m */; };
 		0F875B0B1A153E60008C25A6 /* ASBindingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F875B0A1A153E60008C25A6 /* ASBindingViewController.m */; };
 		0F875B0E1A153F21008C25A6 /* ASBindingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F875B0D1A153F21008C25A6 /* ASBindingView.m */; };
 		0F875B111A153F3F008C25A6 /* ASBindingDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F875B101A153F3F008C25A6 /* ASBindingDataSource.m */; };
@@ -118,6 +119,8 @@
 		0F69E0AF19FF09FA00898CC5 /* ASScheduleDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASScheduleDataSource.h; sourceTree = "<group>"; };
 		0F69E0B019FF09FA00898CC5 /* ASScheduleDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASScheduleDataSource.m; sourceTree = "<group>"; };
 		0F7BD59C1A1C115B00EE76ED /* AppLibThreading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppLibThreading.h; sourceTree = "<group>"; };
+		0F7BD59D1A1C12B200EE76ED /* ALSafeOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSafeOperation.h; sourceTree = "<group>"; };
+		0F7BD59E1A1C12B200EE76ED /* ALSafeOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALSafeOperation.m; sourceTree = "<group>"; };
 		0F875B091A153E60008C25A6 /* ASBindingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASBindingViewController.h; sourceTree = "<group>"; };
 		0F875B0A1A153E60008C25A6 /* ASBindingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASBindingViewController.m; sourceTree = "<group>"; };
 		0F875B0C1A153F21008C25A6 /* ASBindingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASBindingView.h; sourceTree = "<group>"; };
@@ -308,6 +311,8 @@
 			isa = PBXGroup;
 			children = (
 				0F7BD59C1A1C115B00EE76ED /* AppLibThreading.h */,
+				0F7BD59D1A1C12B200EE76ED /* ALSafeOperation.h */,
+				0F7BD59E1A1C12B200EE76ED /* ALSafeOperation.m */,
 			);
 			path = Threading;
 			sourceTree = "<group>";
@@ -853,6 +858,7 @@
 				0FC96E331925B19F00AB5AE4 /* DLMOCFetcher.m in Sources */,
 				0F8C266819253F7F00A6223A /* UIImage+UL.m in Sources */,
 				0F8C266E1925424500A6223A /* UIActionSheet+UL.m in Sources */,
+				0F7BD59F1A1C12B200EE76ED /* ALSafeOperation.m in Sources */,
 				0F8C26721925435B00A6223A /* NSUserDefaults+DL.m in Sources */,
 				0F87C7FC19ABAED700E79260 /* NSLayoutConstraint+UL.m in Sources */,
 				0F8C26411924FE7C00A6223A /* UIView+UL.m in Sources */,
