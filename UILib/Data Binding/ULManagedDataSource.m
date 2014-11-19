@@ -15,6 +15,7 @@
 {
 	if (self = [super init]) {
 		[self ignoreUpdateProperty:@selector(managedServices)];
+		[self ignoreUpdateProperty:@selector(serializedQueue)];
 	}
 	
 	return self;
@@ -56,6 +57,23 @@
 - (void)loadDataForAllExistingInstances
 {
 	[[ULDataSourceManager sharedManager] loadDataForAllClassInstances:[self class]];
+}
+
+#pragma mark - Threading
+
+- (void)serializedBlock:(void (^)())actionBlock
+{
+	[self.serializedQueue addOperationWithBlock:actionBlock];
+}
+
+- (NSOperationQueue *)serializedQueue
+{
+	if (!_serializedQueue) {
+		_serializedQueue = [[NSOperationQueue alloc] init];
+		_serializedQueue.maxConcurrentOperationCount = 1;
+	}
+	
+	return _serializedQueue;
 }
 
 #pragma mark - Subclass Hook

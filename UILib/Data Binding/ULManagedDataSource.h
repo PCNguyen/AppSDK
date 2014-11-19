@@ -10,7 +10,15 @@
 
 @interface ULManagedDataSource : ULViewDataSource
 
+/**
+ *  The services this datasource receive notificaiton from
+ */
 @property (nonatomic, strong) NSArray *managedServices;
+
+/**
+ *  A queue to serialized loading actions
+ */
+@property (nonatomic, strong) NSOperationQueue *serializedQueue;
 
 #pragma mark - Managed Service
 
@@ -44,5 +52,12 @@
  * if not override, it will call loadData by default
  */
 - (void)handleDataUpdatedForService:(NSString *)serviceName;
+
+/**
+ *  serialized resource loading. Do not capture self strongly in this block
+ *
+ *  @param actionBlock the action block
+ */
+- (void)serializedBlock:(void (^)())actionBlock;
 
 @end
