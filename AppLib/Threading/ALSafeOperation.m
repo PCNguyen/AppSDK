@@ -261,4 +261,60 @@ static NSString *const kALOperationLockName      = @"com.sdk.operation.lock";
 	}
 }
 
+#pragma mark - ALOperation Protocol
+
+- (void)operationDidExecute
+{
+	[self finish];
+	
+	/* Subclas Should Override If Needed */
+}
+
+- (void)operationWillPause
+{
+	/* Subclas Should Override If Needed */
+}
+
+- (void)operationDidResume
+{
+	[self finish];
+	
+	/* Subclas Should Override If Needed */
+}
+
+- (void)operationWillCancel
+{
+	/* Subclas Should Override If Needed */
+}
+
+- (void)operationWillFinish
+{
+	/* Subclas Should Override If Needed */
+}
+
+- (void)changeStateToExecuting
+{
+	/* Subclas Should Override If Needed */
+}
+
+- (void)changeStateToPause
+{
+	/* Subclas Should Override If Needed */
+}
+
+- (void)resumeStateToExecuting
+{
+	/* Subclas Should Override If Needed */
+}
+
+- (void)changeStateToCancel
+{
+	/* Subclas Should Override If Needed */
+}
+
+- (void)changeStateToFinish
+{
+	/* Subclas Should Override If Needed */
+}
+
 @end
