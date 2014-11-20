@@ -82,4 +82,11 @@
  */
 - (ALScheduledTask *)scheduledTaskForID:(NSString *)taskID;
 
+/**
+ *  Direct access to all current scheduled task
+ *
+ *  @return an array of ALScheduledTask
+ */
+- (NSArray *)allScheduledTasks;
+
 @end

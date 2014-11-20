@@ -103,4 +103,9 @@
 	return nil;
 }
 
+- (NSArray *)allScheduledTasks
+{
+	return self.scheduleList;
+}
+
 @end
