@@ -28,11 +28,17 @@
 - (id)init
 {
 	if (self = [super init]) {
-		[self ignoreUpdateProperty:@selector(fileStorage)];
 		[self registerNotification];
 	}
 	
 	return self;
+}
+
+- (void)configureNonBindingProperty
+{
+	[super configureNonBindingProperty];
+	
+	[self ignoreUpdateProperty:@selector(fileStorage)];
 }
 
 #pragma mark - ULViewDataSource Override

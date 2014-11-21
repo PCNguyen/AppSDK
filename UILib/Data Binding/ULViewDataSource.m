@@ -24,10 +24,9 @@ static void *kULViewDataSourceUpdatingContext = &kULViewDataSourceUpdatingContex
 - (id)init
 {
 	if (self = [super init]) {
-		[self configureNonBindingProperty];
-		
 		_shouldUpdateLayout = NO;
 		
+		[self configureNonBindingProperty];
 		[self registerAllPropertiesForKVO];
 	}
 	

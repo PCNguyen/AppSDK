@@ -32,13 +32,11 @@
 	[[ALScheduleManager sharedManager] unScheduleAllTasks];
 }
 
-- (instancetype)init
+- (void)configureNonBindingProperty
 {
-	if (self = [super init]) {
-		[self ignoreUpdateProperty:@selector(timer)];
-	}
+	[super configureNonBindingProperty];
 	
-	return self;
+	[self ignoreUpdateProperty:@selector(timer)];
 }
 
 - (void)loadData

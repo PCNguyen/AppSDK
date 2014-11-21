@@ -11,14 +11,12 @@
 
 @implementation ULManagedDataSource
 
-- (id)init
+- (void)configureNonBindingProperty
 {
-	if (self = [super init]) {
-		[self ignoreUpdateProperty:@selector(managedServices)];
-		[self ignoreUpdateProperty:@selector(serializedQueue)];
-	}
+	[super configureNonBindingProperty];
 	
-	return self;
+	[self ignoreUpdateProperty:@selector(managedServices)];
+	[self ignoreUpdateProperty:@selector(serializedQueue)];
 }
 
 #pragma mark - Managed Service
