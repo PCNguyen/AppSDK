@@ -180,7 +180,7 @@ static void *kUSViewDataSourceUpdatingContext = &kUSViewDataSourceUpdatingContex
 - (void)loadData
 {
 	if ([self.bindingDelegate respondsToSelector:@selector(viewDataSourceReturnEmptyData:)]) {
-		[self.bindingDelegate viewDataSourceWillLoadData:self];
+		[self.bindingDelegate viewDataSourceShouldPreLoadData:self];
 	}
 	
 	/* Subclass inherit to provide implementation for this */

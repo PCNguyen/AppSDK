@@ -24,11 +24,11 @@
 - (void)viewDataSourceUpdateAllBindingKey:(ULViewDataSource *)dataSource;
 
 /**
- *  called when dataSource loadData called
+ *  called when dataSource don't have initial data
  *
  *  @param dataSource the viewDataSource
  */
-- (void)viewDataSourceWillLoadData:(ULViewDataSource *)dataSource;
+- (void)viewDataSourceShouldPreLoadData:(ULViewDataSource *)dataSource;
 
 @end
 
@@ -48,7 +48,7 @@
 
 @optional
 
-- (void)ul_viewWillLoadData;
+- (void)ul_preLoadViewData;
 
 @end
 
