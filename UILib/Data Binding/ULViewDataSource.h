@@ -23,6 +23,13 @@
  */
 - (void)viewDataSourceUpdateAllBindingKey:(ULViewDataSource *)dataSource;
 
+/**
+ *  called when dataSource loadData called
+ *
+ *  @param dataSource the viewDataSource
+ */
+- (void)viewDataSourceWillLoadData:(ULViewDataSource *)dataSource;
+
 @end
 
 @protocol ULViewDataBinding <NSObject>
@@ -38,6 +45,10 @@
  * {viewProperty : sourceProperty}
  */
 - (NSDictionary *)ul_bindingInfo;
+
+@optional
+
+- (void)ul_viewWillLoadData;
 
 @end
 

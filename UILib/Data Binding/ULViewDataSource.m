@@ -179,7 +179,11 @@ static void *kUSViewDataSourceUpdatingContext = &kUSViewDataSourceUpdatingContex
 
 - (void)loadData
 {
-	/* Subclass provide implementation for this */
+	if ([self.bindingDelegate respondsToSelector:@selector(viewDataSourceReturnEmptyData:)]) {
+		[self.bindingDelegate viewDataSourceWillLoadData:self];
+	}
+	
+	/* Subclass inherit to provide implementation for this */
 }
 
 @end

@@ -150,6 +150,13 @@
 	}
 }
 
+- (void)viewDataSourceWillLoadData:(ULViewDataSource *)dataSource
+{
+	if ([self respondsToSelector:@selector(ul_viewWillLoadData)]) {
+		[(id<ULViewDataBinding>)self ul_viewWillLoadData];
+	}
+}
+
 #pragma mark - ULManagedDataSource Convenients
 
 - (void)ul_registerManagedService:(NSString *)service
