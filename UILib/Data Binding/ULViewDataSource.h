@@ -128,8 +128,17 @@
 - (void)beginBatchUpdate;
 - (void)endBatchUpdate;
 
+/**
+ *  Provide an entry point to ignore non binding property
+ *	Simply for clarity and enhance performance
+ *	Not implement this has no affect on the view binding info
+ *	Subclass should make call to super class method before implement its own
+ */
+- (void)configureNonBindingProperty;
+
 /***
- * In init method, this should be called for any non-binding properties.
+ * This should be called within configureNonBindingProperty
+ * to exclude any non binding property
  */
 - (void)ignoreUpdateProperty:(SEL)propertySelector;
 

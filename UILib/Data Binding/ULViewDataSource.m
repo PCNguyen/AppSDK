@@ -24,10 +24,7 @@ static void *kULViewDataSourceUpdatingContext = &kULViewDataSourceUpdatingContex
 - (id)init
 {
 	if (self = [super init]) {
-		[self ignoreUpdateProperty:@selector(delegate)];
-		[self ignoreUpdateProperty:@selector(ignoreUpdateProperties)];
-		[self ignoreUpdateProperty:@selector(isBatchUpdate)];
-		[self ignoreUpdateProperty:@selector(shouldUpdateLayout)];
+		[self configureNonBindingProperty];
 		
 		_shouldUpdateLayout = NO;
 		
@@ -35,6 +32,15 @@ static void *kULViewDataSourceUpdatingContext = &kULViewDataSourceUpdatingContex
 	}
 	
 	return self;
+}
+
+- (void)configureNonBindingProperty
+{
+	[self ignoreUpdateProperty:@selector(delegate)];
+	[self ignoreUpdateProperty:@selector(ignoreUpdateProperties)];
+	[self ignoreUpdateProperty:@selector(isBatchUpdate)];
+	[self ignoreUpdateProperty:@selector(shouldUpdateLayout)];
+
 }
 
 - (void)dealloc
@@ -54,12 +60,14 @@ static void *kULViewDataSourceUpdatingContext = &kULViewDataSourceUpdatingContex
         const char *propertyName = property_getName(properties[i]);
         NSString *observedName = [NSString stringWithUTF8String:propertyName];
 		
-		@try {
-			[self removeObserver:self
-					  forKeyPath:observedName
-						 context:kULViewDataSourceUpdatingContext];
-		} @catch (NSException *exception) {
-			//--do nothing since observer is not added
+		if ([self isBindingProperty:observedName]) {
+			@try {
+				[self removeObserver:self
+						  forKeyPath:observedName
+							 context:kULViewDataSourceUpdatingContext];
+			} @catch (NSException *exception) {
+				//--do nothing since observer is not added
+			}
 		}
     }
 	
@@ -76,10 +84,12 @@ static void *kULViewDataSourceUpdatingContext = &kULViewDataSourceUpdatingContex
         const char *propertyName = property_getName(properties[i]);
         NSString *observedName = [NSString stringWithUTF8String:propertyName];
 		
-		[self addObserver:self
-			   forKeyPath:observedName
-				  options:NSKeyValueObservingOptionNew
-				  context:kULViewDataSourceUpdatingContext];
+		if ([self isBindingProperty:observedName]) {
+			[self addObserver:self
+				   forKeyPath:observedName
+					  options:NSKeyValueObservingOptionNew
+					  context:kULViewDataSourceUpdatingContext];
+		}
     }
 	
     free(properties);
@@ -132,6 +142,11 @@ static void *kULViewDataSourceUpdatingContext = &kULViewDataSourceUpdatingContex
 {
 	NSString *ignoreKeyPath = NSStringFromSelector(propertySelector);
 	[self.ignoreUpdateProperties addObject:ignoreKeyPath];
+}
+
+- (BOOL)isBindingProperty:(NSString *)propertyName
+{
+	return ![self.ignoreUpdateProperties containsObject:propertyName];
 }
 
 #pragma mark - Additional Mapping
