@@ -46,11 +46,6 @@
 	[self endBatchUpdate];
 }
 
-- (NSDictionary *)selectiveUpdateMap
-{
-	return @{}; //--need to fix this
-}
-
 - (void)updateText
 {
 	NSString *timeStamp = [NSString stringWithFormat:@"%@", [NSDate date]];

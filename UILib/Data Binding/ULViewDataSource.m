@@ -10,7 +10,7 @@
 
 #import <objc/runtime.h>
 
-static void *kUSViewDataSourceUpdatingContext = &kUSViewDataSourceUpdatingContext;
+static void *kULViewDataSourceUpdatingContext = &kULViewDataSourceUpdatingContext;
 
 @interface ULViewDataSource ()
 
@@ -57,7 +57,7 @@ static void *kUSViewDataSourceUpdatingContext = &kUSViewDataSourceUpdatingContex
 		@try {
 			[self removeObserver:self
 					  forKeyPath:observedName
-						 context:kUSViewDataSourceUpdatingContext];
+						 context:kULViewDataSourceUpdatingContext];
 		} @catch (NSException *exception) {
 			//--do nothing since observer is not added
 		}
@@ -79,7 +79,7 @@ static void *kUSViewDataSourceUpdatingContext = &kUSViewDataSourceUpdatingContex
 		[self addObserver:self
 			   forKeyPath:observedName
 				  options:NSKeyValueObservingOptionNew
-				  context:kUSViewDataSourceUpdatingContext];
+				  context:kULViewDataSourceUpdatingContext];
     }
 	
     free(properties);
@@ -87,16 +87,18 @@ static void *kUSViewDataSourceUpdatingContext = &kUSViewDataSourceUpdatingContex
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-	BOOL shouldUpdate = (context == kUSViewDataSourceUpdatingContext);
+	BOOL shouldUpdate = (context == kULViewDataSourceUpdatingContext);
 	shouldUpdate = shouldUpdate && ![self.ignoreUpdateProperties containsObject:keyPath];
 	shouldUpdate = shouldUpdate && !self.isBatchUpdate;
 	
 	if (shouldUpdate) {
-		if ([self selectiveUpdateEnable]) {
-			[self selectiveUpdateBindingKeyForKeyPath:keyPath];
-		} else {
-			[self updateAllBindingKey];
-		}
+		[self updateBindingKey:keyPath];
+		
+		[[self additionalKeyUpdates] enumerateKeysAndObjectsUsingBlock:^(NSString *bindingKey, NSString *propertyKey, BOOL *stop) {
+			if ([propertyKey isEqualToString:keyPath]) {
+				[self updateBindingKey:bindingKey];
+			}
+		}];
 	}
 }
 
@@ -132,33 +134,11 @@ static void *kUSViewDataSourceUpdatingContext = &kUSViewDataSourceUpdatingContex
 	[self.ignoreUpdateProperties addObject:ignoreKeyPath];
 }
 
-#pragma mark - Mapping
+#pragma mark - Additional Mapping
 
-- (BOOL)selectiveUpdateEnable
-{
-	BOOL enable = ([self selectiveUpdateMap] != nil);
-	
-	return enable;
-}
-
-- (NSDictionary *)selectiveUpdateMap
+- (NSDictionary *)additionalKeyUpdates
 {
 	return nil;
-}
-
-- (void)selectiveUpdateBindingKeyForKeyPath:(NSString *)keyPath
-{
-	if ([self selectiveUpdateMap]) {
-		[[self selectiveUpdateMap] enumerateKeysAndObjectsUsingBlock:^(NSString *bindingKey, NSString *propertyKey, BOOL *stop) {
-			if ([propertyKey isEqualToString:keyPath]) {
-				[self updateBindingKey:bindingKey];
-			}
-		}];
-		
-		[self updateBindingKey:keyPath];
-	} else {
-		[self updateAllBindingKey];
-	}
 }
 
 - (void)updateAllBindingKey

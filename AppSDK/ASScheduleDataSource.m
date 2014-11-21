@@ -91,7 +91,7 @@
 	}
 }
 
-- (NSDictionary *)selectiveUpdateMap
+- (NSDictionary *)additionalKeyUpdates
 {
 	return @{@"masterCountText":@"masterCount"};
 }

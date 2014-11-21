@@ -44,11 +44,6 @@
 	[self refreshFileList];
 }
 
-- (NSDictionary *)selectiveUpdateMap
-{
-	return @{};
-}
-
 #pragma mark - Handle file
 
 - (void)refreshFileList

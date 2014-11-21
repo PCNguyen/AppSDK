@@ -115,7 +115,7 @@
 /***
  * Default is NO.
  * If set to YES, when data update, view will also redraw.
- * If value is YES, selective update will be disabled (for now)
+ * data update may be wrapped between beginBatchUpdate and endBatchUpdate to avoid race condition
  * Useful if view frame is calculated dynamically based on data it contents.
  */
 @property (nonatomic, assign) BOOL shouldUpdateLayout;
@@ -134,7 +134,7 @@
 - (void)ignoreUpdateProperty:(SEL)propertySelector;
 
 /***
- * A dictionary provide mapping for selective update
+ * A dictionary provide mapping for additional update that tight to a key
  * Providing this will enable selective update for mapped selectors when that property change.
  * e.g
  * {
@@ -147,7 +147,7 @@
  *
  * Providing empty dictionary will enable selective update for all properties without mapping
  */
-- (NSDictionary *)selectiveUpdateMap;
+- (NSDictionary *)additionalKeyUpdates;
 
 #pragma mark - Subclass Hook
 
