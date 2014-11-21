@@ -16,6 +16,7 @@ DataLib
 UILib
 	Data Binding
 		- add support for collections
+		- add support for more than just new option (e.g. change option, ...)
 
 	Tag Table
 		- performance tuning
