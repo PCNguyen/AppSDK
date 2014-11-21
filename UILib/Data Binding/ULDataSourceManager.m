@@ -45,9 +45,19 @@
 	NSSet *dataSources = [self dataSourcesForService:serviceName];
 	
 	for (ULManagedDataSource *subscribedDataSource in dataSources) {
-		[subscribedDataSource handleDataUpdatedForService:serviceName];
+		[subscribedDataSource handleDataUpdatedForService:serviceName error:nil];
 	}
 	
+}
+
+- (void)notifyDataSourcesOfService:(NSString *)serviceName error:(NSError *)error
+{
+	NSSet *dataSources = [self dataSourcesForService:serviceName];
+	
+	for (ULManagedDataSource *subscribedDataSource in dataSources) {
+		[subscribedDataSource handleDataUpdatedForService:serviceName error:error];
+	}
+
 }
 
 - (void)registerDataSource:(ULManagedDataSource *)dataSource forService:(NSString *)serviceName

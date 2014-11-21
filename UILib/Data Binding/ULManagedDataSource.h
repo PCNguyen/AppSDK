@@ -54,6 +54,14 @@
 - (void)handleDataUpdatedForService:(NSString *)serviceName;
 
 /**
+ *  Same As handleDataUpdatedForService but with the option to communicate error
+ *
+ *  @param serviceName the serviceName
+ *  @param error       error if any
+ */
+- (void)handleDataUpdatedForService:(NSString *)serviceName error:(NSError *)error;
+
+/**
  *  serialized resource loading. Do not capture self strongly in this block
  *
  *  @param actionBlock the action block

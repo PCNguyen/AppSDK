@@ -40,6 +40,14 @@
 - (void)notifyDataSourcesOfService:(NSString *)serviceName;
 
 /**
+ *  same as notifyDataSourcesOfService but with the option to communicate error
+ *
+ *  @param serviceName the service name
+ *  @param error       error, if any
+ */
+- (void)notifyDataSourcesOfService:(NSString *)serviceName error:(NSError *)error;
+
+/**
  *  update all tracked dataSource that matched the class name to reload its internal data
  *	this method synchronously triggered loadData on ULManagedDataSource
  *

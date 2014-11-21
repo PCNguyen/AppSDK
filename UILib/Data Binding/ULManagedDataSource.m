@@ -85,4 +85,13 @@
 	[self loadData];
 }
 
+- (void)handleDataUpdatedForService:(NSString *)serviceName error:(NSError *)error
+{
+	/* Subclass Override this */
+	
+	if (!error) {
+		[self handleDataUpdatedForService:serviceName];
+	}
+}
+
 @end
