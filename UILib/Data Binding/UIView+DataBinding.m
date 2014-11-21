@@ -157,6 +157,27 @@
 	}
 }
 
+- (void)viewDataSourceWillUpdateData:(ULViewDataSource *)dataSource
+{
+	if ([self respondsToSelector:@selector(ul_dataWillUpdate)]) {
+		[(id<ULViewDataBinding>)self ul_dataWillUpdate];
+	}
+}
+
+- (void)viewDataSource:(ULViewDataSource *)dataSource updateProperty:(id)property userInfo:(NSDictionary *)userInfo
+{
+	if ([self respondsToSelector:@selector(ul_handleUpdatedProperty:userInfo:)]) {
+		[(id<ULViewDataBinding>)self ul_handleUpdatedProperty:property userInfo:userInfo];
+	}
+}
+
+- (void)viewDataSourceDidUpdateData:(ULViewDataSource *)dataSource
+{
+	if ([self respondsToSelector:@selector(ul_dataDidUpdate)]) {
+		[(id<ULViewDataBinding>)self ul_dataDidUpdate];
+	}
+}
+
 #pragma mark - ULManagedDataSource Convenients
 
 - (void)ul_registerManagedService:(NSString *)service

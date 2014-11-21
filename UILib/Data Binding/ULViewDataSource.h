@@ -24,11 +24,38 @@
 - (void)viewDataSourceUpdateAllBindingKey:(ULViewDataSource *)dataSource;
 
 /**
- *  called when dataSource don't have initial data
+ *  a hook to signal ui that data source don't have initial data
+ *	this will trigger ul_preLoadViewData on any UI implemented
  *
  *  @param dataSource the viewDataSource
  */
 - (void)viewDataSourceShouldPreLoadData:(ULViewDataSource *)dataSource;
+
+/**
+ *  a hook to notify ui before data source update
+ *	this will trigger ul_dataWillUpdate on any UI implemented
+ *
+ *  @param dataSource the data source
+ */
+- (void)viewDataSourceWillUpdateData:(ULViewDataSource *)dataSource;
+
+/**
+ *  a hook to execute update synchronously rather than notification based
+ *	this will trigger ul_handleUpdatedProperty:userInfo: on any UI implemented
+ *
+ *  @param dataSource the datasource
+ *  @param property   the updated property
+ *  @param userInfo   the additional info about the changes
+ */
+- (void)viewDataSource:(ULViewDataSource *)dataSource updateProperty:(id)property userInfo:(NSDictionary *)userInfo;
+
+/**
+ *  a hook to signify data update complete in case of batch update
+ *	this will trigger ul_dataDidUpdate on any UI implemented
+ *
+ *  @param dataSource the data source
+ */
+- (void)viewDataSourceDidUpdateData:(ULViewDataSource *)dataSource;
 
 @end
 
@@ -48,7 +75,32 @@
 
 @optional
 
+/**
+ *  A hook entry for UI when data source don't have initial data
+ *	Data Source call the viewDataSourceShouldPreLoadData: to trigger this
+ */
 - (void)ul_preLoadViewData;
+
+/**
+ *  a hook before data update source update
+ *	Data Source call the viewDataSourceWillUpdateData: to trigger this
+ */
+- (void)ul_dataWillUpdate;
+
+/**
+ *  A hook to updated change from data source synchornously instead of notification based
+ *	Data Source call the viewDataSource:updateProperty:userInfo: to trigger this
+ *
+ *  @param property the updated property
+ *  @param userInfo the additional info about the changes
+ */
+- (void)ul_handleUpdatedProperty:(id)property userInfo:(NSDictionary *)userInfo;
+
+/**
+ *  A hook to handle batch updated data
+ *	Data Source call the viewDataSourceDidUpdateData: to trigger this
+ */
+- (void)ul_dataDidUpdate;
 
 @end
 
