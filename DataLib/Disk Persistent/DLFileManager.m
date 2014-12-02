@@ -196,7 +196,9 @@ NSString *const FMFileCleanUpTaskID					= @"FMFileCleanUpTaskID";
 
 - (void)persistMedaData
 {
-	[NSUserDefaults dl_saveValue:self.fileMetaData forKey:kFMFileMetaDataKey];
+	@synchronized(self) {
+		[NSUserDefaults dl_saveValue:self.fileMetaData forKey:kFMFileMetaDataKey];
+	}
 }
 
 @end
