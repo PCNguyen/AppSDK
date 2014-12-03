@@ -25,19 +25,21 @@
 
 /**
  *  a hook to signal ui that data source don't have initial data
- *	this will trigger ul_preLoadViewData on any UI implemented
+ *	this will trigger ul_handleNoData on any UI implemented
  *
  *  @param dataSource the viewDataSource
+ *	@param userInfo extra data to pass to UI
  */
-- (void)viewDataSourceHasNoData:(ULViewDataSource *)dataSource;
+- (void)viewDataSourceHasNoData:(ULViewDataSource *)dataSource userInfo:(NSDictionary *)userInfo;
 
 /**
  *  a hook to notify ui before data source update
  *	this will trigger ul_dataWillUpdate on any UI implemented
  *
  *  @param dataSource the data source
+ *	@param userInfo extra data to pass to UI
  */
-- (void)viewDataSourceWillUpdateData:(ULViewDataSource *)dataSource;
+- (void)viewDataSourceWillUpdateData:(ULViewDataSource *)dataSource userInfo:(NSDictionary *)userInfo;
 
 /**
  *  a hook to execute update synchronously rather than notification based
@@ -54,8 +56,9 @@
  *	this will trigger ul_dataDidUpdate on any UI implemented
  *
  *  @param dataSource the data source
+ *	@param userInfo the extra data to pass to UI
  */
-- (void)viewDataSourceDidUpdateData:(ULViewDataSource *)dataSource;
+- (void)viewDataSourceDidUpdateData:(ULViewDataSource *)dataSource userInfo:(NSDictionary *)userInfo;
 
 @end
 
@@ -78,14 +81,18 @@
 /**
  *  A hook entry for UI when data source don't have initial data
  *	Data Source call the viewDataSourceHasNoData: to trigger this
+ *
+ *	@param userInfo the extra data passed from dataSource
  */
-- (void)ul_handleNoData;
+- (void)ul_handleNoData:(NSDictionary *)userInfo;
 
 /**
  *  a hook before data update source update
  *	Data Source call the viewDataSourceWillUpdateData: to trigger this
+ *
+ *	@param userInfo the extra data passed from dataSource
  */
-- (void)ul_dataWillUpdate;
+- (void)ul_dataWillUpdate:(NSDictionary *)userInfo;
 
 /**
  *  A hook to updated change from data source synchornously instead of notification based
@@ -99,8 +106,10 @@
 /**
  *  A hook to handle batch updated data
  *	Data Source call the viewDataSourceDidUpdateData: to trigger this
+ *
+ *	@param userInfo the extra data passed from dataSource
  */
-- (void)ul_dataDidUpdate;
+- (void)ul_dataDidUpdate:(NSDictionary *)userInfo;
 
 @end
 
