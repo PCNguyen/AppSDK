@@ -150,17 +150,17 @@
 	}
 }
 
-- (void)viewDataSourceHasNoData:(ULViewDataSource *)dataSource
+- (void)viewDataSourceHasNoData:(ULViewDataSource *)dataSource userInfo:(NSDictionary *)userInfo
 {
-	if ([self respondsToSelector:@selector(ul_handleNoData)]) {
-		[(id<ULViewDataBinding>)self ul_handleNoData];
+	if ([self respondsToSelector:@selector(ul_handleNoData:)]) {
+		[(id<ULViewDataBinding>)self ul_handleNoData:userInfo];
 	}
 }
 
-- (void)viewDataSourceWillUpdateData:(ULViewDataSource *)dataSource
+- (void)viewDataSourceWillUpdateData:(ULViewDataSource *)dataSource userInfo:(NSDictionary *)userInfo
 {
-	if ([self respondsToSelector:@selector(ul_dataWillUpdate)]) {
-		[(id<ULViewDataBinding>)self ul_dataWillUpdate];
+	if ([self respondsToSelector:@selector(ul_dataWillUpdate:)]) {
+		[(id<ULViewDataBinding>)self ul_dataWillUpdate:userInfo];
 	}
 }
 
@@ -171,10 +171,10 @@
 	}
 }
 
-- (void)viewDataSourceDidUpdateData:(ULViewDataSource *)dataSource
+- (void)viewDataSourceDidUpdateData:(ULViewDataSource *)dataSource userInfo:(NSDictionary *)userInfo
 {
-	if ([self respondsToSelector:@selector(ul_dataDidUpdate)]) {
-		[(id<ULViewDataBinding>)self ul_dataDidUpdate];
+	if ([self respondsToSelector:@selector(ul_dataDidUpdate:)]) {
+		[(id<ULViewDataBinding>)self ul_dataDidUpdate:userInfo];
 	}
 }
 
