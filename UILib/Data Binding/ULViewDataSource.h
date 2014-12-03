@@ -29,7 +29,7 @@
  *
  *  @param dataSource the viewDataSource
  */
-- (void)viewDataSourceShouldPreLoadData:(ULViewDataSource *)dataSource;
+- (void)viewDataSourceHasNoData:(ULViewDataSource *)dataSource;
 
 /**
  *  a hook to notify ui before data source update
@@ -77,9 +77,9 @@
 
 /**
  *  A hook entry for UI when data source don't have initial data
- *	Data Source call the viewDataSourceShouldPreLoadData: to trigger this
+ *	Data Source call the viewDataSourceHasNoData: to trigger this
  */
-- (void)ul_preLoadViewData;
+- (void)ul_handleNoData;
 
 /**
  *  a hook before data update source update

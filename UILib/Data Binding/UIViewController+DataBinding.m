@@ -150,10 +150,10 @@
 	}
 }
 
-- (void)viewDataSourceShouldPreLoadData:(ULViewDataSource *)dataSource
+- (void)viewDataSourceHasNoData:(ULViewDataSource *)dataSource
 {
-	if ([self respondsToSelector:@selector(ul_preLoadViewData)]) {
-		[(id<ULViewDataBinding>)self ul_preLoadViewData];
+	if ([self respondsToSelector:@selector(ul_handleNoData)]) {
+		[(id<ULViewDataBinding>)self ul_handleNoData];
 	}
 }
 

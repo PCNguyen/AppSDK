@@ -173,8 +173,8 @@ static void *kULViewDataSourceUpdatingContext = &kULViewDataSourceUpdatingContex
 
 - (void)loadData
 {
-	if ([self.bindingDelegate respondsToSelector:@selector(viewDataSourceShouldPreLoadData:)]) {
-		[self.bindingDelegate viewDataSourceShouldPreLoadData:self];
+	if ([self.bindingDelegate respondsToSelector:@selector(viewDataSourceHasNoData:)]) {
+		[self.bindingDelegate viewDataSourceHasNoData:self];
 	}
 	
 	/* Subclass inherit to provide implementation for this */
