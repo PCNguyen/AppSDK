@@ -26,11 +26,17 @@
 
 - (id)loadValueForKey:(NSString *)key
 {
+	id value = nil;
+	
 	if (self.enableCache) {
-		return [[self cache] objectForKey:key];
+		value = [[self cache] objectForKey:key];
 	}
 	
-	return [NSUserDefaults dl_loadValueForKey:key];
+	if (!value) {
+		value = [NSUserDefaults dl_loadValueForKey:key];
+	}
+	
+	return value;
 }
 
 - (void)wipe
