@@ -98,6 +98,18 @@
 	}
 }
 
+- (void)loadAllDataSources
+{
+	//--enumerate through all services
+	[self.registeredDataSources enumerateKeysAndObjectsUsingBlock:^(NSString *serviceName, NSSet *registeredDataSources, BOOL *stop) {
+		
+		//--enumerate through all existing dataSources
+		[registeredDataSources enumerateObjectsUsingBlock:^(id dataSource, BOOL *stop){
+			[(ULManagedDataSource *)dataSource loadData];
+		}];
+	}];
+}
+
 #pragma mark - Private
 
 - (NSSet *)dataSourcesForService:(NSString *)serviceName

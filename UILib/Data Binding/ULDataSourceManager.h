@@ -55,4 +55,9 @@
  */
 - (void)loadDataForAllClassInstances:(Class)dataSourceClass;
 
+/**
+ *  Call load data on all registered data source. Useful if all app data has been reset
+ */
+- (void)loadAllDataSources;
+
 @end
