@@ -8,6 +8,7 @@
 
 #import "ULManagedDataSource.h"
 #import "ULDataSourceManager.h"
+#import "AppLibShared.h"
 
 @implementation ULManagedDataSource
 
@@ -67,11 +68,19 @@
 - (NSOperationQueue *)serializedQueue
 {
 	if (!_serializedQueue) {
-		_serializedQueue = [[NSOperationQueue alloc] init];
-		_serializedQueue.maxConcurrentOperationCount = 1;
+		_serializedQueue = [ULManagedDataSource sharedQueue];
 	}
 	
 	return _serializedQueue;
+}
+
++ (NSOperationQueue *)sharedQueue
+{
+	SHARE_INSTANCE_BLOCK(^{
+		NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];
+		operationQueue.maxConcurrentOperationCount = 1;
+		return operationQueue;
+	});
 }
 
 #pragma mark - Subclass Hook
