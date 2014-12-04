@@ -79,4 +79,13 @@
  */
 - (void)removeCacheObjectForKey:(NSString *)key;
 
+/**
+ *  Convenient way to update cache value with cache enable check and removal check
+ *	This will do NOTHING if cache is NOT ENABLE
+ *
+ *  @param object the value to update
+ *  @param key    the key to update
+ */
+- (void)updateCacheValue:(id)object forKey:(NSString *)key;
+
 @end

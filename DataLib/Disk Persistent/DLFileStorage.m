@@ -30,13 +30,7 @@
 {
 	if ([fileName length] > 0) {
 		//--cache writing
-		if (self.enableCache) {
-			if (item) {
-				[self saveCacheObject:item forKey:fileName];
-			} else {
-				[self removeCacheObjectForKey:fileName];
-			}
-		}
+		[self updateCacheValue:item forKey:fileName];
 		
 		//--persistent writing
 		NSURL *fileURL = [self fullURLForFileName:fileName];
@@ -80,6 +74,8 @@
 				} else {
 					storedItem = fileData;
 				}
+				
+				[self updateCacheValue:storedItem forKey:fileName];
 			}
 		}
 	}

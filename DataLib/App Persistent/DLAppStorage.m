@@ -13,14 +13,7 @@
 
 - (void)saveValue:(id)value forKey:(NSString *)key
 {
-	if (self.enableCache) {
-		if (value) {
-			[self saveCacheObject:value forKey:key];
-		} else {
-			[self removeCacheObjectForKey:key];
-		}
-	}
-		
+	[self updateCacheValue:value forKey:key];
 	[NSUserDefaults dl_saveValue:value forKey:key];
 }
 
@@ -34,6 +27,7 @@
 	
 	if (!value) {
 		value = [NSUserDefaults dl_loadValueForKey:key];
+		[self updateCacheValue:value forKey:key];
 	}
 	
 	return value;

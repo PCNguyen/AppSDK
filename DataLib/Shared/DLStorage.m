@@ -55,4 +55,15 @@
 	}
 }
 
+- (void)updateCacheValue:(id)object forKey:(NSString *)key
+{
+	if (self.enableCache) {
+		if (object) {
+			[self saveCacheObject:object forKey:key];
+		} else {
+			[self removeCacheObjectForKey:key];
+		}
+	}
+}
+
 @end
