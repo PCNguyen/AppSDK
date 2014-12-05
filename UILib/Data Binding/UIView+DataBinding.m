@@ -45,7 +45,7 @@
 	[setterOwner al_performSelector:setterSelector withObject:getterValue];
 }
 
-- (void)__handleBindinUpdate
+- (void)__handleAllBindingUpdates
 {
 	NSDictionary *binding = [self ul_bindingInfo];
 	
@@ -142,7 +142,7 @@
 - (void)viewDataSourceUpdateAllBindingKey:(ULViewDataSource *)dataSource
 {
 	if ([self __isBindingMode]) {
-		[self __handleBindinUpdate];
+		[self __handleAllBindingUpdates];
 		
 		if (dataSource.shouldUpdateLayout) {
 			[self setNeedsLayout];

@@ -116,6 +116,9 @@ static void *kULViewDataSourceUpdatingContext = &kULViewDataSourceUpdatingContex
 - (void)beginBatchUpdate
 {
 	self.isBatchUpdate = YES;
+	if ([self.bindingDelegate respondsToSelector:@selector(viewDataSourceWillUpdateData:userInfo:)]) {
+		[self.bindingDelegate viewDataSourceWillUpdateData:self userInfo:nil];
+	}
 }
 
 - (void)endBatchUpdate
@@ -123,6 +126,9 @@ static void *kULViewDataSourceUpdatingContext = &kULViewDataSourceUpdatingContex
 	if (self.isBatchUpdate) {
 		self.isBatchUpdate = NO;
 		[self updateAllBindingKey];
+		if ([self.bindingDelegate respondsToSelector:@selector(viewDataSourceDidUpdateData:userInfo:)]) {
+			[self.bindingDelegate viewDataSourceDidUpdateData:self userInfo:nil];
+		}
 	}
 }
 
