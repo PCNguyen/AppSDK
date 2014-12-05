@@ -115,19 +115,29 @@ static void *kULViewDataSourceUpdatingContext = &kULViewDataSourceUpdatingContex
 
 - (void)beginBatchUpdate
 {
-	self.isBatchUpdate = YES;
-	if ([self.bindingDelegate respondsToSelector:@selector(viewDataSourceWillUpdateData:userInfo:)]) {
-		[self.bindingDelegate viewDataSourceWillUpdateData:self userInfo:nil];
-	}
+	[self beginBatchUpdate:nil];
 }
 
 - (void)endBatchUpdate
+{
+	[self endBatchUpdate:nil];
+}
+
+- (void)beginBatchUpdate:(NSDictionary *)userInfo
+{
+	self.isBatchUpdate = YES;
+	if ([self.bindingDelegate respondsToSelector:@selector(viewDataSourceWillUpdateData:userInfo:)]) {
+		[self.bindingDelegate viewDataSourceWillUpdateData:self userInfo:userInfo];
+	}
+}
+
+- (void)endBatchUpdate:(NSDictionary *)userInfo
 {
 	if (self.isBatchUpdate) {
 		self.isBatchUpdate = NO;
 		[self updateAllBindingKey];
 		if ([self.bindingDelegate respondsToSelector:@selector(viewDataSourceDidUpdateData:userInfo:)]) {
-			[self.bindingDelegate viewDataSourceDidUpdateData:self userInfo:nil];
+			[self.bindingDelegate viewDataSourceDidUpdateData:self userInfo:userInfo];
 		}
 	}
 }

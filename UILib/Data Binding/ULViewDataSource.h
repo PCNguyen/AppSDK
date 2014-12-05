@@ -133,9 +133,18 @@
  * If we don't want UI change until all the updates finished.
  * Wrap this before and after properties update.
  * UI update happen when endBatchUpdate get called.
+ * These allow serialization via delegate methods viewDataSourceWillUpdateData: && viewDataSourceDidUpdateData:
  */
 - (void)beginBatchUpdate;
 - (void)endBatchUpdate;
+
+/**
+ *  The same as beginBatchUpdate and endBatchUpdate but with the option to pass extra data to UI
+ *
+ *  @param userInfo extra data
+ */
+- (void)beginBatchUpdate:(NSDictionary *)userInfo;
+- (void)endBatchUpdate:(NSDictionary *)userInfo;
 
 /**
  *  Provide an entry point to ignore non binding property
