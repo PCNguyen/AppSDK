@@ -9,6 +9,7 @@
 #ifndef AppSDK_AppLib_h
 #define AppSDK_AppLib_h
 
+#import "AppLibShared.h"
 #import "AppLibExtension.h"
 #import "AppLibValueTransformer.h"
 #import "AppLibScheduler.h"
