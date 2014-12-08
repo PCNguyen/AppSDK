@@ -10,11 +10,12 @@
 
 @interface UIImage (UL)
 
-+ (UIImage *)ul_imageWithColor:(UIColor *)color size:(CGSize)size;
-+ (UIImage *)ul_screenImageNamed:(NSString *)name;
++ (instancetype)ul_imageWithColor:(UIColor *)color size:(CGSize)size;
++ (instancetype)ul_imageNamed:(NSString *)name;
++ (instancetype)ul_screenImageNamed:(NSString *)name;
 
-- (UIImage *)ul_tintedImageWithColor:(UIColor *)tintColor;
-- (UIImage *)ul_imageRotatedByDegrees:(CGFloat)degree;
-- (UIImage *)ul_grayScaleWithAlpha:(CGFloat)alpha;
+- (instancetype)ul_tintedImageWithColor:(UIColor *)tintColor;
+- (instancetype)ul_imageRotatedByDegrees:(CGFloat)degree;
+- (instancetype)ul_grayScaleWithAlpha:(CGFloat)alpha;
 
 @end

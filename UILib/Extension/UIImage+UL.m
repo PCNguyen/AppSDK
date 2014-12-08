@@ -13,7 +13,7 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;}
 
 @implementation UIImage (UL)
 
-+ (UIImage *)ul_imageWithColor:(UIColor *)color size:(CGSize)size
++ (instancetype)ul_imageWithColor:(UIColor *)color size:(CGSize)size
 {
     CGRect rect = CGRectMake(0, 0, size.width, size.height);
 	
@@ -26,16 +26,23 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;}
     return image;
 }
 
-+ (UIImage *)ul_screenImageNamed:(NSString *)name
++ (instancetype)ul_imageNamed:(NSString *)name
+{
+	NSString *fullpath = [[[NSBundle mainBundle] bundlePath] stringByAppendingString:[NSString stringWithFormat:@"/%@", name]];
+	UIImage *loadedImage = [UIImage imageWithContentsOfFile:fullpath];
+	return loadedImage;
+}
+
++ (instancetype)ul_screenImageNamed:(NSString *)name
 {
 	if ([UIDevice al_isWideScreen]) {
-		return [UIImage imageNamed:[NSString stringWithFormat:@"%@-568h.png",name]];
+		return [UIImage ul_imageNamed:[NSString stringWithFormat:@"%@-568h.png",name]];
 	} else {
-		return [UIImage imageNamed:[NSString stringWithFormat:@"%@.png",name]];
+		return [UIImage ul_imageNamed:[NSString stringWithFormat:@"%@.png",name]];
 	}
 }
 
-- (UIImage *)ul_tintedImageWithColor:(UIColor *)tintColor
+- (instancetype)ul_tintedImageWithColor:(UIColor *)tintColor
 {
 	CGRect rect = CGRectMake(0, 0, self.size.width, self.size.height);
 	UIGraphicsBeginImageContextWithOptions(self.size, NO, [[UIScreen mainScreen] scale]);
@@ -52,7 +59,7 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;}
 	return flippedImage;
 }
 
-- (UIImage *)ul_imageRotatedByDegrees:(CGFloat)degrees
+- (instancetype)ul_imageRotatedByDegrees:(CGFloat)degrees
 {
     // calculate the size of the rotated view's containing box for our drawing space
     UIView *rotatedViewBox = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.size.width, self.size.height)];
@@ -79,7 +86,7 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;}
     return newImage;
 }
 
-- (UIImage *)ul_grayScaleWithAlpha:(CGFloat)alpha {
+- (instancetype)ul_grayScaleWithAlpha:(CGFloat)alpha {
 	UIGraphicsBeginImageContextWithOptions(self.size, NO, self.scale);
     CGRect imageRect = CGRectMake(0.0f, 0.0f, self.size.width, self.size.height);
 	
