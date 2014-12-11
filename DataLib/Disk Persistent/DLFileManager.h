@@ -25,6 +25,11 @@ extern NSString *const DLFileManagerCleanUpCompleteNotification;
 @property (nonatomic, assign) NSTimeInterval cleanUpInterval;
 
 /**
+ *  The sub directory to clean up, TODO: handle multiple directories
+ */
+@property (nonatomic, strong) NSString *subDirectory;
+
+/**
  *  Create the shared instance
  *  this should be called in AppDidFinishLaunching
  */

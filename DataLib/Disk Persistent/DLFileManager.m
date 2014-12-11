@@ -145,12 +145,14 @@ NSString *const FMFileCleanUpTaskID					= @"FMFileCleanUpTaskID";
 
 - (void)trackFileURL:(NSURL *)fileURL expirationDate:(NSDate *)expirationDate
 {
-	if (expirationDate && fileURL) {
-		NSString *fileName = [fileURL lastPathComponent];
-		[self.fileMetaData setValue:expirationDate forKey:fileName];
-		
-		if (self.metaDataPersistInterval == 0) {
-			[self persistMedaData];
+	@synchronized(self.fileMetaData) {
+		if (expirationDate && fileURL) {
+			NSString *fileName = [fileURL lastPathComponent];
+			[self.fileMetaData setValue:expirationDate forKey:fileName];
+			
+			if (self.metaDataPersistInterval == 0) {
+				[self persistMedaData];
+			}
 		}
 	}
 }
@@ -162,31 +164,39 @@ NSString *const FMFileCleanUpTaskID					= @"FMFileCleanUpTaskID";
 	NSMutableArray *removedFiles = [NSMutableArray array];
 	
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0ul), ^{
-		//--clean up the file on disk
-		[self.fileMetaData enumerateKeysAndObjectsUsingBlock:^(NSString *fileName, NSDate *expiredDate, BOOL *stop) {
-			if ([expiredDate timeIntervalSinceNow] <= 0) {
-				NSURL *fileURL = [[self urlForDocumentsDirectory] URLByAppendingPathComponent:fileName];
-				if ([self fileExistsAtPath:[fileURL path]]) {
-					NSError *error = nil;
-					[self removeItemAtPath:[fileURL path] error:&error];
-					if (error) {
-						NSLog(@"File Clean Up Error: %@", error);
+		@synchronized(self.fileMetaData) {
+			//--clean up the file on disk
+			[self.fileMetaData enumerateKeysAndObjectsUsingBlock:^(NSString *fileName, NSDate *expiredDate, BOOL *stop) {
+				if ([expiredDate timeIntervalSinceNow] <= 0) {
+					NSURL *directoryURL = [self urlForDocumentsDirectory];
+					
+					if ([self.subDirectory length] > 0) {
+						directoryURL = [directoryURL URLByAppendingPathComponent:self.subDirectory];
+					}
+					
+					NSURL *fileURL = [directoryURL URLByAppendingPathComponent:fileName];
+					if ([self fileExistsAtPath:[fileURL path]]) {
+						NSError *error = nil;
+						[self removeItemAtPath:[fileURL path] error:&error];
+						if (error) {
+							NSLog(@"File Clean Up Error: %@", error);
+						} else {
+							[removedFiles addObject:fileName];
+						}
 					} else {
 						[removedFiles addObject:fileName];
 					}
-				} else {
-					[removedFiles addObject:fileName];
 				}
+			}];
+			
+			//--clean up the meta data
+			for (NSString *fileName in removedFiles) {
+				[self.fileMetaData setValue:nil forKey:fileName];
 			}
-		}];
-		
-		//--clean up the meta data
-		for (NSString *fileName in removedFiles) {
-			[self.fileMetaData setValue:nil forKey:fileName];
+			
+			//--persist the update meta data
+			[self persistMedaData];
 		}
-		
-		//--persist the update meta data
-		[self persistMedaData];
 		
 		dispatch_sync(dispatch_get_main_queue(), ^{
 			[[NSNotificationCenter defaultCenter] postNotificationName:DLFileManagerCleanUpCompleteNotification object:nil];
@@ -196,9 +206,7 @@ NSString *const FMFileCleanUpTaskID					= @"FMFileCleanUpTaskID";
 
 - (void)persistMedaData
 {
-	@synchronized(self) {
-		[NSUserDefaults dl_saveValue:self.fileMetaData forKey:kFMFileMetaDataKey];
-	}
+	[NSUserDefaults dl_saveValue:self.fileMetaData forKey:kFMFileMetaDataKey];
 }
 
 @end
