@@ -87,8 +87,9 @@
 {
 	NSArray *contents = [[DLFileManager sharedManager] contentsOfDirectoryAtPath:[self.directoryURL path] error:NULL];
 	
-	[contents enumerateObjectsUsingBlock:^(NSString *removedPath, NSUInteger index, BOOL *stop) {
-		[[DLFileManager sharedManager] removeItemAtPath:removedPath error:NULL];
+	[contents enumerateObjectsUsingBlock:^(NSString *fileName, NSUInteger index, BOOL *stop) {
+		NSURL *fileURL = [self fullURLForFileName:fileName];
+		[[DLFileManager sharedManager] removeItemAtURL:fileURL error:NULL];
 	}];
 }
 
