@@ -25,6 +25,14 @@
 @property (nonatomic, assign) NSTimeInterval persistentInterval;
 
 /**
+ *  Change the directory URL from default (document directory) tos a custom one
+ *	This will create that directory if it's not exist
+ *
+ *  @param directoryURL the directory URL
+ */
+- (void)adjustDirectoryURL:(NSURL *)directoryURL;
+
+/**
  *  Save item to particular file name in the directory
  *
  *  @param item     the item that conform to DLFileStorage protocol

@@ -110,6 +110,17 @@
 	return _directoryURL;
 }
 
+- (void)adjustDirectoryURL:(NSURL *)directoryURL
+{
+	BOOL directoryExist;
+	BOOL pathExist = [[DLFileManager sharedManager] fileExistsAtPath:[directoryURL path] isDirectory:&directoryExist];
+	if (!pathExist || !directoryExist) {
+		[[DLFileManager sharedManager] createDirectoryAtURL:directoryURL withIntermediateDirectories:YES attributes:nil error:NULL];
+	}
+	
+	self.directoryURL = directoryURL;
+}
+
 - (NSURL *)fullURLForFileName:(NSString *)fileName
 {
 	return [self.directoryURL URLByAppendingPathComponent:fileName];
