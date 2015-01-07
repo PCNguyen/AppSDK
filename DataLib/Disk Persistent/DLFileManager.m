@@ -176,7 +176,7 @@ NSString *const FMFileCleanUpTaskID					= @"FMFileCleanUpTaskID";
 			//--clean up the file on disk
 			[self.fileMetaData enumerateKeysAndObjectsUsingBlock:^(NSString *fileName, NSDate *expiredDate, BOOL *stop) {
 				if ([expiredDate timeIntervalSinceNow] <= 0) {
-					NSURL *directoryURL = [self urlForDocumentsDirectory];
+					NSURL *directoryURL = [self urlForCacheDirectory];
 					
 					if ([self.subDirectory length] > 0) {
 						directoryURL = [directoryURL URLByAppendingPathComponent:self.subDirectory];
