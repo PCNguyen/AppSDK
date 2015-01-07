@@ -76,6 +76,14 @@ NSString *const FMFileCleanUpTaskID					= @"FMFileCleanUpTaskID";
     return appDirectoryURL;
 }
 
+- (NSURL *)urlForCacheDirectory
+{
+	NSURL *cacheDirectoryURL = [[self URLsForDirectory:NSCachesDirectory
+											 inDomains:NSUserDomainMask] lastObject];
+	
+	return cacheDirectoryURL;
+}
+
 #pragma mark - Security
 
 - (void)applyClassBProtectionForFileAtPath:(NSString *)path

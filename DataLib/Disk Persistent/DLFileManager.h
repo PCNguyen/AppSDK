@@ -58,6 +58,13 @@ extern NSString *const DLFileManagerCleanUpCompleteNotification;
  */
 - (NSURL *)urlForDocumentsDirectory;
 
+/**
+ *  Convenient method to access the cache directory
+ *
+ *  @return the url for cache dir
+ */
+- (NSURL *)urlForCacheDirectory;
+
 #pragma mark - Security
 
 /**
