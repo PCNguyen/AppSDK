@@ -19,10 +19,13 @@ NSString *const DLFileManagerCleanUpCompleteNotification	= @"DLFileManagerCleanU
 NSString *const FMFileMetaDataPersistTaskID			= @"FMFileMetaDataPersistTaskID";
 NSString *const FMFileCleanUpTaskID					= @"FMFileCleanUpTaskID";
 
+static NSString *const kFMLockName      = @"dl.filemanager.lock";
+
 @interface DLFileManager ()
 
 @property (nonatomic, strong) NSMutableDictionary *fileMetaData;
 @property (nonatomic, strong) NSCache *cache;
+@property (nonatomic, strong, readonly) NSRecursiveLock *lock;
 
 @end
 
@@ -45,6 +48,8 @@ NSString *const FMFileCleanUpTaskID					= @"FMFileCleanUpTaskID";
 	if (self = [super init]) {
 		_metaDataPersistInterval = 0;
 		_fileMetaData =  [NSUserDefaults dl_loadValueForKey:kFMFileMetaDataKey];
+		_lock = [[NSRecursiveLock alloc] init];
+		_lock.name = kFMLockName;
 	}
 	
 	return self;
@@ -153,16 +158,18 @@ NSString *const FMFileCleanUpTaskID					= @"FMFileCleanUpTaskID";
 
 - (void)trackFileURL:(NSURL *)fileURL expirationDate:(NSDate *)expirationDate
 {
-	@synchronized(self.fileMetaData) {
-		if (expirationDate && fileURL) {
-			NSString *fileName = [fileURL lastPathComponent];
-			[self.fileMetaData setValue:expirationDate forKey:fileName];
-			
-			if (self.metaDataPersistInterval == 0) {
-				[self persistMedaData];
-			}
+	[self.lock lock];
+	
+	if (expirationDate && fileURL) {
+		NSString *fileName = [fileURL lastPathComponent];
+		[self.fileMetaData setValue:expirationDate forKey:fileName];
+		
+		if (self.metaDataPersistInterval == 0) {
+			[self persistMedaData];
 		}
 	}
+	
+	[self.lock unlock];
 }
 
 - (void)handleFileCleanUp
@@ -172,39 +179,41 @@ NSString *const FMFileCleanUpTaskID					= @"FMFileCleanUpTaskID";
 	NSMutableArray *removedFiles = [NSMutableArray array];
 	
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0ul), ^{
-		@synchronized(self.fileMetaData) {
-			//--clean up the file on disk
-			[self.fileMetaData enumerateKeysAndObjectsUsingBlock:^(NSString *fileName, NSDate *expiredDate, BOOL *stop) {
-				if ([expiredDate timeIntervalSinceNow] <= 0) {
-					NSURL *directoryURL = [self urlForDocumentsDirectory];
-					
-					if ([self.subDirectory length] > 0) {
-						directoryURL = [directoryURL URLByAppendingPathComponent:self.subDirectory];
-					}
-					
-					NSURL *fileURL = [directoryURL URLByAppendingPathComponent:fileName];
-					if ([self fileExistsAtPath:[fileURL path]]) {
-						NSError *error = nil;
-						[self removeItemAtPath:[fileURL path] error:&error];
-						if (error) {
-							NSLog(@"File Clean Up Error: %@", error);
-						} else {
-							[removedFiles addObject:fileName];
-						}
+		[self.lock lock];
+		
+		//--clean up the file on disk
+		[self.fileMetaData enumerateKeysAndObjectsUsingBlock:^(NSString *fileName, NSDate *expiredDate, BOOL *stop) {
+			if ([expiredDate timeIntervalSinceNow] <= 0) {
+				NSURL *directoryURL = [self urlForDocumentsDirectory];
+				
+				if ([self.subDirectory length] > 0) {
+					directoryURL = [directoryURL URLByAppendingPathComponent:self.subDirectory];
+				}
+				
+				NSURL *fileURL = [directoryURL URLByAppendingPathComponent:fileName];
+				if ([self fileExistsAtPath:[fileURL path]]) {
+					NSError *error = nil;
+					[self removeItemAtPath:[fileURL path] error:&error];
+					if (error) {
+						NSLog(@"File Clean Up Error: %@", error);
 					} else {
 						[removedFiles addObject:fileName];
 					}
+				} else {
+					[removedFiles addObject:fileName];
 				}
-			}];
-			
-			//--clean up the meta data
-			for (NSString *fileName in removedFiles) {
-				[self.fileMetaData setValue:nil forKey:fileName];
 			}
-			
-			//--persist the update meta data
-			[self persistMedaData];
+		}];
+		
+		//--clean up the meta data
+		for (NSString *fileName in removedFiles) {
+			[self.fileMetaData setValue:nil forKey:fileName];
 		}
+		
+		//--persist the update meta data
+		[self persistMedaData];
+		
+		[self.lock unlock];
 		
 		dispatch_sync(dispatch_get_main_queue(), ^{
 			[[NSNotificationCenter defaultCenter] postNotificationName:DLFileManagerCleanUpCompleteNotification object:nil];
