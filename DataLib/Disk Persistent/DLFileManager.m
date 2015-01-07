@@ -184,7 +184,7 @@ static NSString *const kFMLockName      = @"dl.filemanager.lock";
 		//--clean up the file on disk
 		[self.fileMetaData enumerateKeysAndObjectsUsingBlock:^(NSString *fileName, NSDate *expiredDate, BOOL *stop) {
 			if ([expiredDate timeIntervalSinceNow] <= 0) {
-				NSURL *directoryURL = [self urlForCacheDirectory];
+				NSURL *directoryURL = [self urlForDocumentsDirectory];
 				
 				if ([self.subDirectory length] > 0) {
 					directoryURL = [directoryURL URLByAppendingPathComponent:self.subDirectory];
